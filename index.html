@@ -7,23 +7,71 @@
   <link rel="icon" type="image/jpeg" href="logo.jpg">
 
   <style>
-    body{font-family:Arial, sans-serif; margin:0; padding:0; background:#0b1220; color:#fff;}
-    header{padding:25px; background:#111a2e;}
-    nav a{color:#fff; margin-right:15px; text-decoration:none; font-weight:bold;}
-    .container{max-width:900px; margin:auto; padding:30px;}
-    .card{background:#141f36; padding:20px; border-radius:12px; margin-top:20px;}
-    .btn{display:inline-block; margin-top:15px; padding:10px 15px; background:#2f7cff; color:#fff; border-radius:10px; text-decoration:none;}
+    .topbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background:#111a2e;
+  padding: 14px 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-wrap{
+  max-width: 900px;
+  margin: auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.brand img{
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.menu a{
+  color:#fff;
+  margin-left:16px;
+  text-decoration:none;
+  font-weight:bold;
+  opacity:0.85;
+}
+
+.menu a:hover{
+  opacity:1;
+  color:#2f7cff;
+}
+
   </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="descargas.html">Descargas</a>
-  </nav>
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="logo.jpg" alt="Owlbyte" />
+      <span>Owlbyte</span>
+    </a>
+
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="descargas.html">Descargas</a>
+    </nav>
+  </div>
 </header>
+
 
 <div class="container">
   <h1>Owlbyte</h1>
