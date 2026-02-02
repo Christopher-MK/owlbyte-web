@@ -4,10 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Owlbyte</title>
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#0b1220;
+      color:#fff;
+    }
+
+    .layout{
+      display:flex;
+      min-height:100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+      width:240px;
+      background:#111a2e;
+      padding:18px;
+      transition: width .25s ease, padding .25s ease;
+      overflow:hidden;
+    }
+
+    .sidebar.collapsed{
+      width:70px;
+      padding:18px 10px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:#fff;
+      margin-bottom:18px;
+    }
+
+    .brand-logo{
+      width:34px;
+      height:34px;
+      border-radius:8px;
+    }
+
+    .brand-name{
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .sidebar.collapsed .brand-name{
+      display:none;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .menu a{
+      color:#cbd5e1;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:10px;
+      white-space:nowrap;
+    }
+
+    .menu a:hover{
+      background:rgba(255,255,255,.06);
+      color:#fff;
+    }
+
+    /* CONTENIDO */
+    .content{
+      flex:1;
+      padding:28px;
+      position:relative;
+    }
+
+    /* BOTÓN */
+    .toggle{
+      position:fixed;
+      top:18px;
+      left:260px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      transition:left .25s ease;
+    }
+
+    .sidebar.collapsed ~ .content .toggle{
+      left:90px;
+    }
+  </style>
 </head>
+
 <body>
+
+  <div class="layout">
+
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#">
+        <img src="logo.jpg" class="brand-logo" alt="Logo Owlbyte">
+        <span class="brand-name">Owlbyte</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#">Inicio</a>
+        <a href="#">Cursos</a>
+        <a href="#">Descargas</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <button class="toggle" id="toggleBtn">☰</button>
+    </main>
+
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const btn = document.getElementById("toggleBtn");
+
+    btn.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
+    });
+  </script>
 
 </body>
 </html>
-
