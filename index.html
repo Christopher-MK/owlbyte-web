@@ -69,6 +69,22 @@
       border-radius:10px;
       white-space:nowrap;
     }
+    .menu a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ico{
+  width:28px;
+  display:inline-flex;
+  justify-content:center;
+}
+
+.sidebar.collapsed .txt{
+  display:none;
+}
+
 
     .menu a:hover{
       background:rgba(255,255,255,.06);
@@ -113,10 +129,22 @@
       </a>
 
       <nav class="menu">
-        <a href="#">Inicio</a>
-        <a href="#">Cursos</a>
-        <a href="#">Descargas</a>
-      </nav>
+  <a href="#">
+    <span class="ico">🏠</span>
+    <span class="txt">Inicio</span>
+  </a>
+
+  <a href="#">
+    <span class="ico">📚</span>
+    <span class="txt">Cursos</span>
+  </a>
+
+  <a href="#">
+    <span class="ico">⬇️</span>
+    <span class="txt">Descargas</span>
+  </a>
+</nav>
+
     </aside>
 
     <main class="content">
