@@ -7,18 +7,14 @@
   <link rel="icon" type="image/jpeg" href="logo.jpg">
 
   <style>
-    .topbar{
-  position: sticky;
-  top: 0;
-  z-index: 999;
+   header{
   background:#111a2e;
-  padding: 14px 25px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding:14px 22px;
 }
 
-.nav-wrap{
-  max-width: 900px;
-  margin: auto;
+.navbar{
+  max-width:900px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -30,47 +26,46 @@
   gap:10px;
   color:#fff;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:700;
 }
 
 .brand img{
-  width:34px;
-  height:34px;
+  width:32px;
+  height:32px;
   border-radius:8px;
-  object-fit:cover;
 }
 
-.menu a{
+nav a{
   color:#fff;
-  margin-left:16px;
+  margin-left:18px;
   text-decoration:none;
-  font-weight:bold;
-  opacity:0.85;
+  font-weight:700;
+  opacity:.85;
 }
 
-.menu a:hover{
+nav a:hover{
   opacity:1;
-  color:#2f7cff;
 }
 
   </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="nav-wrap">
+<header>
+  <div class="navbar">
     <a class="brand" href="index.html">
-      <img src="logo.jpg" alt="Owlbyte" />
+      <img src="img/logo.jpg" alt="Owlbyte">
       <span>Owlbyte</span>
     </a>
 
-    <nav class="menu">
+    <nav>
       <a href="index.html">Inicio</a>
       <a href="cursos.html">Cursos</a>
       <a href="descargas.html">Descargas</a>
     </nav>
   </div>
 </header>
+
 
 
 <div class="container">
