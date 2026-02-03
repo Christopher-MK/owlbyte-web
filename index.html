@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OlwByte - Recursos, Tutoriales y Descargas Gaming</title>
+    <title>OlwByte | Recursos Gaming, Tutoriales y Descargas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Variables de color y fuentes */
         :root {
-            --primary-color: #0a0a14;
-            --secondary-color: #1a1a2e;
-            --accent-color: #00a8ff;
-            --accent-hover: #0097e6;
-            --light-color: #f5f6fa;
-            --gray-color: #8c8c9c;
-            --success-color: #44bd32;
-            --warning-color: #fbc531;
-            --card-bg: rgba(26, 26, 46, 0.9);
-            --card-border: rgba(0, 168, 255, 0.2);
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --font-gaming: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            --primary-dark: #0d0d1a;
+            --secondary-dark: #151526;
+            --accent-blue: #2d9cf5;
+            --accent-purple: #9b5de5;
+            --accent-pink: #f15bb5;
+            --light-text: #f0f0f5;
+            --medium-text: #a0a0c0;
+            --card-bg: rgba(21, 21, 38, 0.8);
+            --card-border: rgba(45, 156, 245, 0.15);
+            --font-main: 'Montserrat', sans-serif;
+            --font-gaming: 'Orbitron', monospace;
+            --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            --gradient-secondary: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
         }
         
-        /* Reset y estilos base */
         * {
             margin: 0;
             padding: 0;
@@ -31,13 +31,24 @@
         
         body {
             font-family: var(--font-main);
-            background-color: var(--primary-color);
-            color: var(--light-color);
+            background-color: var(--primary-dark);
+            color: var(--light-text);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 168, 255, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 15% 50%, rgba(45, 156, 245, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(155, 93, 229, 0.05) 0%, transparent 25%);
+            z-index: -1;
         }
         
         .container {
@@ -47,616 +58,1034 @@
             padding: 0 15px;
         }
         
-        /* Header y navegación */
-        header {
-            background-color: rgba(10, 10, 20, 0.95);
-            padding: 15px 0;
+        /* Header estilizado */
+        .main-header {
+            background-color: rgba(13, 13, 26, 0.95);
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 168, 255, 0.2);
+            border-bottom: 1px solid rgba(45, 156, 245, 0.2);
             backdrop-filter: blur(10px);
         }
         
-        .nav-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
-            font-family: var(--font-gaming);
-            font-size: 1.8rem;
-            color: var(--light-color);
-            text-decoration: none;
         }
         
-        .logo i {
-            color: var(--accent-color);
-            margin-right: 10px;
-            font-size: 2rem;
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: white;
+            font-family: var(--font-gaming);
+            font-weight: 700;
         }
         
         .logo-text {
+            font-family: var(--font-gaming);
+            font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--accent-color), #a29bfe);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: 1px;
         }
         
-        .nav-links {
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--medium-text);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        
+        /* Navegación alternativa */
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list {
             display: flex;
             list-style: none;
         }
         
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
-        .nav-links a {
-            color: var(--light-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 0;
+        .nav-item {
+            margin: 0 12px;
             position: relative;
         }
         
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-actions {
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
             display: flex;
             align-items: center;
         }
         
-        .search-btn, .user-btn {
-            background: none;
-            border: none;
-            color: var(--light-color);
-            font-size: 1.2rem;
-            margin-left: 15px;
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-blue);
+        }
+        
+        .nav-item.active .nav-link {
+            color: var(--accent-blue);
+        }
+        
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .btn-login, .btn-search {
+            background: rgba(45, 156, 245, 0.1);
+            border: 1px solid rgba(45, 156, 245, 0.3);
+            color: var(--light-text);
+            padding: 8px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
         }
         
-        .search-btn:hover, .user-btn:hover {
-            color: var(--accent-color);
+        .btn-login i, .btn-search i {
+            margin-right: 8px;
         }
         
-        .mobile-menu-btn {
+        .btn-login:hover, .btn-search:hover {
+            background: rgba(45, 156, 245, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--light-color);
+            color: var(--light-text);
             font-size: 1.5rem;
             cursor: pointer;
         }
         
-        /* Hero section */
-        .hero {
+        /* Hero alternativo */
+        .hero-section {
             padding: 180px 0 100px;
-            text-align: center;
-            background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.9)), 
-                        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .hero-title {
             font-family: var(--font-gaming);
-            background: linear-gradient(to right, var(--accent-color), #a29bfe);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--gray-color);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
+        .hero-subtitle {
             font-size: 1.1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+            color: var(--medium-text);
+            margin-bottom: 30px;
+            max-width: 500px;
         }
         
-        .cta-button:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 168, 255, 0.4);
+        .hero-stats {
+            display: flex;
+            margin-bottom: 40px;
         }
         
-        /* Sección de categorías */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+        .stat-item {
+            margin-right: 40px;
+        }
+        
+        .stat-number {
+            font-family: var(--font-gaming);
             font-size: 2.2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            box-shadow: 0 5px 20px rgba(45, 156, 245, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45, 156, 245, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-text);
+            border: 1px solid rgba(45, 156, 245, 0.5);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(45, 156, 245, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-visual {
+            flex: 1;
+            min-width: 300px;
             position: relative;
+        }
+        
+        .visual-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .hexagon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            perspective: 1000px;
+        }
+        
+        .hexagon {
+            width: 100%;
+            height: 100px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .hexagon:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            background: rgba(45, 156, 245, 0.1);
+            border-color: var(--accent-blue);
+        }
+        
+        .hexagon i {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hexagon span {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Sección de recursos con pestañas */
+        .resources-section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: var(--font-gaming);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
         }
         
         .section-title::after {
             content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent-color), transparent);
-            margin: 10px auto;
-        }
-        
-        .categories {
-            padding: 80px 0;
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .category-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--card-border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .category-card::before {
-            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--accent-color), #a29bfe);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
         
-        .category-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
+        .section-subtitle {
+            color: var(--medium-text);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .category-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+        .resource-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
-        .category-card p {
-            color: var(--gray-color);
-            font-size: 0.95rem;
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--medium-text);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
         }
         
-        /* Sección de recursos destacados */
-        .featured {
-            padding: 80px 0;
-            background-color: rgba(26, 26, 46, 0.5);
+        .tab-btn i {
+            margin-right: 10px;
         }
         
-        .resource-grid {
+        .tab-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(45, 156, 245, 0.2);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: rgba(45, 156, 245, 0.1);
+            color: var(--light-text);
+        }
+        
+        .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .resource-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .resource-card-alt {
+            background: var(--card-bg);
             border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
         }
         
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        .resource-card-alt:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-blue);
         }
         
-        .resource-img {
-            height: 180px;
-            background-color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-color);
-            font-size: 3rem;
-        }
-        
-        .resource-content {
-            padding: 20px;
-        }
-        
-        .resource-category {
-            display: inline-block;
-            background-color: rgba(0, 168, 255, 0.1);
-            color: var(--accent-color);
+        .resource-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-secondary);
+            color: white;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
-            margin-bottom: 10px;
+            font-weight: 600;
+            z-index: 2;
         }
         
-        .resource-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .resource-header {
+            height: 180px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .resource-content p {
-            color: var(--gray-color);
+        .resource-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(45, 156, 245, 0.1), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .resource-card-alt:hover .resource-header::before {
+            animation: shine 1s;
+        }
+        
+        .resource-icon {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .resource-content {
+            padding: 25px;
+        }
+        
+        .resource-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .resource-description {
+            color: var(--medium-text);
+            margin-bottom: 20px;
             font-size: 0.95rem;
-            margin-bottom: 15px;
         }
         
         .resource-meta {
             display: flex;
             justify-content: space-between;
-            color: var(--gray-color);
             font-size: 0.85rem;
+            color: var(--medium-text);
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            padding: 60px 0 30px;
-            margin-top: 80px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: var(--gray-color);
+        .resource-download {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            font-weight: 600;
             text-decoration: none;
+            margin-top: 15px;
             transition: color 0.3s;
         }
         
-        .footer-links a:hover {
-            color: var(--accent-color);
+        .resource-download i {
+            margin-right: 8px;
+            transition: transform 0.3s;
         }
         
-        .social-icons {
+        .resource-download:hover {
+            color: var(--accent-purple);
+        }
+        
+        .resource-download:hover i {
+            transform: translateY(3px);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(21, 21, 38, 0.9), rgba(13, 13, 26, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-family: var(--font-gaming);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            color: var(--medium-text);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(45, 156, 245, 0.3);
+            border-radius: 8px 0 0 8px;
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--gradient-secondary);
+        }
+        
+        /* Footer alternativo */
+        .main-footer {
+            background-color: var(--secondary-dark);
+            padding: 70px 0 30px;
+            border-top: 1px solid rgba(45, 156, 245, 0.1);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-family: var(--font-gaming);
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .footer-links-alt {
+            list-style: none;
+        }
+        
+        .footer-links-alt li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links-alt a {
+            color: var(--medium-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links-alt a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links-alt a:hover {
+            color: var(--accent-blue);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
         
-        .social-icons a {
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            color: var(--light-color);
+            color: var(--light-text);
             transition: all 0.3s;
         }
         
-        .social-icons a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+        .social-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
         }
         
-        .copyright {
+        .copyright-bar {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--gray-color);
+            color: var(--medium-text);
             font-size: 0.9rem;
+        }
+        
+        /* Animaciones */
+        @keyframes shine {
+            100% {
+                transform: translateX(100%);
+            }
         }
         
         /* Responsive */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero-content {
+                flex-direction: column;
             }
             
-            .nav-links {
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 60px;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .nav-list {
                 display: none;
             }
             
-            .mobile-menu-btn {
+            .mobile-toggle {
                 display: block;
+                margin-left: 15px;
+            }
+            
+            .nav-buttons .btn-search span, .nav-buttons .btn-login span {
+                display: none;
+            }
+            
+            .nav-buttons .btn-search, .nav-buttons .btn-login {
+                padding: 8px 12px;
             }
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
-            .category-grid, .resource-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .resource-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .cta-form {
+                flex-direction: column;
+            }
+            
+            .email-input {
+                border-radius: 8px;
+                margin-bottom: 15px;
+            }
+            
+            .submit-btn {
+                border-radius: 8px;
+                padding: 16px;
             }
         }
         
         @media (max-width: 576px) {
-            .hero {
-                padding: 150px 0 70px;
+            .hero-title {
+                font-size: 2rem;
             }
             
-            .category-grid, .resource-grid {
-                grid-template-columns: 1fr;
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .footer-content {
+            .stat-item {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .resources-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header y navegación -->
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-gamepad"></i>
-                <span class="logo-text">OlwByte</span>
-            </a>
-            
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links">
-                <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-download"></i> Descargas</a></li>
-                <li><a href="#"><i class="fas fa-book"></i> Tutoriales</a></li>
-                <li><a href="#"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
-                <li><a href="#"><i class="fas fa-tools"></i> Herramientas</a></li>
-                <li><a href="#"><i class="fas fa-gamepad"></i> Juegos</a></li>
-            </ul>
-            
-            <div class="nav-actions">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-                <button class="user-btn"><i class="fas fa-user-circle"></i></button>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-icon">OB</div>
+                <div>
+                    <div class="logo-text">OLWBYTE</div>
+                    <div class="logo-tagline">Recursos Gaming & Tech</div>
+                </div>
             </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-download"></i> Descargas</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-book-open"></i> Tutoriales</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <button class="btn-search"><i class="fas fa-search"></i> <span>Buscar</span></button>
+                    <button class="btn-login"><i class="fas fa-user"></i> <span>Acceder</span></button>
+                    <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+                </div>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Recursos Gaming y Tecnología</h1>
-            <p>Descubre los mejores recursos, tutoriales, guías, juegos y cursos en un solo lugar. Todo lo que necesitas para mejorar tu experiencia gaming y desarrollo tecnológico.</p>
-            <a href="#" class="cta-button">Explorar Recursos</a>
-        </div>
-    </section>
-
-    <!-- Sección de categorías -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="section-title">Categorías de Contenido</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-download"></i>
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">El Hub Definitivo para <span>Gamers y Developers</span></h1>
+                <p class="hero-subtitle">Accede a miles de recursos, tutoriales, herramientas y descargas exclusivas. Optimiza tu experiencia gaming y lleva tus proyectos al siguiente nivel.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2,580+</div>
+                        <div class="stat-label">Recursos</div>
                     </div>
-                    <h3>Descargas</h3>
-                    <p>Software, utilidades y recursos descargables para mejorar tu experiencia gaming.</p>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Tutoriales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">45K+</div>
+                        <div class="stat-label">Usuarios</div>
+                    </div>
                 </div>
                 
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h3>PDF y Guías</h3>
-                    <p>Guías completas, manuales y documentación en formato PDF para consulta rápida.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary"><i class="fas fa-rocket"></i> Explorar Recursos</a>
+                    <a href="#" class="btn-secondary"><i class="fas fa-play-circle"></i> Ver Tutoriales</a>
                 </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-graduation-cap"></i>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="hexagon-grid">
+                        <div class="hexagon">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>PDFs</span>
+                        </div>
+                        <div class="hexagon">
+                            <i class="fas fa-code"></i>
+                            <span>Scripts</span>
+                        </div>
+                        <div class="hexagon">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Juegos</span>
+                        </div>
+                        <div class="hexagon">
+                            <i class="fas fa-tools"></i>
+                            <span>Tools</span>
+                        </div>
+                        <div class="hexagon">
+                            <i class="fas fa-video"></i>
+                            <span>Tutoriales</span>
+                        </div>
+                        <div class="hexagon">
+                            <i class="fas fa-database"></i>
+                            <span>Assets</span>
+                        </div>
                     </div>
-                    <h3>Tutoriales</h3>
-                    <p>Aprende con nuestros tutoriales paso a paso sobre gaming, desarrollo y tecnología.</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h3>Juegos</h3>
-                    <p>Descubre nuevos juegos, trucos, consejos y análisis de los títulos más populares.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recursos destacados -->
-    <section class="featured">
+    <!-- Recursos Section -->
+    <section class="resources-section">
         <div class="container">
-            <h2 class="section-title">Recursos Destacados</h2>
-            <div class="resource-grid">
-                <div class="resource-card">
-                    <div class="resource-img">
-                        <i class="fas fa-code"></i>
+            <div class="section-header">
+                <h2 class="section-title">Recursos Destacados</h2>
+                <p class="section-subtitle">Descubre los recursos más populares y útiles seleccionados por nuestra comunidad</p>
+            </div>
+            
+            <div class="resource-tabs">
+                <button class="tab-btn active"><i class="fas fa-star"></i> Destacados</button>
+                <button class="tab-btn"><i class="fas fa-download"></i> Más Descargados</button>
+                <button class="tab-btn"><i class="fas fa-gamepad"></i> Gaming</button>
+                <button class="tab-btn"><i class="fas fa-code"></i> Desarrollo</button>
+                <button class="tab-btn"><i class="fas fa-wrench"></i> Herramientas</button>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card-alt">
+                    <div class="resource-badge">Nuevo</div>
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
                     </div>
                     <div class="resource-content">
-                        <span class="resource-category">Tutorial</span>
-                        <h3>Guía Completa de Python para Gaming</h3>
-                        <p>Aprende a desarrollar scripts y herramientas para gaming con Python. Desde conceptos básicos hasta automatización avanzada.</p>
+                        <h3 class="resource-title">Optimizador Gaming Pro 2024</h3>
+                        <p class="resource-description">Suite completa de herramientas para optimizar Windows, drivers y configuración de hardware para máximo rendimiento en juegos.</p>
                         <div class="resource-meta">
-                            <span><i class="far fa-clock"></i> 2 horas</span>
-                            <span><i class="fas fa-download"></i> 1,254 descargas</span>
+                            <span><i class="fas fa-hdd"></i> 85 MB</span>
+                            <span><i class="fas fa-download"></i> 3,245</span>
+                            <span><i class="fas fa-calendar"></i> Mar 2024</span>
                         </div>
+                        <a href="#" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar ahora</a>
                     </div>
                 </div>
                 
-                <div class="resource-card">
-                    <div class="resource-img">
-                        <i class="fas fa-tools"></i>
+                <div class="resource-card-alt">
+                    <div class="resource-badge">Premium</div>
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
                     </div>
                     <div class="resource-content">
-                        <span class="resource-category">Herramienta</span>
-                        <h3>Optimizador de Sistema para Gaming</h3>
-                        <p>Utilidad para optimizar Windows y mejorar el rendimiento en juegos. Incluye configuración automática y manual.</p>
+                        <h3 class="resource-title">Guía Completa de Shaders</h3>
+                        <p class="resource-description">Manual avanzado de 120 páginas sobre shaders gráficos, optimización y técnicas para desarrolladores de videojuegos.</p>
                         <div class="resource-meta">
-                            <span><i class="fas fa-file-archive"></i> 45 MB</span>
-                            <span><i class="fas fa-download"></i> 3,421 descargas</span>
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span><i class="fas fa-download"></i> 1,879</span>
+                            <span><i class="fas fa-calendar"></i> Feb 2024</span>
                         </div>
+                        <a href="#" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar PDF</a>
                     </div>
                 </div>
                 
-                <div class="resource-card">
-                    <div class="resource-img">
-                        <i class="fas fa-book"></i>
+                <div class="resource-card-alt">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
                     </div>
                     <div class="resource-content">
-                        <span class="resource-category">PDF</span>
-                        <h3>Guía de Configuración de GPU</h3>
-                        <p>Manual completo para optimizar tarjetas gráficas NVIDIA y AMD. Ajustes por juego y consejos de overclocking seguro.</p>
+                        <h3 class="resource-title">Scripts de Automatización</h3>
+                        <p class="resource-description">Colección de scripts Python para automatizar tareas comunes en desarrollo de juegos y gestión de recursos.</p>
                         <div class="resource-meta">
-                            <span><i class="far fa-file-pdf"></i> 28 páginas</span>
-                            <span><i class="fas fa-download"></i> 2,187 descargas</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-download"></i> 2,541</span>
+                            <span><i class="fas fa-calendar"></i> Ene 2024</span>
                         </div>
+                        <a href="#" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar scripts</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2 class="cta-title">No te pierdas los nuevos recursos</h2>
+            <p class="cta-text">Suscríbete para recibir notificaciones sobre nuevos tutoriales, herramientas y descargas exclusivas directamente en tu correo.</p>
+            
+            <form class="cta-form">
+                <input type="email" class="email-input" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="submit-btn">Suscribirse</button>
+            </form>
+            
+            <p class="section-subtitle">Únete a más de 45,000 usuarios que ya aprovechan nuestros recursos</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="main-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-grid">
+                <div class="footer-col">
                     <h3>OlwByte</h3>
-                    <p>Tu fuente confiable de recursos, tutoriales y descargas para gaming y tecnología. Contenido actualizado regularmente.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                    <p>La plataforma definitiva para recursos gaming, desarrollo y tecnología. Ofrecemos contenido de calidad verificado por expertos.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Descargas</a></li>
-                        <li><a href="#">Tutoriales</a></li>
-                        <li><a href="#">Cursos</a></li>
-                        <li><a href="#">Juegos</a></li>
+                <div class="footer-col">
+                    <h3>Recursos</h3>
+                    <ul class="footer-links-alt">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Descargas</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tutoriales en Video</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guías PDF</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Scripts y Códigos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Assets Gaming</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Categorías</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Software</a></li>
-                        <li><a href="#">Guías PDF</a></li>
-                        <li><a href="#">Trucos Gaming</a></li>
-                        <li><a href="#">Optimización</a></li>
-                        <li><a href="#">Desarrollo</a></li>
+                <div class="footer-col">
+                    <h3>Comunidad</h3>
+                    <ul class="footer-links-alt">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Foros</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Desafíos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ranking</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contribuir</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>¿Tienes sugerencias o preguntas?</p>
-                    <p>contacto@olwbyte.com</p>
-                    <p>Soporte: soporte@olwbyte.com</p>
+                <div class="footer-col">
+                    <h3>Soporte</h3>
+                    <ul class="footer-links-alt">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Centro de ayuda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Reportar problema</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Términos de uso</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 OlwByte. Todos los derechos reservados. | Diseñado para la comunidad gaming y tecnológica.</p>
+            <div class="copyright-bar">
+                <p>&copy; 2024 OlwByte. Todos los derechos reservados. | Diseñado para la comunidad gaming y de desarrollo</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Interactividad básica
         document.addEventListener('DOMContentLoaded', function() {
-            // Botón menú móvil
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
+            // Menú móvil
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navList = document.querySelector('.nav-list');
             
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            mobileToggle.addEventListener('click', function() {
+                navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
+                if (navList.style.display === 'flex') {
+                    navList.style.flexDirection = 'column';
+                    navList.style.position = 'absolute';
+                    navList.style.top = '100%';
+                    navList.style.right = '0';
+                    navList.style.backgroundColor = 'rgba(13, 13, 26, 0.98)';
+                    navList.style.padding = '20px';
+                    navList.style.borderRadius = '0 0 0 10px';
+                    navList.style.border = '1px solid rgba(45, 156, 245, 0.2)';
+                    navList.style.width = '250px';
+                }
+            });
+            
+            // Tabs de recursos
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    this.classList.add('active');
+                });
             });
             
             // Efecto hover en tarjetas de recursos
-            const resourceCards = document.querySelectorAll('.resource-card');
+            const resourceCards = document.querySelectorAll('.resource-card-alt');
             resourceCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-10px)';
@@ -667,30 +1096,30 @@
                 });
             });
             
-            // Ajustar menú en redimensionamiento
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 992) {
-                    navLinks.style.display = 'flex';
-                } else {
-                    navLinks.style.display = 'none';
+            // Animación de hexágonos
+            const hexagons = document.querySelectorAll('.hexagon');
+            hexagons.forEach((hex, index) => {
+                // Añadir animación escalonada
+                hex.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Formulario de suscripción
+            const ctaForm = document.querySelector('.cta-form');
+            ctaForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('.email-input');
+                if (emailInput.value) {
+                    alert(`¡Gracias por suscribirte! Hemos enviado un correo de confirmación a ${emailInput.value}`);
+                    emailInput.value = '';
                 }
             });
             
-            // Efecto de scroll suave para enlaces
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+            // Navegación activa
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
         });
