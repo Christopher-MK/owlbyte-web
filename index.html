@@ -1,38 +1,207 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Owlbyte</title>
+
+  <!-- Fuente (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body{margin:0;font-family:Arial;background:#0b1220;color:#fff;}
-    .top{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:#111a2e;}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;}
-    .brand img{width:32px;height:32px;border-radius:8px;object-fit:cover;}
-    .menu{display:flex;gap:18px;}
-    .menu a{color:#cbd5e1;text-decoration:none;font-weight:700;}
-    .menu a:hover{color:#fff;}
+    *{box-sizing:border-box;font-family:'Outfit',system-ui,Arial,sans-serif;}
+    body{margin:0;background:#0b1220;color:#fff;}
+
+    /* Navbar */
+    .navbar{
+      position:fixed; top:0; left:0; right:0;
+      z-index:50;
+      padding:16px 22px;
+      transition:all .3s ease;
+      background:transparent;
+    }
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+
+    /* Brand */
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;}
+    .brand img{width:34px;height:34px;border-radius:10px;object-fit:cover;}
+    .brand span{font-weight:600;font-size:18px;letter-spacing:.2px;}
+
+    /* Links desktop */
+    .nav-links{display:none;gap:22px;align-items:center;}
+    .nav-links a{
+      position:relative;
+      text-decoration:none;
+      color:rgba(255,255,255,.85);
+      font-weight:500;
+      padding:4px 0;
+    }
+    .nav-links a:hover{color:#fff;}
+    .nav-links a::after{
+      content:'';
+      position:absolute; left:0; bottom:-4px;
+      width:100%; height:2px;
+      background:currentColor;
+      transform:translateX(-101%);
+      transition:transform .25s ease;
+    }
+    .nav-links a:hover::after{transform:translateX(0);}
+
+    /* CTA desktop */
+    .cta{display:none;}
+    .cta button{
+      cursor:pointer;
+      padding:10px 16px;
+      border-radius:999px;
+      border:2px solid #7c3aed;
+      background:transparent;
+      color:#7c3aed;
+      font-weight:600;
+    }
+    .cta button:hover{background:rgba(124,58,237,.12);}
+
+    /* Hamburger (mobile) */
+    .menu-btn{
+      width:42px;height:42px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+      cursor:pointer;
+    }
+    .line{width:20px;height:2px;background:#fff;border-radius:999px;transition:all .25s ease;}
+    .menu-open .line:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+    .menu-open .line:nth-child(2){opacity:0;transform:translateX(-10px);}
+    .menu-open .line:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+    /* Mobile menu panel */
+    .mobile{
+      position:fixed; inset:0;
+      z-index:40;
+      padding-top:90px;
+      background:#0b1220;
+      transform:translateY(-100%);
+      transition:transform .35s ease;
+    }
+    .mobile.open{transform:translateY(0);}
+    .mobile a, .mobile button{
+      display:block;
+      width:100%;
+      max-width:320px;
+      margin:0 auto 16px;
+      text-align:center;
+      text-decoration:none;
+      color:#fff;
+      font-size:22px;
+      font-weight:500;
+    }
+    .mobile button{
+      cursor:pointer;
+      padding:12px 18px;
+      border-radius:999px;
+      border:2px solid #7c3aed;
+      background:transparent;
+      color:#7c3aed;
+      font-size:18px;
+      font-weight:600;
+    }
+
+    /* Sticky effect on scroll */
+    .navbar.scrolled{
+      background:rgba(17,26,46,.85);
+      backdrop-filter:blur(10px);
+      box-shadow:0 1px 10px rgba(0,0,0,.25);
+    }
+
+    /* Responsive */
+    @media (min-width: 768px){
+      .nav-links{display:flex;}
+      .cta{display:block;}
+      .menu-btn{display:none;}
+      .mobile{display:none;}
+    }
+
+    /* Page spacing (para que no tape el navbar) */
+    main{padding-top:86px;max-width:1100px;margin:0 auto;padding-left:22px;padding-right:22px;}
   </style>
 </head>
+
 <body>
 
-  <header class="top">
-    <a class="brand" href="/">
-      <img src="logo.jpg" alt="Owlbyte">
-      <span>Owlbyte</span>
-    </a>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="logo.jpg" alt="Owlbyte">
+        <span>Owlbyte</span>
+      </a>
 
-    <nav class="menu">
-      <a href="/">Inicio</a>
-      <a href="/cursos.html">Cursos</a>
-      <a href="/contacto.html">Contacto</a>
-    </nav>
-  </header>
+      <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/cursos.html">Cursos</a>
+        <a href="/descargas.html">Descargas</a>
+        <a href="/contacto.html">Contacto</a>
+      </div>
 
-  <main style="padding:24px;">
-    <h1>Inicio</h1>
-    <p>Contenido aquí…</p>
+      <div class="cta">
+        <button type="button">Comenzar</button>
+      </div>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile" id="mobileMenu">
+    <a href="/">Inicio</a>
+    <a href="/cursos.html">Cursos</a>
+    <a href="/descargas.html">Descargas</a>
+    <a href="/contacto.html">Contacto</a>
+    <button type="button">Comenzar</button>
+  </div>
+
+  <!-- CONTENIDO DEMO -->
+  <main>
+    <h1>Owlbyte</h1>
+    <p>Inicio (contenido aquí).</p>
+    <div style="height:1200px"></div>
   </main>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Menú móvil cerrado por defecto
+    let open = false;
+
+    menuBtn.addEventListener('click', () => {
+      open = !open;
+      menuBtn.classList.toggle('menu-open', open);
+      mobileMenu.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Cierra menú al hacer click en un link
+    mobileMenu.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        open = false;
+        menuBtn.classList.remove('menu-open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Efecto al hacer scroll
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 
 </body>
 </html>
