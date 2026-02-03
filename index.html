@@ -1,124 +1,998 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Owlbyte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OwlByte | Recursos Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d1117;
+            --secondary: #8a2be2;
+            --accent: #00d9ff;
+            --accent-alt: #ff6b9d;
+            --text: #f0f6fc;
+            --text-secondary: #8b949e;
+            --card-bg: rgba(22, 27, 34, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#0b1220;
-      color:#fff;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* SIDEBAR */
-    .sidebar{
-      position:fixed; top:0; left:0; height:100vh;
-      width:240px; padding:14px 10px;
-      background:#0f172a;
-      border-right:1px solid rgba(255,255,255,.08);
-      transition:width .25s ease;
-      z-index:50;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 5% 10%, rgba(138, 43, 226, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 95% 90%, rgba(0, 217, 255, 0.08) 0%, transparent 20%),
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0.1) 2px);
+        }
 
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 10px 14px;
-      text-decoration:none; color:#fff;
-    }
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-    .brand-logo{
-      width:36px; height:36px;
-      border-radius:10px;
-      object-fit:cover;
-    }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .brand-name{
-      font-weight:700;
-      letter-spacing:.3px;
-      white-space:nowrap;
-    }
+        /* Header y menú */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+        }
 
-    .nav{ margin-top:6px; }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .item{
-      display:flex; align-items:center; gap:12px;
-      padding:12px 10px;
-      border-radius:12px;
-      color:#fff;
-      text-decoration:none;
-    }
-    .item:hover{ background:rgba(255,255,255,.06); }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .icon{
-      width:32px;
-      text-align:center;
-      font-size:18px;
-    }
-    .label{ white-space:nowrap; }
+        .logo-icon {
+            color: var(--accent);
+            position: relative;
+        }
 
-    /* ESTADO CERRADO */
-    .sidebar.collapsed{ width:72px; }
-    .sidebar.collapsed .brand-name{ display:none; }
-    .sidebar.collapsed .label{ display:none; }
-    .sidebar.collapsed .item{ justify-content:center; }
+        .logo-icon::after {
+            content: "◉";
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            font-size: 0.6rem;
+            color: var(--accent-alt);
+        }
 
-    /* CONTENIDO */
-    .content{
-      margin-left:72px;
-      padding:24px;
-      transition:margin-left .25s ease;
-    }
-    .sidebar:not(.collapsed) ~ .content{ margin-left:240px; }
+        .logo span {
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
 
-    /* BOTÓN HAMBURGUESA */
-    .menu-fab{
-      position:fixed; top:14px; left:14px;
-      width:44px; height:44px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(15,23,42,.85);
-      color:#fff;
-      cursor:pointer;
-      z-index:100;
-    }
-  </style>
+        /* Menú deslizable */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+            border-radius: 8px;
+            background: var(--glass-bg);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a.active {
+            color: var(--accent);
+        }
+
+        .nav-menu a .nav-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 217, 255, 0.15) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(45deg, var(--secondary), #6a11cb);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(45deg, #00a8cc, var(--accent));
+            box-shadow: 0 8px 20px rgba(0, 217, 255, 0.3);
+        }
+
+        /* Sección de categorías */
+        .categories {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .category-card i {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .category-card .count {
+            display: inline-block;
+            background: rgba(138, 43, 226, 0.2);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Sección de recursos destacados */
+        .featured-resources {
+            padding: 100px 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .resource-header {
+            padding: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .resource-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-type {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .resource-content {
+            padding: 25px;
+        }
+
+        .resource-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .resource-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .resource-author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, var(--secondary), #6a11cb);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #6a11cb, var(--secondary));
+            transform: scale(1.05);
+        }
+
+        /* Sección de descargas */
+        .downloads-section {
+            padding: 100px 0;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .download-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .download-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .download-info {
+            flex: 1;
+        }
+
+        .download-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-info p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .download-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .download-size {
+            background: rgba(138, 43, 226, 0.1);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .download-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 70px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-col p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--glass-bg);
+            border-radius: 50%;
+            color: var(--text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-links a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-menu {
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(13, 17, 23, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                border-left: 1px solid rgba(138, 43, 226, 0.2);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: none;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .copyright {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .category-card, .resource-card, .download-card {
+                padding: 30px 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <button class="menu-fab" id="toggleBtn" aria-label="Abrir menú">☰</button>
+    <!-- Header con menú -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-owl"></i>
+                    </div>
+                    Owl<span>Byte</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-menu" id="navMenu">
+                    <a href="#inicio" class="active"><i class="fas fa-home nav-icon"></i> Inicio</a>
+                    <a href="#recursos"><i class="fas fa-book nav-icon"></i> Recursos</a>
+                    <a href="#descargas"><i class="fas fa-download nav-icon"></i> Descargas</a>
+                    <a href="#cursos"><i class="fas fa-graduation-cap nav-icon"></i> Cursos</a>
+                    <a href="#comunidad"><i class="fas fa-users nav-icon"></i> Comunidad</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <aside class="sidebar collapsed" id="sidebar">
-    <a class="brand" href="index.html">
-      <img class="brand-logo" src="logo.png" alt="Owlbyte">
-      <span class="brand-name">Owlbyte</span>
-    </a>
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>Recursos Gaming en OwlByte</h1>
+            <p>Tu biblioteca definitiva de recursos para gaming: libros, cursos, guías, plantillas y herramientas descargables. Todo lo que necesitas para llevar tus habilidades al siguiente nivel.</p>
+            <a href="#descargas" class="cta-button"><i class="fas fa-download"></i> Explorar Descargas</a>
+        </div>
+    </section>
 
-    <nav class="nav">
-      <a class="item" href="index.html"><span class="icon">🏠</span><span class="label">Inicio</span></a>
-      <a class="item" href="cursos.html"><span class="icon">📚</span><span class="label">Cursos</span></a>
-      <a class="item" href="descargas.html"><span class="icon">⬇️</span><span class="label">Descargas</span></a>
-      <a class="item" href="contacto.html"><span class="icon">✉️</span><span class="label">Contacto</span></a>
-    </nav>
-  </aside>
+    <!-- Sección Categorías -->
+    <section class="categories" id="recursos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Categorías de Recursos</h2>
+                <p>Encuentra todo tipo de materiales para mejorar tu experiencia gaming</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Libros & Guías</h3>
+                    <p>Ebooks y guías especializadas en estrategias, diseño de juegos y desarrollo.</p>
+                    <div class="count">48 recursos</div>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Cursos Online</h3>
+                    <p>Video cursos desde nivel principiante hasta avanzado en diferentes áreas gaming.</p>
+                    <div class="count">32 cursos</div>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Plantillas & Assets</h3>
+                    <p>Recursos gráficos, interfaces UI, modelos 3D y más para tus proyectos.</p>
+                    <div class="count">156 assets</div>
+                </div>
+                
+                <div class="category-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Herramientas</h3>
+                    <p>Software, scripts y utilidades para desarrollo y optimización gaming.</p>
+                    <div class="count">24 herramientas</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <main class="content">
-    <h1>Owlbyte</h1>
-    <p>Tu contenido aquí…</p>
-  </main>
+    <!-- Sección Recursos Destacados -->
+    <section class="featured-resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos Destacados</h2>
+                <p>Los materiales más populares y descargados de nuestra comunidad</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><i class="fas fa-book"></i> Guía de Diseño de Niveles</h3>
+                        <span class="resource-type">PDF + Archivos</span>
+                    </div>
+                    <div class="resource-content">
+                        <p>Guía completa de 120 páginas sobre diseño de niveles para videojuegos, incluye ejemplos prácticos y ejercicios.</p>
+                        <div class="resource-meta">
+                            <div class="resource-author">
+                                <img src="https://i.pravatar.cc/150?img=8" alt="Autor">
+                                <span>Alex Rivera</span>
+                            </div>
+                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><i class="fas fa-video"></i> Curso Unity Avanzado</h3>
+                        <span class="resource-type">Videos + Proyectos</span>
+                    </div>
+                    <div class="resource-content">
+                        <p>Curso de 15 horas sobre mecánicas avanzadas en Unity. Incluye 5 proyectos completos con assets.</p>
+                        <div class="resource-meta">
+                            <div class="resource-author">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Autor">
+                                <span>Maya Chen</span>
+                            </div>
+                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <h3><i class="fas fa-file-code"></i> Plantillas UI Gaming</h3>
+                        <span class="resource-type">Figma + PSD</span>
+                    </div>
+                    <div class="resource-content">
+                        <p>Pack completo de interfaces de usuario para juegos. Incluye 20 pantallas diferentes y elementos UI.</p>
+                        <div class="resource-meta">
+                            <div class="resource-author">
+                                <img src="https://i.pravatar.cc/150?img=5" alt="Autor">
+                                <span>David Torres</span>
+                            </div>
+                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const btn = document.getElementById('toggleBtn');
+    <!-- Sección Descargas -->
+    <section class="downloads-section" id="descargas">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-download"></i> Descargas Populares</h2>
+                <p>Los recursos más descargados esta semana por nuestra comunidad</p>
+            </div>
+            
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3><i class="fas fa-cube"></i> Modelos 3D Low Poly</h3>
+                        <p>Pack de 50 modelos 3D low poly para juegos indie. Formatos: FBX, OBJ, Blender.</p>
+                        <div class="download-stats">
+                            <span><i class="fas fa-download"></i> 2,458 descargas</span>
+                            <span class="download-size">850 MB</span>
+                        </div>
+                    </div>
+                    <div class="download-action">
+                        <span><i class="fas fa-star"></i> 4.9/5</span>
+                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3><i class="fas fa-soundcloud"></i> SFX Pack Gaming</h3>
+                        <p>Efectos de sonido para juegos: UI, armas, ambiente, personajes. Más de 300 sonidos.</p>
+                        <div class="download-stats">
+                            <span><i class="fas fa-download"></i> 1,892 descargas</span>
+                            <span class="download-size">320 MB</span>
+                        </div>
+                    </div>
+                    <div class="download-action">
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="download-info">
+                        <h3><i class="fas fa-code"></i> Scripts C# Unity</h3>
+                        <p>Colección de scripts reutilizables para Unity: movimiento, IA, inventario, guardado.</p>
+                        <div class="download-stats">
+                            <span><i class="fas fa-download"></i> 3,125 descargas</span>
+                            <span class="download-size">45 MB</span>
+                        </div>
+                    </div>
+                    <div class="download-action">
+                        <span><i class="fas fa-star"></i> 5.0/5</span>
+                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="cta-button"><i class="fas fa-folder-open"></i> Ver Todas las Descargas</a>
+            </div>
+        </div>
+    </section>
 
-    // inicia cerrado (por seguridad)
-    sidebar.classList.add('collapsed');
+    <!-- Footer -->
+    <footer id="comunidad">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-owl"></i> OwlByte</h3>
+                    <p>Tu biblioteca definitiva de recursos gaming. Libros, cursos, guías, plantillas y herramientas para desarrolladores y jugadores.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3><i class="fas fa-link"></i> Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#recursos"><i class="fas fa-book"></i> Recursos</a></li>
+                        <li><a href="#descargas"><i class="fas fa-download"></i> Descargas</a></li>
+                        <li><a href="#cursos"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="#comunidad"><i class="fas fa-users"></i> Comunidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3><i class="fas fa-envelope"></i> Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@owlbyte.com"><i class="fas fa-envelope"></i> info@owlbyte.com</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+                        <li><a href="#"><i class="fas fa-upload"></i> Subir Recurso</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Términos y Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 OwlByte. Todos los derechos reservados.</p>
+                <p>Designed with <i class="fas fa-heart" style="color: #ff6b9d;"></i> for the gaming community</p>
+            </div>
+        </div>
+    </footer>
 
-    btn.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-    });
-  </script>
+    <script>
+        // Menú deslizable
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Cambiar estilo del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = 'none';
+                header.style.backdropFilter = 'blur(15px)';
+            }
+        });
+        
+        // Efecto de escritura en el título
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.innerHTML;
+        heroTitle.innerHTML = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.innerHTML += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 30);
+            }
+        }
+        
+        // Animación de conteo en las categorías
+        function animateCount(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + ' recursos';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + ' recursos';
+                }
+            }, 30);
+        }
+        
+        // Iniciar efectos cuando la página cargue
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 500);
+            
+            // Iniciar animaciones de conteo cuando sean visibles
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const countElements = entry.target.querySelectorAll('.count');
+                        countElements.forEach(el => {
+                            const target = parseInt(el.textContent);
+                            el.textContent = '0 recursos';
+                            setTimeout(() => animateCount(el, target), 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const categoriesSection = document.querySelector('.categories');
+            if (categoriesSection) {
+                observer.observe(categoriesSection);
+            }
+        });
+    </script>
 </body>
 </html>
