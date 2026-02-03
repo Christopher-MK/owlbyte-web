@@ -93,3 +93,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicial
   filterLocal();
 });
+
+// ===== Buscar y Usuario =====
+const searchBtn = document.querySelector(".btn-search");
+const userBtn = document.querySelector(".btn-login");
+
+const searchModal = document.getElementById("searchModal");
+const userModal = document.getElementById("userModal");
+
+const closeSearch = document.getElementById("closeSearch");
+const closeUser = document.getElementById("closeUser");
+
+searchBtn.addEventListener("click", () => {
+  searchModal.classList.add("show");
+});
+
+userBtn.addEventListener("click", () => {
+  userModal.classList.add("show");
+});
+
+closeSearch.addEventListener("click", () => {
+  searchModal.classList.remove("show");
+});
+
+closeUser.addEventListener("click", () => {
+  userModal.classList.remove("show");
+});
+
+// Cerrar al hacer click afuera
+searchModal.addEventListener("click", (e) => {
+  if (e.target === searchModal) searchModal.classList.remove("show");
+});
+
+userModal.addEventListener("click", (e) => {
+  if (e.target === userModal) userModal.classList.remove("show");
+});
