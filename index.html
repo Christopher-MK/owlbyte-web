@@ -50,7 +50,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -72,7 +71,7 @@
       z-index: -1;
     }
 
-    /* Accessibility helpers */
+    /* Accessibility */
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -115,7 +114,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative; /* para el dropdown mobile */
+      position: relative;
     }
 
     .logo-container {
@@ -247,7 +246,7 @@
 
     /* Hero */
     .hero-section {
-      padding: 170px 0 90px;
+      padding: 175px 0 90px;
       position: relative;
     }
 
@@ -283,32 +282,8 @@
     .hero-subtitle {
       font-size: 1.05rem;
       color: var(--medium-text);
-      margin-bottom: 26px;
-      max-width: 540px;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 36px;
-      margin-bottom: 34px;
-      flex-wrap: wrap;
-    }
-
-    .stat-number {
-      font-family: var(--font-gaming);
-      font-size: 2.1rem;
-      font-weight: 700;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .stat-label {
-      font-size: 0.86rem;
-      color: var(--medium-text);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 30px;
+      max-width: 560px;
     }
 
     .hero-buttons {
@@ -684,7 +659,6 @@
     }
 
     .footer-links-alt { list-style: none; }
-
     .footer-links-alt li { margin-bottom: 10px; }
 
     .footer-links-alt a {
@@ -738,6 +712,19 @@
       font-size: 0.9rem;
     }
 
+    /* Util: screen-reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     /* Animations */
     @keyframes shine { 100% { transform: translateX(100%); } }
 
@@ -771,7 +758,6 @@
       .hero-content { flex-direction: column; }
       .hero-text { padding-right: 0; text-align: center; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
-      .hero-stats { justify-content: center; }
       .hero-buttons { justify-content: center; }
     }
 
@@ -792,7 +778,6 @@
 
     @media (max-width: 576px) {
       .hero-title { font-size: 2.0rem; }
-      .hero-stats { flex-direction: column; align-items: center; gap: 16px; }
       .hero-buttons { flex-direction: column; width: 100%; }
       .btn-primary, .btn-secondary { width: 100%; }
       .resources-grid { grid-template-columns: 1fr; }
@@ -862,21 +847,6 @@
           <p class="hero-subtitle">
             Accede a recursos, tutoriales, herramientas y descargas. Optimiza tu experiencia gaming y lleva tus proyectos al siguiente nivel.
           </p>
-
-          <div class="hero-stats" aria-label="Estadísticas del sitio">
-            <div class="stat-item">
-              <div class="stat-number">2,580+</div>
-              <div class="stat-label">Recursos</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">150+</div>
-              <div class="stat-label">Tutoriales</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">45K+</div>
-              <div class="stat-label">Usuarios</div>
-            </div>
-          </div>
 
           <div class="hero-buttons">
             <a href="#recursos" class="btn-primary"><i class="fas fa-rocket" aria-hidden="true"></i> Explorar Recursos</a>
@@ -990,8 +960,6 @@
         </form>
 
         <p class="form-msg" id="form-msg" aria-live="polite"></p>
-
-        <p class="section-subtitle">Únete a más de 45,000 usuarios que ya aprovechan nuestros recursos</p>
       </div>
     </section>
   </main>
@@ -1051,21 +1019,6 @@
     </div>
   </footer>
 
-  <style>
-    /* util: screen-reader only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Mobile menu
@@ -1088,7 +1041,6 @@
         const link = e.target.closest("a.nav-link");
         if (!link) return;
 
-        // Set active in both navs (desktop + mobile) by matching text
         const label = link.textContent.trim();
         document.querySelectorAll(".nav-item").forEach(li => li.classList.remove("active"));
 
