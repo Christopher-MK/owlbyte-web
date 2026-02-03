@@ -1,0 +1,232 @@
+[
+  {
+    "title": "Optimización / FPS Boost",
+    "category": "Descargas",
+    "type": "Rendimiento",
+    "keywords": [
+      "fps", "boost", "optimizacion", "optimizar", "rendimiento", "performance",
+      "lag", "stuttering", "tirones", "microstutter", "latencia",
+      "configuracion", "tweaks", "windows", "gaming"
+    ],
+    "url": "descargas.html"
+  },
+  {
+    "title": "Drivers & Tweaks",
+    "category": "Descargas",
+    "type": "Drivers",
+    "keywords": [
+      "drivers", "controladores", "tweaks", "ajustes", "actualizar",
+      "nvidia", "amd", "intel", "gpu", "grafica",
+      "panel nvidia", "radeon", "chipset"
+    ],
+    "url": "descargas.html"
+  },
+  {
+    "title": "Programas esenciales",
+    "category": "Descargas",
+    "type": "Software",
+    "keywords": [
+      "programas", "software", "utilidades", "herramientas",
+      "basicos", "esenciales", "recomendados",
+      "instalar", "setup", "apps"
+    ],
+    "url": "descargas.html"
+  },
+  {
+    "title": "Packs y utilidades",
+    "category": "Descargas",
+    "type": "Packs",
+    "keywords": [
+      "packs", "utilidades", "coleccion", "bundle",
+      "toolkit", "recursos", "descargas"
+    ],
+    "url": "descargas.html"
+  },
+
+  {
+    "title": "Guías de rendimiento",
+    "category": "PDFs / Guías",
+    "type": "Rendimiento",
+    "keywords": [
+      "pdf", "guia", "guias", "rendimiento", "fps", "optimizacion",
+      "configuracion", "ajustes", "tweaks", "windows", "latencia"
+    ],
+    "url": "pdf.html"
+  },
+  {
+    "title": "Desarrollo de videojuegos",
+    "category": "PDFs / Guías",
+    "type": "Game Dev",
+    "keywords": [
+      "pdf", "guia", "desarrollo", "videojuegos", "game dev", "gamedev",
+      "unity", "unreal", "godot", "design", "level design", "programacion"
+    ],
+    "url": "pdf.html"
+  },
+  {
+    "title": "Shaders y gráficos",
+    "category": "PDFs / Guías",
+    "type": "Gráficos",
+    "keywords": [
+      "pdf", "shaders", "graficos", "render", "postprocesado",
+      "iluminacion", "texturas", "gpu", "rtx", "ray tracing"
+    ],
+    "url": "pdf.html"
+  },
+  {
+    "title": "Cheat sheets",
+    "category": "PDFs / Guías",
+    "type": "Referencia",
+    "keywords": [
+      "pdf", "cheat sheet", "atajos", "referencia", "resumen",
+      "comandos", "shortcuts", "hoja rapida"
+    ],
+    "url": "pdf.html"
+  },
+
+  {
+    "title": "Gaming & rendimiento",
+    "category": "Tutoriales",
+    "type": "Gaming",
+    "keywords": [
+      "tutorial", "tutoriales", "gaming", "rendimiento", "fps",
+      "optimizacion", "configuracion", "input lag", "latencia",
+      "settings", "setup"
+    ],
+    "url": "tutoriales.html"
+  },
+  {
+    "title": "Programación",
+    "category": "Tutoriales",
+    "type": "Programación",
+    "keywords": [
+      "tutorial", "tutoriales", "programacion", "coding",
+      "javascript", "html", "css", "python", "java", "csharp",
+      "backend", "frontend", "apis", "frameworks"
+    ],
+    "url": "tutoriales.html"
+  },
+  {
+    "title": "Game Dev",
+    "category": "Tutoriales",
+    "type": "Game Dev",
+    "keywords": [
+      "tutorial", "game dev", "gamedev", "unity", "unreal", "godot",
+      "csharp", "blueprints", "assets", "animacion", "fisicas"
+    ],
+    "url": "tutoriales.html"
+  },
+  {
+    "title": "Herramientas (Tutoriales)",
+    "category": "Tutoriales",
+    "type": "Herramientas",
+    "keywords": [
+      "tutorial", "herramientas", "tools", "dev tools",
+      "instalacion", "configuracion", "setup"
+    ],
+    "url": "tutoriales.html"
+  },
+
+  {
+    "title": "Optimizadores",
+    "category": "Herramientas",
+    "type": "Optimización",
+    "keywords": [
+      "herramientas", "optimizadores", "optimizacion", "fps", "boost",
+      "performance", "windows", "gaming", "tweaks"
+    ],
+    "url": "herramientas.html"
+  },
+  {
+    "title": "Diagnóstico / Benchmarks",
+    "category": "Herramientas",
+    "type": "Diagnóstico",
+    "keywords": [
+      "diagnostico", "benchmarks", "test", "pruebas", "temperaturas",
+      "fps", "monitor", "gpu", "cpu", "ram", "stress test"
+    ],
+    "url": "herramientas.html"
+  },
+  {
+    "title": "Dev Tools",
+    "category": "Herramientas",
+    "type": "Desarrollo",
+    "keywords": [
+      "dev tools", "desarrollo", "programacion", "ide",
+      "vscode", "git", "node", "npm", "terminal", "herramientas"
+    ],
+    "url": "herramientas.html"
+  },
+
+  {
+    "title": "Mods",
+    "category": "Juegos",
+    "type": "Mods",
+    "keywords": [
+      "mods", "mod", "modding", "skins", "packs",
+      "mejoras", "comunidad", "config"
+    ],
+    "url": "juegos.html"
+  },
+  {
+    "title": "Fixes y parches",
+    "category": "Juegos",
+    "type": "Fixes",
+    "keywords": [
+      "fix", "fixes", "parches", "patch", "error",
+      "crash", "bugs", "solucion", "compatibilidad"
+    ],
+    "url": "juegos.html"
+  },
+  {
+    "title": "Configuraciones",
+    "category": "Juegos",
+    "type": "Settings",
+    "keywords": [
+      "configuracion", "settings", "ajustes", "rendimiento",
+      "fps", "graficos", "sensibilidad", "fov"
+    ],
+    "url": "juegos.html"
+  },
+
+  {
+    "title": "Rutas de aprendizaje",
+    "category": "Cursos",
+    "type": "Rutas",
+    "keywords": [
+      "cursos", "ruta", "roadmap", "aprendizaje", "plan",
+      "desde cero", "progreso", "nivel"
+    ],
+    "url": "cursos.html"
+  },
+  {
+    "title": "Frontend",
+    "category": "Cursos",
+    "type": "Frontend",
+    "keywords": [
+      "frontend", "html", "css", "javascript", "react",
+      "web", "ui", "ux", "interfaces"
+    ],
+    "url": "cursos.html"
+  },
+  {
+    "title": "Backend",
+    "category": "Cursos",
+    "type": "Backend",
+    "keywords": [
+      "backend", "api", "servidor", "node", "express",
+      "python", "django", "bases de datos", "sql"
+    ],
+    "url": "cursos.html"
+  },
+  {
+    "title": "Game Dev (Cursos)",
+    "category": "Cursos",
+    "type": "Game Dev",
+    "keywords": [
+      "game dev", "gamedev", "unity", "unreal", "godot",
+      "csharp", "design", "desarrollo", "videojuegos"
+    ],
+    "url": "cursos.html"
+  }
+]

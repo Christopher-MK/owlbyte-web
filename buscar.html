@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buscar | OwlByte</title>
+
+  <!-- Fonts + Icons (opcional, pero mantiene el estilo si los usas en otras páginas) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- Header (opcional). Si tienes header común en todas tus páginas, puedes copiarlo aquí también.
+     Si no lo necesitas, puedes borrarlo. -->
+
+<main class="resources-section" style="padding-top:180px">
+  <div class="container">
+
+    <div class="section-header">
+      <h1 class="section-title">Resultados de búsqueda</h1>
+      <p id="queryText" class="section-subtitle"></p>
+    </div>
+
+    <!-- Input -->
+    <div style="max-width:600px;margin:0 auto 30px;">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Buscar por nombre, categoría o palabras clave…"
+        autocomplete="off"
+        style="
+          width:100%;
+          padding:16px 20px;
+          border-radius:12px;
+          border:1px solid rgba(45,156,245,.3);
+          background:rgba(255,255,255,.05);
+          color:#fff;
+          font-size:1rem;
+        "
+      />
+      <p id="status" style="display:none;margin-top:12px;opacity:.8;"></p>
+    </div>
+
+    <!-- Resultados -->
+    <div id="results" class="resources-grid"></div>
+
+  </div>
+</main>
+
+<script>
+  const normalize = (str) =>
+    (str || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+  // Lee ?q= de la URL
+  const params = new URLSearchParams(window.location.search);
+  const qParam = params.get("q") || "";
+
+  const queryText = document.getElementById("queryText");
+  const searchInput = document.getElementById("searchInput");
+  const resultsEl = document.getElementById("results");
+  const statusEl = document.getElementById("status");
+
+  searchInput.value = qParam;
+  queryText.textContent = qParam ? `Buscando: "${qParam}"` : "Escribe algo para buscar.";
+
+  async function loadIndex() {
+    const res = await fetch("assets/data/search-index.json");
+    if (!res.ok) throw new Error("No se pudo cargar assets/data/search-index.json");
+    return res.json();
+  }
+
+  function buildHaystack(item) {
+    return normalize([
+      item.title,
+      item.category,
+      item.type,
+      ...(item.keywords || [])
+    ].join(" "));
+  }
+
+  // Ranking simple:
+  // - Match en title: +3
+  // - Match en category/type: +2
+  // - Match en keywords: +1
+  function scoreItem(item, tokens) {
+    const title = normalize(item.title || "");
+    const cat = normalize(item.category || "");
+    const type = normalize(item.type || "");
+    const kws = normalize((item.keywords || []).join(" "));
+
+    let score = 0;
+    for (const t of tokens) {
+      if (title.includes(t)) score += 3;
+      else if (cat.includes(t) || type.includes(t)) score += 2;
+      else if (kws.includes(t)) score += 1;
+    }
+    return score;
+  }
+
+  // AND search: todas las palabras deben coincidir en el haystack
+  function filterIndex(index, q) {
+    const tokens = normalize(q).split(/\s+/).filter(Boolean);
+    if (!tokens.length) return [];
+
+    const results = [];
+
+    for (const item of index) {
+      const hay = buildHaystack(item);
+
+      // Deben coincidir todas las palabras
+      const ok = tokens.every(t => hay.includes(t));
+      if (!ok) continue;
+
+      results.push({
+        item,
+        score: scoreItem(item, tokens)
+      });
+    }
+
+    // Ordena por score (desc) y luego por title (asc)
+    results.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return (a.item.title || "").localeCompare(b.item.title || "");
+    });
+
+    return results.map(r => r.item);
+  }
+
+  function render(items) {
+    resultsEl.innerHTML = "";
+
+    if (!items.length) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "No se encontraron resultados.";
+      return;
+    }
+
+    statusEl.style.display = "block";
+    statusEl.textContent = `Resultados: ${items.length}`;
+
+    items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "resource-card-alt";
+
+      const meta = [item.category, item.type].filter(Boolean).join(" • ");
+
+      card.innerHTML = `
+        <div class="resource-content">
+          <h3 class="resource-title">${item.title || "Sin título"}</h3>
+          ${meta ? `<p style="opacity:.8;margin:8px 0 0;">${meta}</p>` : ""}
+          <ul class="footer-links-alt" style="margin-top:12px;">
+            <li><a href="${item.url || '#'}">Abrir</a></li>
+          </ul>
+        </div>
+      `;
+
+      resultsEl.appendChild(card);
+    });
+  }
+
+  (async () => {
+    let index = [];
+    try {
+      index = await loadIndex();
+    } catch (err) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Error cargando el índice de búsqueda. Revisa la consola.";
+      console.error(err);
+      return;
+    }
+
+    function doSearch() {
+      const q = searchInput.value.trim();
+
+      // Actualiza URL sin recargar
+      const newUrl = q ? `buscar.html?q=${encodeURIComponent(q)}` : "buscar.html";
+      window.history.replaceState({}, "", newUrl);
+
+      queryText.textContent = q ? `Buscando: "${q}"` : "Escribe algo para buscar.";
+
+      const items = filterIndex(index, q);
+      render(items);
+    }
+
+    searchInput.addEventListener("input", doSearch);
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        doSearch();
+        searchInput.blur();
+      }
+    });
+
+    doSearch();
+  })();
+</script>
+
+</body>
+</html>

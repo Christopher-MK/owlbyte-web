@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorar Recursos | OwlByte</title>
+
+  <!-- Fonts + Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="container header-content">
+
+    <a href="index.html" class="logo-container">
+      <div class="logo-icon">OB</div>
+      <div>
+        <div class="logo-text">OLWBYTE</div>
+        <div class="logo-tagline">Recursos Gaming & Tech</div>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+        <li class="nav-item active"><a href="recursos.html" class="nav-link"><i class="fas fa-layer-group"></i> Recursos</a></li>
+        <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-video"></i> Tutoriales</a></li>
+        <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+        <li class="nav-item"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+      </ul>
+
+      <div class="nav-buttons">
+        <a href="recursos.html" class="btn-search"><i class="fas fa-search"></i><span>Buscar</span></a>
+        <a href="#" class="btn-login"><i class="fas fa-user"></i><span>Acceder</span></a>
+        <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="resources-section" style="padding-top:180px">
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header">
+      <h1 class="section-title">Explorar Recursos</h1>
+      <p class="section-subtitle">
+        Encuentra descargas, guías, tutoriales, herramientas y cursos organizados por categoría.
+      </p>
+    </div>
+
+    <!-- Buscador -->
+<div style="max-width:600px;margin:0 auto 50px;">
+  <input
+    id="resourceSearch"
+    type="text"
+    placeholder="Buscar recursos por nombre, tema o tipo…"
+    autocomplete="off"
+    style="
+      width:100%;
+      padding:16px 20px;
+      border-radius:12px;
+      border:1px solid rgba(45,156,245,.3);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      font-size:1rem;
+    "
+  />
+  <p id="noResults" style="display:none;margin-top:12px;opacity:.8;">
+    No se encontraron resultados.
+  </p>
+</div>
+
+
+    <!-- Categorías (Acordeón) -->
+    <div class="resources-grid">
+
+      <!-- Descargas -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-download"></i> Descargas
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="descargas.html">Optimización / FPS Boost</a></li>
+            <li><a href="descargas.html">Drivers & Tweaks</a></li>
+            <li><a href="descargas.html">Programas esenciales</a></li>
+            <li><a href="descargas.html">Packs y utilidades</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PDFs -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-file-pdf"></i> PDFs / Guías
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="pdf.html">Guías de rendimiento</a></li>
+            <li><a href="pdf.html">Desarrollo de videojuegos</a></li>
+            <li><a href="pdf.html">Shaders y gráficos</a></li>
+            <li><a href="pdf.html">Cheat sheets</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tutoriales -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-video"></i> Tutoriales
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="tutoriales.html">Gaming & rendimiento</a></li>
+            <li><a href="tutoriales.html">Programación</a></li>
+            <li><a href="tutoriales.html">Game Dev</a></li>
+            <li><a href="tutoriales.html">Herramientas</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Herramientas -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-tools"></i> Herramientas
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="herramientas.html">Optimizadores</a></li>
+            <li><a href="herramientas.html">Diagnóstico / Benchmarks</a></li>
+            <li><a href="herramientas.html">Dev Tools</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Juegos -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-gamepad"></i> Juegos
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="juegos.html">Mods</a></li>
+            <li><a href="juegos.html">Fixes y parches</a></li>
+            <li><a href="juegos.html">Configuraciones</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cursos -->
+      <div class="resource-card-alt">
+        <div class="resource-content">
+          <h3 class="resource-title">
+            <i class="fas fa-graduation-cap"></i> Cursos
+          </h3>
+          <ul class="footer-links-alt">
+            <li><a href="cursos.html">Rutas de aprendizaje</a></li>
+            <li><a href="cursos.html">Frontend</a></li>
+            <li><a href="cursos.html">Backend</a></li>
+            <li><a href="cursos.html">Game Dev</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- JS global -->
+<script src="assets/js/app.js" defer></script>
+
+</body>
+</html>
