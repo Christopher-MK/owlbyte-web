@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OlwByte | Herramientas</title>
+  <meta name="description" content="Herramientas útiles para gaming y desarrollo: optimización, diagnóstico y utilidades." />
+  <link rel="canonical" href="https://owlbyte.me/herramientas.html" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0d0d1a" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-dark:#0d0d1a; --secondary-dark:#151526;
+      --accent-blue:#2d9cf5; --accent-purple:#9b5de5; --accent-pink:#f15bb5;
+      --light-text:#f0f0f5; --medium-text:#a0a0c0;
+      --card-bg: rgba(21,21,38,.8); --card-border: rgba(45,156,245,.15);
+      --font-main:"Montserrat",sans-serif; --font-gaming:"Orbitron",monospace;
+      --gradient-primary: linear-gradient(135deg,var(--accent-blue),var(--accent-purple));
+      --gradient-secondary: linear-gradient(135deg,var(--accent-purple),var(--accent-pink));
+      --shadow: 0 15px 30px rgba(0,0,0,.30);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font-main);
+      background:var(--primary-dark);
+      color:var(--light-text);
+      line-height:1.6;
+      overflow-x:hidden;
+      position:relative;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(45,156,245,.05) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(155,93,229,.05) 0%, transparent 25%);
+      z-index:-1;
+    }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--secondary-dark);color:var(--light-text);padding:10px 14px;border-radius:8px;z-index:9999;border:1px solid rgba(45,156,245,.35)}
+    .skip-link:focus{left:12px;top:12px}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(45,156,245,.7);outline-offset:3px;border-radius:10px}
+    .container{width:90%;max-width:1200px;margin:0 auto;padding:0 15px}
+
+    .main-header{background-color: rgba(13,13,26,.95);padding:16px 0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid rgba(45,156,245,.2);backdrop-filter: blur(10px)}
+    .header-content{display:flex;justify-content:space-between;align-items:center;position:relative}
+    .logo-container{display:flex;align-items:center;text-decoration:none;color:inherit}
+    .logo-icon{width:50px;height:50px;background:var(--gradient-primary);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:15px;font-size:1.2rem;color:#fff;font-family:var(--font-gaming);font-weight:700;letter-spacing:1px;user-select:none}
+    .logo-text{font-family:var(--font-gaming);font-size:1.65rem;font-weight:700;background:var(--gradient-primary);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px;line-height:1.1}
+    .logo-tagline{font-size:.78rem;color:var(--medium-text);letter-spacing:1.4px;text-transform:uppercase;margin-top:2px}
+
+    .main-nav{display:flex;align-items:center;gap:18px}
+    .nav-list{display:flex;list-style:none;gap:18px;align-items:center}
+    .nav-item{position:relative}
+    .nav-link{color:var(--light-text);text-decoration:none;font-weight:500;padding:8px 0;transition:color .2s ease;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+    .nav-link:hover{color:var(--accent-blue)}
+    .nav-item.active .nav-link{color:var(--accent-blue)}
+    .nav-item.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;height:2px;background:var(--gradient-primary);border-radius:2px}
+
+    .nav-buttons{display:flex;align-items:center;gap:10px}
+    .btn-login,.btn-search{background:rgba(45,156,245,.1);border:1px solid rgba(45,156,245,.3);color:var(--light-text);padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600;transition:transform .2s ease, background .2s ease;display:inline-flex;align-items:center;gap:8px}
+    .btn-login:hover,.btn-search:hover{background:rgba(45,156,245,.2);transform:translateY(-2px)}
+    .mobile-toggle{display:none;background:rgba(45,156,245,.1);border:1px solid rgba(45,156,245,.3);color:var(--light-text);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:1.2rem;transition:transform .2s ease, background .2s ease}
+    .mobile-toggle:hover{background:rgba(45,156,245,.2);transform:translateY(-2px)}
+
+    .page{padding:160px 0 80px}
+    .page-title{font-family:var(--font-gaming);font-size:2.4rem;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+    .page-subtitle{color:var(--medium-text);max-width:760px}
+    .grid{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+    .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:var(--accent-blue)}
+    .card-head{height:150px;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center}
+    .card-head i{font-size:3rem;background:var(--gradient-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .card-body{padding:18px}
+    .card-title{font-size:1.18rem;font-weight:800;margin-bottom:8px}
+    .card-desc{color:var(--medium-text);font-size:.95rem}
+    .meta{margin-top:12px;color:var(--medium-text);font-size:.85rem;display:flex;gap:12px;flex-wrap:wrap}
+    .cta{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--accent-blue);text-decoration:none;font-weight:800}
+    .cta:hover{color:var(--accent-purple)}
+
+    @media (max-width: 992px){
+      .nav-list{display:none}
+      .mobile-toggle{display:inline-flex}
+      .nav-list.mobile{
+        display:none;position:absolute;top:calc(100% + 10px);right:0;width:260px;
+        background-color:rgba(13,13,26,.98);
+        border:1px solid rgba(45,156,245,.2);
+        border-radius:12px;padding:14px;flex-direction:column;gap:10px;
+        box-shadow:0 18px 35px rgba(0,0,0,.35);
+      }
+      .nav-list.mobile.open{display:flex}
+      .nav-item.active::after{display:none}
+      .nav-link{padding:10px 8px}
+      .btn-search span,.btn-login span{display:none}
+      .btn-search,.btn-login{padding:8px 12px}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="main-header" role="banner">
+    <div class="container header-content">
+      <a class="logo-container" href="index.html" aria-label="Ir al inicio de OlwByte">
+        <div class="logo-icon" aria-hidden="true">OB</div>
+        <div>
+          <div class="logo-text">OlwByte</div>
+          <div class="logo-tagline">Recursos Gaming &amp; Tech</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-list" id="nav-desktop">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+          <li class="nav-item active"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+          <button class="btn-search" type="button" aria-label="Buscar"><i class="fas fa-search"></i> <span>Buscar</span></button>
+          <button class="btn-login" type="button" aria-label="Acceder"><i class="fas fa-user"></i> <span>Acceder</span></button>
+          <button class="mobile-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-mobile" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <ul class="nav-list mobile" id="nav-mobile">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+          <li class="nav-item active"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="page" role="main">
+    <div class="container">
+      <h1 class="page-title"><i class="fas fa-tools"></i> Herramientas</h1>
+      <p class="page-subtitle">Utilidades para optimización, diagnóstico y creación de contenido.</p>
+
+      <section class="grid" aria-label="Listado de herramientas">
+        <article class="card">
+          <div class="card-head"><i class="fas fa-gauge-high"></i></div>
+          <div class="card-body">
+            <div class="card-title">Benchmark & FPS Tools</div>
+            <div class="card-desc">Medición de FPS, latencia y rendimiento general.</div>
+            <div class="meta">
+              <span><i class="fas fa-tag"></i> Rendimiento</span>
+              <span><i class="fas fa-desktop"></i> PC</span>
+            </div>
+            <a class="cta" href="#"><i class="fas fa-arrow-right"></i> Ver herramientas</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><i class="fas fa-fan"></i></div>
+          <div class="card-body">
+            <div class="card-title">Monitoreo de Temperaturas</div>
+            <div class="card-desc">Control de CPU/GPU, alertas y perfiles.</div>
+            <div class="meta">
+              <span><i class="fas fa-tag"></i> Diagnóstico</span>
+              <span><i class="fas fa-microchip"></i> Hardware</span>
+            </div>
+            <a class="cta" href="#"><i class="fas fa-arrow-right"></i> Ver herramientas</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><i class="fas fa-stream"></i></div>
+          <div class="card-body">
+            <div class="card-title">Tools para Streaming</div>
+            <div class="card-desc">Plugins, overlays y configuraciones base.</div>
+            <div class="meta">
+              <span><i class="fas fa-tag"></i> Streaming</span>
+              <span><i class="fas fa-video"></i> Creator</span>
+            </div>
+            <a class="cta" href="#"><i class="fas fa-arrow-right"></i> Ver herramientas</a>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navMobile = document.getElementById("nav-mobile");
+
+      const setMenuState = (open) => {
+        navMobile.classList.toggle("open", open);
+        mobileToggle.setAttribute("aria-expanded", String(open));
+        mobileToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      };
+
+      mobileToggle.addEventListener("click", () => {
+        setMenuState(!navMobile.classList.contains("open"));
+      });
+
+      navMobile.addEventListener("click", (e) => {
+        const link = e.target.closest("a.nav-link");
+        if (!link) return;
+        setMenuState(false);
+      });
+
+      document.addEventListener("click", (e) => {
+        const isMobile = window.matchMedia("(max-width: 992px)").matches;
+        if (!isMobile) return;
+        if (!navMobile.classList.contains("open")) return;
+        const clickedInsideNav = e.target.closest(".main-nav");
+        if (!clickedInsideNav) setMenuState(false);
+      });
+    });
+  </script>
+</body>
+</html>
