@@ -5,424 +5,257 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OwlByte | Recursos Gaming, Tutoriales y Descargas</title>
 
-  <!-- Icons + Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tu CSS principal -->
   <link rel="stylesheet" href="assets/css/styles.css">
-
-  <!-- ✅ Sidebar CSS (solo esto es nuevo) -->
-  <style>
-    /* ===== Sidebar OwlByte ===== */
-    .sidebar{
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 260px;
-      background: rgba(10, 15, 30, 0.92);
-      backdrop-filter: blur(10px);
-      border-right: 1px solid rgba(255,255,255,0.08);
-      padding: 14px 12px;
-      z-index: 999;
-      transition: width .25s ease, transform .25s ease;
-    }
-
-    .sidebar.collapsed{
-      width: 78px;
-    }
-
-    .sidebar-toggle{
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      margin: 4px 6px 10px;
-    }
-
-    .sidebar-brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #fff;
-      padding: 10px 8px 14px;
-    }
-
-    .sidebar-logo{
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: .5px;
-      background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(59,130,246,.85));
-    }
-
-    .sidebar-brand-text{ line-height: 1.1; }
-    .sidebar-title{ font-weight: 800; }
-    .sidebar-subtitle{ font-size: 12px; opacity: .75; margin-top: 3px; }
-
-    .sidebar.collapsed .sidebar-brand-text{ display:none; }
-
-    .sidebar-nav{
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .s-item{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: rgba(255,255,255,0.82);
-      transition: background .2s ease, color .2s ease, transform .2s ease;
-    }
-
-    .s-item i{
-      width: 26px;
-      text-align: center;
-      font-size: 16px;
-    }
-
-    .s-item:hover{
-      background: rgba(255,255,255,0.07);
-      color: #fff;
-      transform: translateX(2px);
-    }
-
-    .s-item.active{
-      background: rgba(124,58,237,0.16);
-      border: 1px solid rgba(124,58,237,0.25);
-      color: #fff;
-    }
-
-    .sidebar.collapsed .s-item{
-      justify-content: center;
-    }
-    .sidebar.collapsed .s-item span{ display:none; }
-
-    /* Overlay cuando se abre */
-    .sidebar-overlay{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s ease;
-      z-index: 998;
-    }
-    .sidebar-overlay.show{
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Empuje de la página */
-    .page{
-      margin-left: 78px;
-      transition: margin-left .25s ease;
-    }
-    .sidebar:not(.collapsed) ~ .page{
-      margin-left: 260px;
-    }
-
-    /* En móvil: sidebar deslizable */
-    @media (max-width: 900px){
-      .sidebar{
-        transform: translateX(-100%);
-        width: 260px;
-      }
-      .sidebar.open{
-        transform: translateX(0);
-      }
-      .page{ margin-left: 0 !important; }
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- ✅ Overlay + Sidebar (NUEVO) -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-  <aside class="sidebar collapsed" id="sidebar">
-    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <a class="sidebar-brand" href="index.html">
-      <div class="sidebar-logo">OB</div>
-      <div class="sidebar-brand-text">
-        <div class="sidebar-title">OwlByte</div>
-        <div class="sidebar-subtitle">Recursos Gaming & Tech</div>
-      </div>
-    </a>
-
-    <nav class="sidebar-nav">
-      <a class="s-item active" href="index.html"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a class="s-item" href="descargas.html"><i class="fas fa-download"></i><span>Descargas</span></a>
-      <a class="s-item" href="tutoriales.html"><i class="fas fa-book-open"></i><span>Tutoriales</span></a>
-      <a class="s-item" href="juegos.html"><i class="fas fa-gamepad"></i><span>Juegos</span></a>
-      <a class="s-item" href="cursos.html"><i class="fas fa-graduation-cap"></i><span>Cursos</span></a>
-      <a class="s-item" href="herramientas.html"><i class="fas fa-tools"></i><span>Herramientas</span></a>
-    </nav>
-  </aside>
-
-  <!-- ✅ TODO tu sitio va dentro de .page (para que se “empuje” con el sidebar) -->
-  <div class="page" id="page">
-
-    <!-- Header (sin el nav de arriba) -->
-    <header class="main-header">
-      <div class="container header-content">
-        <div class="logo-container">
-          <div class="logo-icon">OB</div>
-          <div>
-            <div class="logo-text">OwlByte</div>
-            <div class="logo-tagline">Recursos Gaming & Tech</div>
-          </div>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-content">
+      <div class="logo-container">
+        <div class="logo-icon">OB</div>
+        <div>
+          <div class="logo-text">OwlByte</div>
+          <div class="logo-tagline">Recursos Gaming & Tech</div>
         </div>
       </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">El Hub Definitivo para <span>Gamers y Developers</span></h1>
-          <p class="hero-subtitle">
-            Accede a recursos, tutoriales, herramientas y descargas exclusivas.
-            Optimiza tu experiencia gaming y mejora tus proyectos.
-          </p>
+      <!-- NAV ÚNICO (desktop + mobile) -->
+      <nav class="main-nav">
+        <ul class="nav-list" id="nav-desktop">
+          <li class="nav-item active"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+          <li class="nav-item"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+        </ul>
 
-          <div class="hero-buttons">
-            <a href="recursos.html" class="btn-primary"><i class="fas fa-rocket"></i> Explorar Recursos</a>
-            <a href="tutoriales.html" class="btn-secondary"><i class="fas fa-play-circle"></i> Ver Tutoriales</a>
-          </div>
+        <div class="nav-buttons">
+          <button class="btn-search" type="button"><i class="fas fa-search"></i> <span>Buscar</span></button>
+          <button class="btn-login" type="button"><i class="fas fa-user"></i> <span>Acceder</span></button>
+          <button class="mobile-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-mobile" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
 
-        <div class="hero-visual">
-          <div class="visual-container">
-            <div class="hexagon-grid">
-              <a class="hexagon" href="pdf.html">
-                <i class="fas fa-file-pdf"></i>
-                <span>PDFs</span>
-              </a>
-              <a class="hexagon" href="descargas.html">
-                <i class="fas fa-download"></i>
-                <span>Descargas</span>
-              </a>
-              <a class="hexagon" href="juegos.html">
-                <i class="fas fa-gamepad"></i>
-                <span>Juegos</span>
-              </a>
-              <a class="hexagon" href="herramientas.html">
-                <i class="fas fa-tools"></i>
-                <span>Herramientas</span>
-              </a>
-              <a class="hexagon" href="tutoriales.html">
-                <i class="fas fa-video"></i>
-                <span>Tutoriales</span>
-              </a>
-              <a class="hexagon" href="cursos.html">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Cursos</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <!-- Menú móvil -->
+        <ul class="nav-list mobile" id="nav-mobile">
+          <li class="nav-item active"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+          <li class="nav-item"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools"></i> Herramientas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      </div>
-    </section>
-
-    <!-- Recursos -->
-    <section class="resources-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Recursos Destacados</h2>
-          <p class="section-subtitle">Contenido popular seleccionado por la comunidad</p>
-        </div>
-
-        <div class="resource-tabs">
-          <button class="tab-btn active"><i class="fas fa-star"></i> Destacados</button>
-          <button class="tab-btn"><i class="fas fa-download"></i> Más Descargados</button>
-          <button class="tab-btn"><i class="fas fa-gamepad"></i> Gaming</button>
-          <button class="tab-btn"><i class="fas fa-code"></i> Desarrollo</button>
-          <button class="tab-btn"><i class="fas fa-wrench"></i> Herramientas</button>
-        </div>
-
-        <div class="resources-grid">
-          <div class="resource-card-alt">
-            <div class="resource-badge">Nuevo</div>
-            <div class="resource-header">
-              <div class="resource-icon"><i class="fas fa-cogs"></i></div>
-            </div>
-            <div class="resource-content">
-              <h3 class="resource-title">Optimizador Gaming Pro 2024</h3>
-              <p class="resource-description">
-                Suite de herramientas para optimizar Windows y rendimiento gaming.
-              </p>
-              <div class="resource-meta">
-                <span><i class="fas fa-hdd"></i> 85 MB</span>
-                <span><i class="fas fa-download"></i> 3,245</span>
-                <span><i class="fas fa-calendar"></i> Mar 2024</span>
-              </div>
-              <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar ahora</a>
-            </div>
-          </div>
-
-          <div class="resource-card-alt">
-            <div class="resource-badge">Premium</div>
-            <div class="resource-header">
-              <div class="resource-icon"><i class="fas fa-book"></i></div>
-            </div>
-            <div class="resource-content">
-              <h3 class="resource-title">Guía Completa de Shaders</h3>
-              <p class="resource-description">
-                Manual avanzado sobre shaders, optimización y técnicas gráficas.
-              </p>
-              <div class="resource-meta">
-                <span><i class="far fa-file-pdf"></i> PDF</span>
-                <span><i class="fas fa-download"></i> 1,879</span>
-                <span><i class="fas fa-calendar"></i> Feb 2024</span>
-              </div>
-              <a href="pdf.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar PDF</a>
-            </div>
-          </div>
-
-          <div class="resource-card-alt">
-            <div class="resource-header">
-              <div class="resource-icon"><i class="fas fa-code-branch"></i></div>
-            </div>
-            <div class="resource-content">
-              <h3 class="resource-title">Scripts de Automatización</h3>
-              <p class="resource-description">
-                Colección de scripts para automatizar tareas comunes.
-              </p>
-              <div class="resource-meta">
-                <span><i class="fab fa-python"></i> Python</span>
-                <span><i class="fas fa-download"></i> 2,541</span>
-                <span><i class="fas fa-calendar"></i> Ene 2024</span>
-              </div>
-              <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar scripts</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-container">
-        <h2 class="cta-title">No te pierdas los nuevos recursos</h2>
-        <p class="cta-text">
-          Suscríbete para recibir notificaciones sobre nuevos tutoriales, herramientas y descargas.
-          Sin spam: solo lo mejor.
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">El Hub Definitivo para <span>Gamers y Developers</span></h1>
+        <p class="hero-subtitle">
+          Accede a recursos, tutoriales, herramientas y descargas exclusivas.
+          Optimiza tu experiencia gaming y mejora tus proyectos.
         </p>
 
-        <form class="cta-form">
-          <input type="email" class="email-input" placeholder="Tu correo electrónico" required>
-          <button type="submit" class="submit-btn">Suscribirse</button>
-        </form>
-
-        <p class="section-subtitle">Únete a miles de usuarios que ya aprovechan nuestros recursos</p>
+        <div class="hero-buttons">
+          <a href="recursos.html" class="btn-primary"><i class="fas fa-rocket"></i> Explorar Recursos</a>
+          <a href="tutoriales.html" class="btn-secondary"><i class="fas fa-play-circle"></i> Ver Tutoriales</a>
+        </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h3>OwlByte</h3>
-            <p>Plataforma de recursos gaming, desarrollo y tecnología. Contenido útil para mejorar tu rendimiento y proyectos.</p>
-            <div class="social-links">
-              <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+      <div class="hero-visual">
+        <div class="visual-container">
+          <div class="hexagon-grid">
+            <a class="hexagon" href="pdf.html">
+              <i class="fas fa-file-pdf"></i>
+              <span>PDFs</span>
+            </a>
+            <a class="hexagon" href="descargas.html">
+              <i class="fas fa-download"></i>
+              <span>Descargas</span>
+            </a>
+            <a class="hexagon" href="juegos.html">
+              <i class="fas fa-gamepad"></i>
+              <span>Juegos</span>
+            </a>
+            <a class="hexagon" href="herramientas.html">
+              <i class="fas fa-tools"></i>
+              <span>Herramientas</span>
+            </a>
+            <a class="hexagon" href="tutoriales.html">
+              <i class="fas fa-video"></i>
+              <span>Tutoriales</span>
+            </a>
+            <a class="hexagon" href="cursos.html">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Cursos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Recursos -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Recursos Destacados</h2>
+        <p class="section-subtitle">Contenido popular seleccionado por la comunidad</p>
+      </div>
+
+      <div class="resource-tabs">
+        <button class="tab-btn active"><i class="fas fa-star"></i> Destacados</button>
+        <button class="tab-btn"><i class="fas fa-download"></i> Más Descargados</button>
+        <button class="tab-btn"><i class="fas fa-gamepad"></i> Gaming</button>
+        <button class="tab-btn"><i class="fas fa-code"></i> Desarrollo</button>
+        <button class="tab-btn"><i class="fas fa-wrench"></i> Herramientas</button>
+      </div>
+
+      <div class="resources-grid">
+        <div class="resource-card-alt">
+          <div class="resource-badge">Nuevo</div>
+          <div class="resource-header">
+            <div class="resource-icon"><i class="fas fa-cogs"></i></div>
+          </div>
+          <div class="resource-content">
+            <h3 class="resource-title">Optimizador Gaming Pro 2024</h3>
+            <p class="resource-description">
+              Suite de herramientas para optimizar Windows y rendimiento gaming.
+            </p>
+            <div class="resource-meta">
+              <span><i class="fas fa-hdd"></i> 85 MB</span>
+              <span><i class="fas fa-download"></i> 3,245</span>
+              <span><i class="fas fa-calendar"></i> Mar 2024</span>
             </div>
-          </div>
-
-          <div class="footer-col">
-            <h3>Recursos</h3>
-            <ul class="footer-links-alt">
-              <li><a href="descargas.html"><i class="fas fa-chevron-right"></i> Descargas</a></li>
-              <li><a href="tutoriales.html"><i class="fas fa-chevron-right"></i> Tutoriales</a></li>
-              <li><a href="pdf.html"><i class="fas fa-chevron-right"></i> Guías PDF</a></li>
-              <li><a href="herramientas.html"><i class="fas fa-chevron-right"></i> Herramientas</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h3>Comunidad</h3>
-            <ul class="footer-links-alt">
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Foros</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Ranking</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Contribuir</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h3>Soporte</h3>
-            <ul class="footer-links-alt">
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Centro de ayuda</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Reportar problema</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Privacidad</a></li>
-              <li><a href="#"><i class="fas fa-chevron-right"></i> Términos</a></li>
-            </ul>
+            <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar ahora</a>
           </div>
         </div>
 
-        <div class="copyright-bar">
-          <p>&copy; 2026 OwlByte. Todos los derechos reservados.</p>
+        <div class="resource-card-alt">
+          <div class="resource-badge">Premium</div>
+          <div class="resource-header">
+            <div class="resource-icon"><i class="fas fa-book"></i></div>
+          </div>
+          <div class="resource-content">
+            <h3 class="resource-title">Guía Completa de Shaders</h3>
+            <p class="resource-description">
+              Manual avanzado sobre shaders, optimización y técnicas gráficas.
+            </p>
+            <div class="resource-meta">
+              <span><i class="far fa-file-pdf"></i> PDF</span>
+              <span><i class="fas fa-download"></i> 1,879</span>
+              <span><i class="fas fa-calendar"></i> Feb 2024</span>
+            </div>
+            <a href="pdf.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar PDF</a>
+          </div>
+        </div>
+
+        <div class="resource-card-alt">
+          <div class="resource-header">
+            <div class="resource-icon"><i class="fas fa-code-branch"></i></div>
+          </div>
+          <div class="resource-content">
+            <h3 class="resource-title">Scripts de Automatización</h3>
+            <p class="resource-description">
+              Colección de scripts para automatizar tareas comunes.
+            </p>
+            <div class="resource-meta">
+              <span><i class="fab fa-python"></i> Python</span>
+              <span><i class="fas fa-download"></i> 2,541</span>
+              <span><i class="fas fa-calendar"></i> Ene 2024</span>
+            </div>
+            <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down"></i> Descargar scripts</a>
+          </div>
         </div>
       </div>
-    </footer>
 
-    <script src="assets/js/app.js" defer></script>
-  </div>
+    </div>
+  </section>
 
-  <!-- ✅ Sidebar JS (NUEVO) -->
-  <script>
-    const sidebar = document.getElementById('sidebar');
-    const toggle = document.getElementById('sidebarToggle');
-    const overlay = document.getElementById('sidebarOverlay');
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-container">
+      <h2 class="cta-title">No te pierdas los nuevos recursos</h2>
+      <p class="cta-text">
+        Suscríbete para recibir notificaciones sobre nuevos tutoriales, herramientas y descargas.
+        Sin spam: solo lo mejor.
+      </p>
 
-    function isMobile() {
-      return window.matchMedia('(max-width: 900px)').matches;
-    }
+      <form class="cta-form">
+        <input type="email" class="email-input" placeholder="Tu correo electrónico" required>
+        <button type="submit" class="submit-btn">Suscribirse</button>
+      </form>
 
-    // Inicia cerrado en desktop
-    if (!isMobile()) sidebar.classList.add('collapsed');
+      <p class="section-subtitle">Únete a miles de usuarios que ya aprovechan nuestros recursos</p>
+    </div>
+  </section>
 
-    toggle.addEventListener('click', () => {
-      if (isMobile()) {
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle('show');
-      } else {
-        sidebar.classList.toggle('collapsed');
-      }
-    });
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>OwlByte</h3>
+          <p>Plataforma de recursos gaming, desarrollo y tecnología. Contenido útil para mejorar tu rendimiento y proyectos.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
 
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('show');
-    });
-  </script>
+        <div class="footer-col">
+          <h3>Recursos</h3>
+          <ul class="footer-links-alt">
+            <li><a href="descargas.html"><i class="fas fa-chevron-right"></i> Descargas</a></li>
+            <li><a href="tutoriales.html"><i class="fas fa-chevron-right"></i> Tutoriales</a></li>
+            <li><a href="pdf.html"><i class="fas fa-chevron-right"></i> Guías PDF</a></li>
+            <li><a href="herramientas.html"><i class="fas fa-chevron-right"></i> Herramientas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Comunidad</h3>
+          <ul class="footer-links-alt">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Foros</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Ranking</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Contribuir</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Soporte</h3>
+          <ul class="footer-links-alt">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Centro de ayuda</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Reportar problema</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Privacidad</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Términos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright-bar">
+        <p>&copy; 2026 OwlByte. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tu JS -->
+  <script src="assets/js/app.js" defer></script>
 
 </body>
 </html>
