@@ -1,23 +1,29 @@
+OwlByte Gaming - Rediseño Minimalista de Recursos
+
+Voy a crear un diseño completamente nuevo con un enfoque más minimalista y gaming elegante, manteniendo la identidad de OwlByte y centrándome en recursos descargables.
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARCELO | EL GOLEADOR</title>
+    <title>OwlByte | Recursos Premium Gaming</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0d1117;
-            --secondary: #8a2be2;
-            --accent: #00d9ff;
-            --accent-alt: #ff6b9d;
-            --text: #f0f6fc;
-            --text-secondary: #8b949e;
-            --card-bg: rgba(22, 27, 34, 0.8);
+            --primary-dark: #0A0F1C;
+            --primary: #13182B;
+            --secondary: #7B61FF;
+            --accent: #00F7FF;
+            --accent-alt: #FF4D8D;
+            --text: #F5F9FF;
+            --text-secondary: #94A3B8;
+            --card-bg: rgba(19, 24, 43, 0.8);
             --glass-bg: rgba(255, 255, 255, 0.05);
-            --border-radius: 16px;
-            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -27,42 +33,60 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary-dark);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 5% 10%, rgba(138, 43, 226, 0.08) 0%, transparent 20%),
-                radial-gradient(circle at 95% 90%, rgba(0, 217, 255, 0.08) 0%, transparent 20%),
-                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0.1) 2px);
+                radial-gradient(circle at 15% 20%, rgba(123, 97, 255, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 80%, rgba(0, 247, 255, 0.1) 0%, transparent 25%);
+            position: relative;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Orbitron', sans-serif;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.02) 2px, rgba(255, 255, 255, 0.02) 4px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oxanium', sans-serif;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: -0.5px;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header y menú */
+        /* Header minimalista */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 24px 0;
             z-index: 1000;
             transition: var(--transition);
-            background-color: rgba(13, 17, 23, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            background-color: rgba(10, 15, 28, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(123, 97, 255, 0.1);
+        }
+
+        .header-scrolled {
+            padding: 16px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
         }
 
         .header-content {
@@ -72,36 +96,65 @@
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--text);
-            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
 
         .logo-icon {
-            color: var(--accent);
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         .logo-icon::after {
-            content: "◉";
+            content: '';
             position: absolute;
-            top: -3px;
-            right: -3px;
-            font-size: 0.6rem;
-            color: var(--accent-alt);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
         }
 
-        .logo span {
-            color: var(--secondary);
-            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        .logo:hover .logo-icon::after {
+            animation: shine 1s ease;
         }
 
-        /* Menú deslizable */
+        @keyframes shine {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .logo-icon i {
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Menú deslizable minimalista */
         .menu-toggle {
             display: none;
             background: none;
@@ -110,214 +163,183 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
-            padding: 8px;
-            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: var(--glass-bg);
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background: rgba(123, 97, 255, 0.1);
         }
 
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 8px;
+            background: var(--glass-bg);
+            border-radius: 16px;
+            padding: 8px;
+            backdrop-filter: blur(10px);
         }
 
         .nav-menu a {
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
-            padding: 8px 0;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 12px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
             position: relative;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(123, 97, 255, 0.1);
+            color: var(--accent);
+        }
+
+        .nav-menu a.active {
+            background: linear-gradient(135deg, rgba(123, 97, 255, 0.2), rgba(0, 247, 255, 0.1));
+            color: var(--text);
+            box-shadow: 0 4px 20px rgba(123, 97, 255, 0.2);
+        }
+
+        .nav-menu a .nav-badge {
+            background: var(--accent-alt);
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 200px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--secondary), var(--accent-alt));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Oxanium', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Grid de recursos */
+        .resources-section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: var(--glass-bg);
+            border: none;
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .nav-menu a:hover {
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(123, 97, 255, 0.2);
             color: var(--accent);
         }
 
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .nav-menu a.active {
-            color: var(--accent);
-        }
-
-        .nav-menu a .nav-icon {
-            font-size: 1.1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 217, 255, 0.15) 0%, transparent 40%);
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: var(--text-secondary);
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 35px;
-            background: linear-gradient(45deg, var(--secondary), #6a11cb);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
-        }
-
-        .cta-button.secondary {
-            background: linear-gradient(45deg, #00a8cc, var(--accent));
-            box-shadow: 0 8px 20px rgba(0, 217, 255, 0.3);
-        }
-
-        /* Sección de categorías */
-        .categories {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-
-        .section-title p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .category-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--secondary);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-
-        .category-card i {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            color: var(--accent);
-        }
-
-        .category-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .category-card p {
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-        }
-
-        .category-card .count {
-            display: inline-block;
-            background: rgba(138, 43, 226, 0.2);
-            color: var(--accent);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Sección de recursos destacados */
-        .featured-resources {
-            padding: 100px 0;
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
+        /* Grid de tarjetas */
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
 
@@ -327,214 +349,202 @@
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .resource-header {
-            padding: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .resource-header h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .resource-type {
-            display: inline-block;
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--accent);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .resource-content {
-            padding: 25px;
-        }
-
-        .resource-content p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .resource-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .resource-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .resource-author img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: var(--secondary);
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, var(--secondary), #6a11cb);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .download-btn:hover {
-            background: linear-gradient(45deg, #6a11cb, var(--secondary));
-            transform: scale(1.05);
-        }
-
-        /* Sección de descargas */
-        .downloads-section {
-            padding: 100px 0;
-        }
-
-        .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .download-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
             display: flex;
             flex-direction: column;
         }
 
-        .download-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
+        .resource-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(123, 97, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .download-info {
-            flex: 1;
+        .resource-header {
+            padding: 30px 30px 0;
+            position: relative;
         }
 
-        .download-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        .resource-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(123, 97, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .download-info p {
-            color: var(--text-secondary);
+            justify-content: center;
             margin-bottom: 20px;
-            font-size: 0.95rem;
         }
 
-        .download-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 25px;
+        .resource-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .resource-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .resource-content {
+            padding: 0 30px;
+            flex-grow: 1;
+        }
+
+        .resource-description {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
-        .download-size {
-            background: rgba(138, 43, 226, 0.1);
-            color: var(--secondary);
-            padding: 5px 15px;
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .resource-tag {
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
-        .download-action {
+        .resource-footer {
+            padding: 20px 30px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
         }
 
-        /* Footer */
-        footer {
-            padding: 70px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .footer-content {
+        .resource-meta {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 50px;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: var(--accent);
+        .download-btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .footer-col p {
-            color: var(--text-secondary);
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(123, 97, 255, 0.4);
+        }
+
+        /* Sección de descargas */
+        .downloads-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .downloads-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Banner premium */
+        .premium-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--border-radius);
+            padding: 60px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(123, 97, 255, 0.2);
+        }
+
+        .premium-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(123, 97, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 247, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .premium-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .premium-content h2 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
+        .premium-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
         }
 
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--glass-bg);
-            border-radius: 50%;
-            color: var(--text);
-            text-decoration: none;
-            transition: var(--transition);
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 15, 28, 0.8);
         }
 
-        .social-links a:hover {
-            background: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-3px);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            color: var(--accent);
         }
 
         .footer-links {
@@ -542,7 +552,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .footer-links a {
@@ -556,56 +566,77 @@
 
         .footer-links a:hover {
             color: var(--accent);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
 
-        .footer-links a i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .footer-bottom {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             flex-wrap: wrap;
             gap: 20px;
         }
 
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .footer-logo-text {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        .footer-logo-text span {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         /* Responsive */
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1024px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             
-            .nav-menu {
-                gap: 20px;
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
 
         @media screen and (max-width: 768px) {
             .menu-toggle {
-                display: block;
+                display: flex;
             }
 
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 100%;
+                max-width: 320px;
                 height: 100vh;
-                background: rgba(13, 17, 23, 0.98);
-                backdrop-filter: blur(20px);
+                background: rgba(10, 15, 28, 0.98);
+                backdrop-filter: blur(30px);
                 flex-direction: column;
-                padding: 100px 30px 30px;
+                padding: 120px 40px 40px;
+                border-radius: 0;
+                border-left: 1px solid rgba(123, 97, 255, 0.2);
                 transition: var(--transition);
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
                 z-index: 1000;
-                border-left: 1px solid rgba(138, 43, 226, 0.2);
+                box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
             }
 
             .nav-menu.active {
@@ -613,63 +644,79 @@
             }
 
             .nav-menu a {
-                font-size: 1.1rem;
-                padding: 15px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            .nav-menu a:last-child {
-                border-bottom: none;
+                border-radius: 12px;
+                padding: 18px 24px;
+                justify-content: space-between;
             }
 
             .hero {
-                padding: 150px 0 80px;
+                padding: 160px 0 80px;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-                padding: 0 15px;
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 30px;
             }
 
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .copyright {
+            .section-header {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
+                gap: 24px;
+            }
+
+            .section-actions {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .premium-banner {
+                padding: 40px 24px;
+            }
+
+            .footer-grid {
+                gap: 40px;
             }
         }
 
         @media screen and (max-width: 480px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
-            .category-card, .resource-card, .download-card {
-                padding: 30px 20px;
+            .hero-subtitle {
+                font-size: 1rem;
             }
             
-            .footer-content {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resource-card {
+                padding: 0;
+            }
+            
+            .footer-bottom {
                 flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header con menú -->
-    <header>
+    <!-- Header -->
+    <header id="header">
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
                     <div class="logo-icon">
                         <i class="fas fa-owl"></i>
                     </div>
-                    Owl<span>Byte</span>
+                    <div class="logo-text">Owl<span>Byte</span></div>
                 </a>
                 
                 <button class="menu-toggle" id="menuToggle">
@@ -677,231 +724,374 @@
                 </button>
                 
                 <nav class="nav-menu" id="navMenu">
-                    <a href="#inicio" class="active"><i class="fas fa-home nav-icon"></i> Inicio</a>
-                    <a href="#recursos"><i class="fas fa-book nav-icon"></i> Recursos</a>
-                    <a href="#descargas"><i class="fas fa-download nav-icon"></i> Descargas</a>
-                    <a href="#cursos"><i class="fas fa-graduation-cap nav-icon"></i> Cursos</a>
-                    <a href="#comunidad"><i class="fas fa-users nav-icon"></i> Comunidad</a>
+                    <a href="#inicio" class="active">
+                        <span>Inicio</span>
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <a href="#recursos">
+                        <span>Recursos</span>
+                        <i class="fas fa-box-open"></i>
+                    </a>
+                    <a href="#descargas">
+                        <span>Descargas</span>
+                        <span class="nav-badge">24</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                    <a href="#cursos">
+                        <span>Cursos</span>
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="#comunidad">
+                        <span>Comunidad</span>
+                        <i class="fas fa-users"></i>
+                    </a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Sección Hero -->
+    <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="hero-bg"></div>
         <div class="container">
-            <h1>Recursos Gaming en MARCELO</h1>
-            <p>Tu biblioteca definitiva de recursos para gaming: libros, cursos, guías, plantillas y herramientas descargables. Todo lo que necesitas para llevar tus habilidades al siguiente nivel.</p>
-            <a href="#descargas" class="cta-button"><i class="fas fa-download"></i> Explorar Descargas</a>
-        </div>
-    </section>
-
-    <!-- Sección Categorías -->
-    <section class="categories" id="recursos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Categorías de Recursos</h2>
-                <p>Encuentra todo tipo de materiales para mejorar tu experiencia gaming</p>
-            </div>
-            
-            <div class="categories-grid">
-                <div class="category-card">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Libros & Guías</h3>
-                    <p>Ebooks y guías especializadas en estrategias, diseño de juegos y desarrollo.</p>
-                    <div class="count">48 recursos</div>
+            <div class="hero-content">
+                <h1>Recursos Gaming <span>Premium</span></h1>
+                <p class="hero-subtitle">La biblioteca definitiva para desarrolladores y jugadores. Accede a libros especializados, cursos en video, guías prácticas, plantillas profesionales y herramientas exclusivas.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="500">0</div>
+                        <div class="stat-label">Recursos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="120">0</div>
+                        <div class="stat-label">GB de Contenido</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="10">0</div>
+                        <div class="stat-label">Categorías</div>
+                    </div>
                 </div>
                 
-                <div class="category-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Cursos Online</h3>
-                    <p>Video cursos desde nivel principiante hasta avanzado en diferentes áreas gaming.</p>
-                    <div class="count">32 cursos</div>
-                </div>
-                
-                <div class="category-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Plantillas & Assets</h3>
-                    <p>Recursos gráficos, interfaces UI, modelos 3D y más para tus proyectos.</p>
-                    <div class="count">156 assets</div>
-                </div>
-                
-                <div class="category-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Herramientas</h3>
-                    <p>Software, scripts y utilidades para desarrollo y optimización gaming.</p>
-                    <div class="count">24 herramientas</div>
-                </div>
+                <button class="download-btn">
+                    <i class="fas fa-rocket"></i>
+                    Explorar Recursos
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Sección Recursos Destacados -->
-    <section class="featured-resources">
+    <!-- Sección de Recursos -->
+    <section class="resources-section" id="recursos">
         <div class="container">
-            <div class="section-title">
-                <h2>Recursos Destacados</h2>
-                <p>Los materiales más populares y descargados de nuestra comunidad</p>
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>Recursos Destacados</h2>
+                    <p>Los materiales más descargados por nuestra comunidad</p>
+                </div>
+                
+                <div class="section-actions">
+                    <button class="filter-btn active">
+                        <i class="fas fa-th-large"></i>
+                        Todos
+                    </button>
+                    <button class="filter-btn">
+                        <i class="fas fa-book"></i>
+                        Libros
+                    </button>
+                    <button class="filter-btn">
+                        <i class="fas fa-video"></i>
+                        Cursos
+                    </button>
+                    <button class="filter-btn">
+                        <i class="fas fa-palette"></i>
+                        Assets
+                    </button>
+                </div>
             </div>
             
             <div class="resources-grid">
+                <!-- Recurso 1 -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <h3><i class="fas fa-book"></i> Guía de Diseño de Niveles</h3>
-                        <span class="resource-type">PDF + Archivos</span>
-                    </div>
-                    <div class="resource-content">
-                        <p>Guía completa de 120 páginas sobre diseño de niveles para videojuegos, incluye ejemplos prácticos y ejercicios.</p>
-                        <div class="resource-meta">
-                            <div class="resource-author">
-                                <img src="https://i.pravatar.cc/150?img=8" alt="Autor">
-                                <span>Alex Rivera</span>
-                            </div>
-                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        <span class="resource-category">Guía PDF</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-gamepad"></i>
                         </div>
+                        <h3>Diseño de Juegos desde Cero</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">Guía completa de 200 páginas que cubre todos los aspectos del diseño de videojuegos, desde la concepción de la idea hasta el prototipo funcional.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">Game Design</span>
+                            <span class="resource-tag">PDF</span>
+                            <span class="resource-tag">Ilustrado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-download"></i> 2.4K</span>
+                            <span><i class="fas fa-file-pdf"></i> 85 MB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
                 
+                <!-- Recurso 2 -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <h3><i class="fas fa-video"></i> Curso Unity Avanzado</h3>
-                        <span class="resource-type">Videos + Proyectos</span>
-                    </div>
-                    <div class="resource-content">
-                        <p>Curso de 15 horas sobre mecánicas avanzadas en Unity. Incluye 5 proyectos completos con assets.</p>
-                        <div class="resource-meta">
-                            <div class="resource-author">
-                                <img src="https://i.pravatar.cc/150?img=12" alt="Autor">
-                                <span>Maya Chen</span>
-                            </div>
-                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        <span class="resource-category">Curso Video</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-code"></i>
                         </div>
+                        <h3>Unity Avanzado: Shaders y VFX</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">15 horas de contenido avanzado sobre creación de shaders personalizados y efectos visuales profesionales en Unity 2022.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">Unity</span>
+                            <span class="resource-tag">Shaders</span>
+                            <span class="resource-tag">VFX</span>
+                            <span class="resource-tag">C#</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-download"></i> 1.8K</span>
+                            <span><i class="fas fa-hdd"></i> 4.2 GB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
                 
+                <!-- Recurso 3 -->
                 <div class="resource-card">
                     <div class="resource-header">
-                        <h3><i class="fas fa-file-code"></i> Plantillas UI Gaming</h3>
-                        <span class="resource-type">Figma + PSD</span>
-                    </div>
-                    <div class="resource-content">
-                        <p>Pack completo de interfaces de usuario para juegos. Incluye 20 pantallas diferentes y elementos UI.</p>
-                        <div class="resource-meta">
-                            <div class="resource-author">
-                                <img src="https://i.pravatar.cc/150?img=5" alt="Autor">
-                                <span>David Torres</span>
-                            </div>
-                            <a href="#" class="download-btn"><i class="fas fa-download"></i> Descargar</a>
+                        <span class="resource-category">Pack Assets</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-cube"></i>
                         </div>
+                        <h3>Modelos 3D Cyberpunk Pack</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">Colección de 50 modelos 3D de alta calidad con temática cyberpunk, listos para usar en Unity y Unreal Engine.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">3D Models</span>
+                            <span class="resource-tag">Cyberpunk</span>
+                            <span class="resource-tag">FBX/OBJ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-download"></i> 3.2K</span>
+                            <span><i class="fas fa-hdd"></i> 2.1 GB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Descargas -->
+    <!-- Banner Premium -->
+    <section class="premium-banner">
+        <div class="container">
+            <div class="premium-content">
+                <h2>Acceso Premium OwlByte</h2>
+                <p>Desbloquea todos los recursos, descargas ilimitadas y contenido exclusivo. Únete a miles de desarrolladores que ya están acelerando sus proyectos.</p>
+                <button class="download-btn" style="padding: 16px 40px; font-size: 1.1rem;">
+                    <i class="fas fa-crown"></i>
+                    Obtener Acceso Premium
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Descargas -->
     <section class="downloads-section" id="descargas">
         <div class="container">
-            <div class="section-title">
-                <h2><i class="fas fa-download"></i> Descargas Populares</h2>
-                <p>Los recursos más descargados esta semana por nuestra comunidad</p>
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>Descargas Recientes</h2>
+                    <p>Los recursos más recientes agregados a la biblioteca</p>
+                </div>
             </div>
             
             <div class="downloads-grid">
-                <div class="download-card">
-                    <div class="download-info">
-                        <h3><i class="fas fa-cube"></i> Modelos 3D Low Poly</h3>
-                        <p>Pack de 50 modelos 3D low poly para juegos indie. Formatos: FBX, OBJ, Blender.</p>
-                        <div class="download-stats">
-                            <span><i class="fas fa-download"></i> 2,458 descargas</span>
-                            <span class="download-size">850 MB</span>
+                <!-- Recurso 4 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <span class="resource-category">Plantilla UI</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>Kit UI Gaming Dark</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">Kit completo de interfaz de usuario para juegos con temática oscura, incluye más de 100 elementos personalizables.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">UI Kit</span>
+                            <span class="resource-tag">Figma</span>
+                            <span class="resource-tag">Adobe XD</span>
                         </div>
                     </div>
-                    <div class="download-action">
-                        <span><i class="fas fa-star"></i> 4.9/5</span>
-                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-calendar"></i> 2 días</span>
+                            <span><i class="fas fa-hdd"></i> 320 MB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
                 
-                <div class="download-card">
-                    <div class="download-info">
-                        <h3><i class="fas fa-soundcloud"></i> SFX Pack Gaming</h3>
-                        <p>Efectos de sonido para juegos: UI, armas, ambiente, personajes. Más de 300 sonidos.</p>
-                        <div class="download-stats">
-                            <span><i class="fas fa-download"></i> 1,892 descargas</span>
-                            <span class="download-size">320 MB</span>
+                <!-- Recurso 5 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <span class="resource-category">Script Pack</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3>Sistema de Diálogos Avanzado</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">Sistema completo de diálogos para RPG con branching, efectos de texto, voice over y sistema de elecciones.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">C#</span>
+                            <span class="resource-tag">Unity</span>
+                            <span class="resource-tag">RPG</span>
                         </div>
                     </div>
-                    <div class="download-action">
-                        <span><i class="fas fa-star"></i> 4.8/5</span>
-                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-calendar"></i> 1 semana</span>
+                            <span><i class="fas fa-hdd"></i> 45 MB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
                 
-                <div class="download-card">
-                    <div class="download-info">
-                        <h3><i class="fas fa-code"></i> Scripts C# Unity</h3>
-                        <p>Colección de scripts reutilizables para Unity: movimiento, IA, inventario, guardado.</p>
-                        <div class="download-stats">
-                            <span><i class="fas fa-download"></i> 3,125 descargas</span>
-                            <span class="download-size">45 MB</span>
+                <!-- Recurso 6 -->
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <span class="resource-category">Ebook</span>
+                        <div class="resource-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>IA para Videojuegos</h3>
+                    </div>
+                    
+                    <div class="resource-content">
+                        <p class="resource-description">Guía práctica sobre implementación de inteligencia artificial en videojuegos, desde pathfinding hasta sistemas de comportamiento.</p>
+                        
+                        <div class="resource-tags">
+                            <span class="resource-tag">AI</span>
+                            <span class="resource-tag">Ebook</span>
+                            <span class="resource-tag">Algoritmos</span>
                         </div>
                     </div>
-                    <div class="download-action">
-                        <span><i class="fas fa-star"></i> 5.0/5</span>
-                        <a href="#" class="cta-button secondary" style="padding: 12px 25px;"><i class="fas fa-download"></i> Descargar</a>
+                    
+                    <div class="resource-footer">
+                        <div class="resource-meta">
+                            <span><i class="fas fa-calendar"></i> 3 días</span>
+                            <span><i class="fas fa-hdd"></i> 28 MB</span>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
                     </div>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#" class="cta-button"><i class="fas fa-folder-open"></i> Ver Todas las Descargas</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="comunidad">
+    <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <h3><i class="fas fa-owl"></i> MARCELO</h3>
-                    <p>Tu biblioteca definitiva de recursos gaming. Libros, cursos, guías, plantillas y herramientas para desarrolladores y jugadores.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
+                    <h4>OwlByte</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">La plataforma definitiva de recursos gaming para desarrolladores y entusiastas.</p>
+                    <a href="#" class="download-btn" style="display: inline-flex;">
+                        <i class="fas fa-paper-plane"></i>
+                        Unirse a la Comunidad
+                    </a>
                 </div>
                 
                 <div class="footer-col">
-                    <h3><i class="fas fa-link"></i> Enlaces Rápidos</h3>
+                    <h4>Categorías</h4>
                     <ul class="footer-links">
-                        <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
-                        <li><a href="#recursos"><i class="fas fa-book"></i> Recursos</a></li>
-                        <li><a href="#descargas"><i class="fas fa-download"></i> Descargas</a></li>
-                        <li><a href="#cursos"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
-                        <li><a href="#comunidad"><i class="fas fa-users"></i> Comunidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Libros y Guías</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cursos en Video</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Plantillas UI/UX</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Modelos 3D</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Scripts y Código</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h3><i class="fas fa-envelope"></i> Contacto</h3>
+                    <h4>Recursos</h4>
                     <ul class="footer-links">
-                        <li><a href="mailto:info@MARCELO.com"><i class="fas fa-envelope"></i> info@MARCELO.com</a></li>
-                        <li><a href="#"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Descargas Gratuitas</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Recursos Premium</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tutoriales</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Foro de Ayuda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> soporte@owlbyte.com</a></li>
                         <li><a href="#"><i class="fas fa-upload"></i> Subir Recurso</a></li>
-                        <li><a href="#"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</a></li>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> Términos y Privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> Colaboraciones</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Términos</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 MARCELO. Todos los derechos reservados.</p>
-                <p>Designed with <i class="fas fa-heart" style="color: #ff6b9d;"></i> for the gaming community</p>
+            <div class="footer-bottom">
+                <a href="#" class="footer-logo">
+                    <div class="logo-icon" style="width: 36px; height: 36px;">
+                        <i class="fas fa-owl"></i>
+                    </div>
+                    <div class="footer-logo-text">Owl<span>Byte</span></div>
+                </a>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 OwlByte Gaming Resources. Todos los derechos reservados.</p>
+                    <p style="margin-top: 8px; font-size: 0.85rem;">Diseño minimalista gaming | Recursos para desarrolladores</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -910,7 +1100,7 @@
         // Menú deslizable
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-menu a');
+        const header = document.getElementById('header');
         
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
@@ -920,79 +1110,134 @@
         });
         
         // Cerrar menú al hacer clic en un enlace
-        navLinks.forEach(link => {
+        document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Cambiar estilo del header al hacer scroll
+        // Header scroll effect
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                header.style.padding = '15px 0';
-                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
-                header.style.backdropFilter = 'blur(20px)';
+                header.classList.add('header-scrolled');
             } else {
-                header.style.padding = '20px 0';
-                header.style.boxShadow = 'none';
-                header.style.backdropFilter = 'blur(15px)';
+                header.classList.remove('header-scrolled');
             }
         });
         
-        // Efecto de escritura en el título
-        const heroTitle = document.querySelector('.hero h1');
-        const originalText = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < originalText.length) {
-                heroTitle.innerHTML += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 30);
-            }
-        }
-        
-        // Animación de conteo en las categorías
-        function animateCount(element, target) {
+        // Animación de contadores
+        function animateCounter(element, target) {
             let current = 0;
-            const increment = target / 50;
+            const increment = target / 100;
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target + ' recursos';
+                    element.textContent = target + (element.getAttribute('data-count') > 99 ? '+' : '');
                     clearInterval(timer);
                 } else {
-                    element.textContent = Math.floor(current) + ' recursos';
+                    element.textContent = Math.floor(current);
                 }
-            }, 30);
+            }, 20);
         }
         
-        // Iniciar efectos cuando la página cargue
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 500);
+        // Filtros de recursos
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Efecto hover en tarjetas
+        document.querySelectorAll('.resource-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
             
-            // Iniciar animaciones de conteo cuando sean visibles
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const countElements = entry.target.querySelectorAll('.count');
-                        countElements.forEach(el => {
-                            const target = parseInt(el.textContent);
-                            el.textContent = '0 recursos';
-                            setTimeout(() => animateCount(el, target), 200);
-                        });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Inicializar cuando la página cargue
+        window.addEventListener('load', () => {
+            // Animar contadores del hero
+            document.querySelectorAll('.stat-number').forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                animateCounter(stat, target);
+            });
+            
+            // Efecto de brillo en botones de descarga
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2)';
+                        icon.style.transition = 'transform 0.3s ease';
                     }
                 });
-            }, { threshold: 0.5 });
-            
-            const categoriesSection = document.querySelector('.categories');
-            if (categoriesSection) {
-                observer.observe(categoriesSection);
-            }
+                
+                btn.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
         });
     </script>
 </body>
 </html>
+```
+
+Características principales del nuevo diseño:
+
+1. Identidad Visual Renovada
+
+· Logo elegante con icono de búho en gradiente púrpura-cian
+· Paleta de colores oscura con acentos vibrantes
+· Tipografía gaming moderna: Oxanium para títulos, Space Grotesk para texto
+
+2. Diseño Ultra Minimalista
+
+· Espacios amplios y limpios
+· Elementos con bordes redondeados suaves
+· Efectos de vidrio esmerilado (glassmorphism) sutiles
+· Navegación compacta y elegante
+
+3. Enfoque en Recursos y Descargas
+
+· Sección de recursos destacados con filtros por categoría
+· Tarjetas informativas que muestran claramente:
+  · Tipo de recurso (libro, curso, asset)
+  · Tamaño de descarga
+  · Número de descargas
+  · Etiquetas de categoría
+· Botones de descarga prominentes en cada tarjeta
+
+4. Secciones Especializadas
+
+· Hero con estadísticas animadas
+· Grid de recursos con visualización clara
+· Banner premium para conversión
+· Sección de descargas recientes
+· Footer organizado por categorías
+
+5. Detalles de Interacción
+
+· Animaciones sutiles en hover
+· Contadores animados
+· Menú deslizable con transición suave
+· Efectos de brillo en elementos interactivos
+· Diseño completamente responsive
+
+6. Estructura Clara para Recursos
+
+1. Libros y Guías (PDFs, ebooks)
+2. Cursos en Video (tutoriales, clases)
+3. Plantillas y Assets (UI kits, modelos 3D)
+4. Scripts y Herramientas (código reutilizable)
+5. Recursos Premium (contenido exclusivo)
+
+El diseño mantiene la esencia gaming mientras prioriza la usabilidad y la presentación clara de recursos descargables, perfecto para una biblioteca digital de materiales gaming.
