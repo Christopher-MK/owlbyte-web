@@ -345,6 +345,7 @@
       perspective: 1000px;
     }
 
+    /* IMPORTANT: hexagon can be <a> now */
     .hexagon {
       width: 100%;
       height: 105px;
@@ -357,7 +358,11 @@
       justify-content: center;
       transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
       will-change: transform;
+
+      text-decoration: none;
+      color: inherit;
     }
+    .hexagon:visited { color: inherit; }
 
     .hexagon:hover {
       transform: translateY(-5px) rotateX(10deg);
@@ -596,7 +601,6 @@
     }
 
     .email-input::placeholder { color: rgba(160, 160, 192, 0.9); }
-
     .email-input:focus { outline: none; border-color: var(--accent-blue); }
 
     .submit-btn {
@@ -670,10 +674,7 @@
       gap: 10px;
     }
 
-    .footer-links-alt a i {
-      width: 18px;
-      text-align: center;
-    }
+    .footer-links-alt a i { width: 18px; text-align: center; }
 
     .footer-links-alt a:hover {
       color: var(--accent-blue);
@@ -793,7 +794,7 @@
   <!-- Header -->
   <header class="main-header" role="banner">
     <div class="container header-content">
-      <a class="logo-container" href="#" aria-label="Ir al inicio de OlwByte">
+      <a class="logo-container" href="index.html" aria-label="Ir al inicio de OlwByte">
         <div class="logo-icon" aria-hidden="true">OB</div>
         <div>
           <div class="logo-text">OlwByte</div>
@@ -804,12 +805,12 @@
       <nav class="main-nav" aria-label="Navegación principal">
         <!-- Desktop nav -->
         <ul class="nav-list" id="nav-desktop">
-          <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
-          <li class="nav-item"><a href="#recursos" class="nav-link"><i class="fas fa-download" aria-hidden="true"></i> Descargas</a></li>
-          <li class="nav-item"><a href="#recursos" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Tutoriales</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-gamepad" aria-hidden="true"></i> Juegos</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Cursos</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-tools" aria-hidden="true"></i> Herramientas</a></li>
+          <li class="nav-item active"><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download" aria-hidden="true"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad" aria-hidden="true"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Cursos</a></li>
+          <li class="nav-item"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools" aria-hidden="true"></i> Herramientas</a></li>
         </ul>
 
         <div class="nav-buttons">
@@ -827,12 +828,12 @@
 
         <!-- Mobile nav -->
         <ul class="nav-list mobile" id="nav-mobile">
-          <li class="nav-item active"><a href="#" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
-          <li class="nav-item"><a href="#recursos" class="nav-link"><i class="fas fa-download" aria-hidden="true"></i> Descargas</a></li>
-          <li class="nav-item"><a href="#recursos" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Tutoriales</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-gamepad" aria-hidden="true"></i> Juegos</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Cursos</a></li>
-          <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-tools" aria-hidden="true"></i> Herramientas</a></li>
+          <li class="nav-item active"><a href="index.html" class="nav-link"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a></li>
+          <li class="nav-item"><a href="descargas.html" class="nav-link"><i class="fas fa-download" aria-hidden="true"></i> Descargas</a></li>
+          <li class="nav-item"><a href="tutoriales.html" class="nav-link"><i class="fas fa-book-open" aria-hidden="true"></i> Tutoriales</a></li>
+          <li class="nav-item"><a href="juegos.html" class="nav-link"><i class="fas fa-gamepad" aria-hidden="true"></i> Juegos</a></li>
+          <li class="nav-item"><a href="cursos.html" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Cursos</a></li>
+          <li class="nav-item"><a href="herramientas.html" class="nav-link"><i class="fas fa-tools" aria-hidden="true"></i> Herramientas</a></li>
         </ul>
       </nav>
     </div>
@@ -849,32 +850,50 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="#recursos" class="btn-primary"><i class="fas fa-rocket" aria-hidden="true"></i> Explorar Recursos</a>
-            <a href="#recursos" class="btn-secondary"><i class="fas fa-play-circle" aria-hidden="true"></i> Ver Tutoriales</a>
+            <a href="descargas.html" class="btn-primary"><i class="fas fa-rocket" aria-hidden="true"></i> Explorar Recursos</a>
+            <a href="tutoriales.html" class="btn-secondary"><i class="fas fa-play-circle" aria-hidden="true"></i> Ver Tutoriales</a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual" aria-label="Categorías destacadas">
           <div class="visual-container">
             <div class="hexagon-grid">
-              <div class="hexagon"><i class="fas fa-file-pdf"></i><span>PDF</span></div>
-              <div class="hexagon"><i class="fas fa-code"></i><span>Scripts</span></div>
-              <div class="hexagon"><i class="fas fa-gamepad"></i><span>Juegos</span></div>
-              <div class="hexagon"><i class="fas fa-tools"></i><span>Herramientas</span></div>
-              <div class="hexagon"><i class="fas fa-video"></i><span>Tutoriales</span></div>
-              <div class="hexagon"><i class="fas fa-database"></i><span>Assets</span></div>
+              <a class="hexagon" href="pdf.html" aria-label="Ver recursos PDF">
+                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                <span>PDF</span>
+              </a>
+              <a class="hexagon" href="descargas.html" aria-label="Ver descargas">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>Scripts</span>
+              </a>
+              <a class="hexagon" href="juegos.html" aria-label="Ver juegos">
+                <i class="fas fa-gamepad" aria-hidden="true"></i>
+                <span>Juegos</span>
+              </a>
+              <a class="hexagon" href="herramientas.html" aria-label="Ver herramientas">
+                <i class="fas fa-tools" aria-hidden="true"></i>
+                <span>Herramientas</span>
+              </a>
+              <a class="hexagon" href="tutoriales.html" aria-label="Ver tutoriales">
+                <i class="fas fa-video" aria-hidden="true"></i>
+                <span>Tutoriales</span>
+              </a>
+              <a class="hexagon" href="descargas.html" aria-label="Ver assets">
+                <i class="fas fa-database" aria-hidden="true"></i>
+                <span>Assets</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Recursos -->
-    <section class="resources-section" id="recursos" aria-label="Recursos destacados">
+    <!-- Recursos (demo) -->
+    <section class="resources-section" aria-label="Recursos destacados">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Recursos Destacados</h2>
-          <p class="section-subtitle">Descubre los recursos más populares y útiles seleccionados por la comunidad</p>
+          <p class="section-subtitle">Descubre recursos populares seleccionados por la comunidad</p>
         </div>
 
         <div class="resource-tabs" role="tablist" aria-label="Filtros de recursos">
@@ -901,12 +920,12 @@
                 <span><i class="fas fa-download" aria-hidden="true"></i> 3,245</span>
                 <span><i class="fas fa-calendar" aria-hidden="true"></i> Mar 2024</span>
               </div>
-              <a href="#" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Descargar ahora</a>
+              <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Ver descargas</a>
             </div>
           </article>
 
           <article class="resource-card-alt">
-            <div class="resource-badge">Premium</div>
+            <div class="resource-badge">PDF</div>
             <div class="resource-header">
               <div class="resource-icon"><i class="fas fa-book" aria-hidden="true"></i></div>
             </div>
@@ -920,7 +939,7 @@
                 <span><i class="fas fa-download" aria-hidden="true"></i> 1,879</span>
                 <span><i class="fas fa-calendar" aria-hidden="true"></i> Feb 2024</span>
               </div>
-              <a href="#" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Descargar PDF</a>
+              <a href="pdf.html" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Ver PDFs</a>
             </div>
           </article>
 
@@ -938,7 +957,7 @@
                 <span><i class="fas fa-download" aria-hidden="true"></i> 2,541</span>
                 <span><i class="fas fa-calendar" aria-hidden="true"></i> Ene 2024</span>
               </div>
-              <a href="#" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Descargar scripts</a>
+              <a href="descargas.html" class="resource-download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Ver descargas</a>
             </div>
           </article>
         </div>
@@ -982,11 +1001,11 @@
         <div class="footer-col">
           <h3>Recursos</h3>
           <ul class="footer-links-alt">
-            <li><a href="#recursos"><i class="fas fa-chevron-right" aria-hidden="true"></i> Descargas</a></li>
-            <li><a href="#recursos"><i class="fas fa-chevron-right" aria-hidden="true"></i> Tutoriales en Video</a></li>
-            <li><a href="#recursos"><i class="fas fa-chevron-right" aria-hidden="true"></i> Guías PDF</a></li>
-            <li><a href="#recursos"><i class="fas fa-chevron-right" aria-hidden="true"></i> Scripts y Código</a></li>
-            <li><a href="#recursos"><i class="fas fa-chevron-right" aria-hidden="true"></i> Assets Gaming</a></li>
+            <li><a href="descargas.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Descargas</a></li>
+            <li><a href="tutoriales.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Tutoriales en Video</a></li>
+            <li><a href="pdf.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Guías PDF</a></li>
+            <li><a href="descargas.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Scripts y Código</a></li>
+            <li><a href="descargas.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Assets Gaming</a></li>
           </ul>
         </div>
 
@@ -1036,20 +1055,10 @@
         setMenuState(open);
       });
 
-      // Close menu on click (mobile) and mark active item
+      // Close menu on click (mobile)
       navMobile.addEventListener("click", (e) => {
         const link = e.target.closest("a.nav-link");
         if (!link) return;
-
-        const label = link.textContent.trim();
-        document.querySelectorAll(".nav-item").forEach(li => li.classList.remove("active"));
-
-        document.querySelectorAll("a.nav-link").forEach(a => {
-          if (a.textContent.trim() === label) {
-            a.closest(".nav-item")?.classList.add("active");
-          }
-        });
-
         setMenuState(false);
       });
 
@@ -1063,7 +1072,7 @@
         if (!clickedInsideNav) setMenuState(false);
       });
 
-      // Tabs (UI only; replace with real filtering later)
+      // Tabs (solo UI)
       const tabBtns = document.querySelectorAll(".tab-btn");
       tabBtns.forEach(btn => {
         btn.addEventListener("click", () => {
