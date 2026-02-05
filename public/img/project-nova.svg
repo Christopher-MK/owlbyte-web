@@ -1,0 +1,9 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="28" fill="#E6F7FF" />
+  <rect x="32" y="32" width="416" height="200" rx="20" fill="#0B1220" />
+  <rect x="64" y="72" width="180" height="16" rx="8" fill="#3FD0FF" />
+  <rect x="64" y="104" width="260" height="12" rx="6" fill="#1A2740" />
+  <rect x="64" y="128" width="220" height="12" rx="6" fill="#1A2740" />
+  <rect x="64" y="168" width="120" height="28" rx="14" fill="#3FD0FF" />
+  <text x="240" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#0B1220">Proyecto Nova</text>
+</svg>

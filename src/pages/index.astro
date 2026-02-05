@@ -1,0 +1,87 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import Testimonial from '@/components/Testimonial.astro';
+import CTA from '@/components/CTA.astro';
+import { services } from '@/data/services';
+import { projects } from '@/data/projects';
+import { testimonials } from '@/data/testimonials';
+
+const title = 'OwlByte | Agencia digital creativa y técnica';
+const description =
+  'Diseño web, branding, marketing digital y automatización para marcas que buscan resultados medibles.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero
+    title="Experiencias digitales que convierten datos en crecimiento"
+    subtitle="Somos una agencia creativa + técnica especializada en diseño web, branding y automatización. Construimos plataformas rápidas, optimizadas y listas para escalar."
+    primaryCta={{ href: '/contacto', label: 'Agenda una sesión' }}
+    secondaryCta={{ href: '/servicios', label: 'Ver servicios' }}
+    image={{ src: '/img/hero-owlbyte.svg', alt: 'Equipo OwlByte trabajando en proyectos digitales' }}
+  />
+
+  <section>
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="container-grid">
+        <div class="lg:col-span-5">
+          <h2 class="text-3xl font-semibold text-navy-900">Servicios diseñados para crecer contigo</h2>
+          <p class="mt-4 text-base text-slate-600">
+            Combinamos estrategia, diseño y tecnología para crear ecosistemas digitales coherentes y medibles.
+          </p>
+          <a href="/servicios" class="link-underlined mt-4" aria-label="Ver servicios">Explorar servicios</a>
+        </div>
+        <div class="lg:col-span-7 grid gap-6 md:grid-cols-2">
+          {services.map((service) => (
+            <ServiceCard {...service} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-3xl font-semibold text-navy-900">Resultados reales, no solo diseño bonito</h2>
+          <p class="mt-3 text-base text-slate-600">
+            Proyectos que mejoran métricas clave como conversión, retención y velocidad.
+          </p>
+        </div>
+        <a href="/portafolio" class="btn-secondary" aria-label="Ver portafolio">Ver portafolio</a>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {projects.slice(0, 3).map((project) => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="container-grid">
+        <div class="lg:col-span-4">
+          <h2 class="text-3xl font-semibold text-navy-900">Lo que dicen nuestros clientes</h2>
+          <p class="mt-4 text-base text-slate-600">
+            Acompañamos equipos que valoran el diseño con lógica y objetivos claros.
+          </p>
+        </div>
+        <div class="lg:col-span-8 grid gap-6 md:grid-cols-2">
+          {testimonials.map((testimonial) => (
+            <Testimonial {...testimonial} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="¿Listo para transformar tu presencia digital?"
+    description="Construyamos una plataforma sólida que muestre tu valor y convierta visitantes en clientes."
+    primaryLabel="Hablar con OwlByte"
+  />
+</BaseLayout>

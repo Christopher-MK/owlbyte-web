@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PackageCard from '@/components/PackageCard.astro';
+import CTA from '@/components/CTA.astro';
+import { packages } from '@/data/packages';
+
+const title = 'Paquetes | OwlByte';
+const description = 'Paquetes flexibles de diseño web, branding y crecimiento digital para cada etapa.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="container-grid">
+        <div class="lg:col-span-5">
+          <h1 class="text-4xl font-semibold text-navy-900">Paquetes flexibles para equipos dinámicos</h1>
+          <p class="mt-4 text-base text-slate-600">
+            Selecciona el punto de partida y ajustamos el alcance según tus necesidades.
+          </p>
+        </div>
+        <div class="lg:col-span-7 grid gap-6 md:grid-cols-2">
+          {packages.map((pkg) => (
+            <PackageCard {...pkg} />
+          ))}
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-slate-500">
+        ¿Necesitas un plan personalizado? Creamos propuestas a medida para proyectos complejos o equipos con stack propio.
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Hagamos un plan a tu medida"
+    description="Cuéntanos tu contexto y preparamos una propuesta alineada a objetivos y tiempos reales."
+    primaryLabel="Solicitar propuesta"
+  />
+</BaseLayout>

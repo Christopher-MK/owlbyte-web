@@ -1,0 +1,12 @@
+---
+const { name, result, description, image } = Astro.props;
+---
+
+<div class="card overflow-hidden">
+  <img src={image} alt={`Proyecto ${name}`} width="480" height="320" class="h-48 w-full object-cover" loading="lazy" />
+  <div class="p-6">
+    <h3 class="text-lg font-semibold text-navy-900">{name}</h3>
+    <p class="mt-1 text-sm font-semibold text-cyan-500">{result}</p>
+    <p class="mt-3 text-sm text-slate-600">{description}</p>
+  </div>
+</div>

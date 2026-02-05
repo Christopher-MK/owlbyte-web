@@ -1,0 +1,17 @@
+---
+const { title, description, primaryLabel } = Astro.props;
+---
+
+<section class="bg-navy-900">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="container-grid items-center">
+      <div class="lg:col-span-7">
+        <h2 class="text-3xl font-semibold text-white md:text-4xl">{title}</h2>
+        <p class="mt-4 text-base text-slate-100">{description}</p>
+      </div>
+      <div class="lg:col-span-5 flex justify-start lg:justify-end">
+        <a href="/contacto" class="btn-primary" aria-label={primaryLabel}>{primaryLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>
