@@ -1,0 +1,12 @@
+---
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-4">
+  {faqs.map((faq) => (
+    <div class="card p-6">
+      <h3 class="text-base font-semibold text-navy-900">{faq.question}</h3>
+      <p class="mt-2 text-sm text-slate-600">{faq.answer}</p>
+    </div>
+  ))}
+</div>

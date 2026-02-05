@@ -1,0 +1,36 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import CTA from '@/components/CTA.astro';
+import { projects } from '@/data/projects';
+
+const title = 'Portafolio | OwlByte';
+const description = 'Casos de éxito en diseño web, ecommerce y automatización con resultados medibles.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h1 class="text-4xl font-semibold text-navy-900">Portafolio con resultados visibles</h1>
+          <p class="mt-3 text-base text-slate-600">
+            Cada proyecto combina estrategia, creatividad y ejecución técnica rigurosa.
+          </p>
+        </div>
+        <a href="/contacto" class="btn-primary" aria-label="Iniciar proyecto">Iniciar proyecto</a>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="¿Quieres resultados similares?"
+    description="Contáctanos para revisar tu producto o marca con una mirada estratégica y accionable."
+    primaryLabel="Agendar sesión"
+  />
+</BaseLayout>

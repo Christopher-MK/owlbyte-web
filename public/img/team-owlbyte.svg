@@ -1,0 +1,10 @@
+<svg width="560" height="420" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="560" height="420" rx="32" fill="#F7F9FC" />
+  <rect x="40" y="50" width="480" height="220" rx="24" fill="#111A2B" />
+  <circle cx="140" cy="150" r="36" fill="#3FD0FF" />
+  <circle cx="280" cy="150" r="36" fill="#1DB7F2" />
+  <circle cx="420" cy="150" r="36" fill="#3FD0FF" />
+  <rect x="120" y="210" width="320" height="20" rx="10" fill="#1A2740" />
+  <rect x="120" y="240" width="260" height="16" rx="8" fill="#1A2740" />
+  <text x="280" y="330" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#0B1220">Equipo OwlByte</text>
+</svg>

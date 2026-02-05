@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = 'Política de privacidad | OwlByte';
+const description = 'Conoce cómo OwlByte maneja los datos y protege la información de sus clientes.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-4xl px-6">
+      <h1 class="text-4xl font-semibold text-navy-900">Política de privacidad</h1>
+      <p class="mt-4 text-base text-slate-600">
+        En OwlByte respetamos tu privacidad. Solo recolectamos información necesaria para responder tus solicitudes y mejorar nuestros servicios.
+      </p>
+      <div class="mt-8 space-y-6 text-sm text-slate-600">
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Datos que recopilamos</h2>
+          <p class="mt-2">
+            Nombre, correo electrónico, teléfono y detalles del proyecto cuando los proporcionas en el formulario de contacto.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Uso de la información</h2>
+          <p class="mt-2">
+            Utilizamos los datos para responder consultas, preparar propuestas y mantener comunicación relacionada con el proyecto.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Seguridad</h2>
+          <p class="mt-2">
+            Aplicamos buenas prácticas de seguridad y solo el equipo autorizado accede a la información.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Contacto</h2>
+          <p class="mt-2">
+            Para ejercer tus derechos de acceso o actualización, escríbenos a hola@owlbyte.agency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = 'Términos y condiciones | OwlByte';
+const description = 'Términos de uso y condiciones de servicio de OwlByte.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-4xl px-6">
+      <h1 class="text-4xl font-semibold text-navy-900">Términos y condiciones</h1>
+      <p class="mt-4 text-base text-slate-600">
+        Estos términos regulan el uso del sitio y la contratación de servicios con OwlByte.
+      </p>
+      <div class="mt-8 space-y-6 text-sm text-slate-600">
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Alcance</h2>
+          <p class="mt-2">
+            Los servicios se definen en propuestas formales. Cualquier cambio de alcance se acuerda por escrito.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Propiedad intelectual</h2>
+          <p class="mt-2">
+            El cliente obtiene derechos sobre los entregables finales una vez completado el pago acordado.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Responsabilidades</h2>
+          <p class="mt-2">
+            OwlByte se compromete a entregar con calidad, y el cliente a proveer información y feedback oportuno.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-base font-semibold text-navy-900">Contacto</h2>
+          <p class="mt-2">
+            Para dudas legales escribe a hola@owlbyte.agency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
