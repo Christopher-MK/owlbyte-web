@@ -2,13 +2,23 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Copittours Travel | Agencia Local en Cusco - Tours a Machu Picchu, Montaña de Colores y Valle Sagrado</title>
-    <meta name="description" content="Agencia de viajes local en Cusco. Tours a Machu Picchu, Montaña de Colores 7 Colores, Valle Sagrado y más. Atención personalizada con Copito 🐰, vive Cusco sin preocupaciones.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Copittours Travel | Agencia Local en Cusco - Tours a Machu Picchu</title>
+    <meta name="description" content="Agencia de viajes local en Cusco. Tours a Machu Picchu, Montaña de Colores, Valle Sagrado. Atención personalizada con Copito 🐰. Reserva tu aventura.">
     <meta name="keywords" content="tours Cusco, Machu Picchu, Montaña de Colores, Valle Sagrado, agencia local, Copittours Travel">
     <meta name="author" content="Copittours Travel">
-    <!-- Google Fonts + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://copittourstravel.com">
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Copittours Travel | Tours a Machu Picchu con agencia local">
+    <meta property="og:description" content="Vive Cusco con Copito 🐰, atención personalizada y tours auténticos.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1200">
+    <meta property="og:url" content="https://copittourstravel.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Preconnect para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,62 +27,153 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1e2a32;
-            background-color: #ffffff;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-
-        /* Variables */
         :root {
-            --primary: #f97316;    /* naranja cálido */
+            --primary: #f97316;
             --primary-dark: #ea580c;
             --secondary: #0f172a;
             --accent: #facc15;
-            --gray-light: #f8fafc;
-            --gray: #e2e8f0;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
             --white: #ffffff;
-            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px -12px rgba(0,0,0,0.1);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
         }
 
-        /* Utilidades */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        .section {
-            padding: 5rem 0;
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--gray-200);
         }
 
-        .section-title {
-            font-size: 2.25rem;
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
             color: var(--secondary);
+            text-decoration: none;
+            transition: opacity 0.2s;
         }
 
-        .section-subtitle {
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--gray-800);
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--gray-800);
+        }
+
+        /* Hero con parallax suave */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(15,23,42,0.5)), url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
             text-align: center;
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: var(--primary);
+            background: var(--primary);
             color: white;
             font-weight: 600;
             padding: 0.75rem 1.75rem;
@@ -84,137 +185,74 @@
             font-size: 1rem;
         }
 
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            border: 2px solid white;
+            color: white;
         }
 
         .btn-outline:hover {
-            background: var(--primary);
-            color: white;
+            background: white;
+            color: var(--primary);
+            border-color: white;
         }
 
-        /* Header y navegación */
-        header {
-            background: var(--white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
+        /* Secciones */
+        .section {
+            padding: 5rem 0;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
-            color: var(--secondary);
-            text-decoration: none;
-        }
-
-        .logo i {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: var(--text-dark);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, rgba(15,23,42,0.8), rgba(15,23,42,0.4)), url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            color: white;
             text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
             margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Cards de tours */
-        .cards-grid {
+        /* Grids */
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 1rem;
         }
 
         .tour-card {
             background: white;
-            border-radius: 1.5rem;
+            border-radius: var(--radius-xl);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: all 0.3s ease;
         }
 
         .tour-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .tour-img {
-            height: 220px;
             width: 100%;
+            height: 220px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tour-card:hover .tour-img {
+            transform: scale(1.03);
         }
 
         .tour-info {
@@ -226,66 +264,88 @@
             margin-bottom: 0.5rem;
         }
 
-        .tour-info p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .tour-price {
+        .price {
             font-weight: 700;
             color: var(--primary);
             font-size: 1.25rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
         }
 
         /* Paquetes */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
         .package-card {
-            background: var(--gray-light);
-            border-radius: 1.5rem;
+            background: var(--gray-50);
+            border-radius: var(--radius-xl);
             padding: 2rem;
             text-align: center;
             transition: all 0.2s;
+            border: 1px solid var(--gray-200);
         }
 
-        .package-card i {
+        .package-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .package-icon {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        .package-card h3 {
+        /* Testimonios - carrusel */
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc(33.333% - 1rem);
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 calc(100% - 1rem);
+            }
+        }
+
+        .testimonial-card i {
+            color: var(--accent);
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        /* Blog preview */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .blog-card {
-            background: white;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
+        .slider-btn {
+            background: var(--gray-200);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
-        .blog-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .blog-content {
-            padding: 1.5rem;
+        .slider-btn:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* Contacto */
@@ -296,19 +356,19 @@
         }
 
         .contact-form {
-            background: var(--gray-light);
+            background: var(--gray-50);
             padding: 2rem;
-            border-radius: 1.5rem;
+            border-radius: var(--radius-xl);
         }
 
         .form-group {
             margin-bottom: 1.25rem;
         }
 
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 1px solid var(--gray);
+            border: 1px solid var(--gray-200);
             border-radius: 2rem;
             font-family: inherit;
             transition: 0.2s;
@@ -336,7 +396,7 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: #25D366;
+            background: #25D366;
             color: white;
             width: 60px;
             height: 60px;
@@ -352,7 +412,7 @@
 
         .whatsapp-float:hover {
             transform: scale(1.05);
-            background-color: #128C7E;
+            background: #128C7E;
         }
 
         footer {
@@ -378,6 +438,11 @@
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .footer-grid a:hover {
+            color: var(--primary);
         }
 
         .copyright {
@@ -387,23 +452,51 @@
             font-size: 0.875rem;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-                padding: 1rem 0;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .menu-icon {
+            .menu-toggle {
                 display: block;
             }
-            .hero-content h1 {
-                font-size: 2rem;
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-xl);
+                transition: right 0.3s ease;
+                z-index: 1001;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 1000;
+                display: none;
+            }
+            .overlay.active {
+                display: block;
             }
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -411,57 +504,54 @@
             .section {
                 padding: 3rem 0;
             }
-            .section-title {
-                font-size: 1.8rem;
-            }
         }
     </style>
 </head>
 <body>
 
-<header>
+<header class="header">
     <div class="container">
         <div class="navbar">
             <a href="#" class="logo">
-                <i class="fas fa-mountain"></i>
+                <i class="fas fa-mountain-city"></i>
                 <span>Copittours Travel</span>
             </a>
-            <div class="menu-icon" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                 <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio" class="active">Inicio</a></li>
-                <li><a href="#tours">Tours</a></li>
-                <li><a href="#paquetes">Paquetes</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#tours" class="nav-link">Tours</a></li>
+                <li><a href="#paquetes" class="nav-link">Paquetes</a></li>
+                <li><a href="#testimonios" class="nav-link">Experiencias</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
+            <div class="overlay" id="overlay"></div>
         </div>
     </div>
 </header>
 
 <main>
-    <!-- Hero -->
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Hola, soy Copito 🐰 <br>Tu aventura en Cusco comienza aquí</h1>
                 <p>Descubre Machu Picchu, el Valle Sagrado y experiencias únicas con una agencia local que cuida cada detalle de tu viaje.</p>
-                <div class="hero-buttons">
-                    <a href="#tours" class="btn">Ver tours <i class="fas fa-arrow-right"></i></a>
+                <div class="btn-group">
+                    <a href="#tours" class="btn btn-primary">Ver tours <i class="fas fa-arrow-right"></i></a>
                     <a href="https://wa.me/51987654321?text=Hola%20Copito%2C%20quiero%20viajar%20a%20Cusco" class="btn btn-outline" target="_blank">Habla con Copito 🐰</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Copito -->
+    <!-- Presentación Copito -->
     <div class="container">
-        <div class="section" style="padding-bottom: 2rem;">
-            <div style="background: var(--gray-light); border-radius: 2rem; padding: 2rem; text-align: center;">
-                <i class="fas fa-smile-wink" style="font-size: 2.5rem; color: var(--primary);"></i>
-                <h2 style="margin: 0.5rem 0;">Soy Copito 🐰, tu compañero de viaje</h2>
-                <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">Con Copittours Travel encontrarás tours bien organizados, atención personalizada y experiencias auténticas. Te acompaño desde la reserva hasta el final de tu aventura, para que disfrutes Machu Picchu, la Montaña de Colores y muchos destinos más con total confianza. ¡Tú solo disfruta el viaje… yo me encargo del resto! ✨</p>
+        <div class="section" style="padding-bottom: 0;">
+            <div style="background: linear-gradient(135deg, var(--gray-50), white); border-radius: var(--radius-2xl); padding: 2.5rem; text-align: center; border: 1px solid var(--gray-200);">
+                <i class="fas fa-smile-wink" style="font-size: 2.8rem; color: var(--primary);"></i>
+                <h2 style="margin: 0.75rem 0;">Soy Copito 🐰, tu compañero de viaje</h2>
+                <p style="max-width: 700px; margin: 0 auto; color: var(--gray-600);">Con Copittours Travel encontrarás tours bien organizados, atención personalizada y experiencias auténticas. Te acompaño desde la reserva hasta el final de tu aventura, para que disfrutes Machu Picchu, la Montaña de Colores y muchos destinos más con total confianza. ¡Tú solo disfruta el viaje… yo me encargo del resto! ✨</p>
             </div>
         </div>
     </div>
@@ -471,31 +561,31 @@
         <div class="section">
             <h2 class="section-title">Nuestros tours más cotizados</h2>
             <p class="section-subtitle">Vive experiencias únicas con guías locales y toda la calidez de Copito 🐰</p>
-            <div class="cards-grid">
+            <div class="grid-3">
                 <div class="tour-card">
-                    <img class="tour-img" src="https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Machu Picchu">
+                    <img class="tour-img" src="https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Machu Picchu" loading="lazy">
                     <div class="tour-info">
                         <h3>Machu Picchu</h3>
                         <p>La maravilla del mundo. Tren panorámico, ingreso a la ciudadela y guía experto.</p>
-                        <div class="tour-price">Desde $190 USD</div>
+                        <div class="price">Desde $190 USD</div>
                         <a href="https://wa.me/51987654321?text=Quiero%20información%20de%20Machu%20Picchu" class="btn" style="padding: 0.5rem 1.5rem;">Consultar</a>
                     </div>
                 </div>
                 <div class="tour-card">
-                    <img class="tour-img" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montaña de Colores">
+                    <img class="tour-img" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montaña de Colores" loading="lazy">
                     <div class="tour-info">
                         <h3>Montaña de Colores</h3>
                         <p>Vinicunca, el espectáculo de la naturaleza. Acompañamiento y aclimatación.</p>
-                        <div class="tour-price">Desde $45 USD</div>
+                        <div class="price">Desde $45 USD</div>
                         <a href="https://wa.me/51987654321?text=Quiero%20información%20de%20Montaña%20de%20Colores" class="btn" style="padding: 0.5rem 1.5rem;">Consultar</a>
                     </div>
                 </div>
                 <div class="tour-card">
-                    <img class="tour-img" src="https://images.unsplash.com/photo-1599820897370-3f6cdbdb92f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Valle Sagrado">
+                    <img class="tour-img" src="https://images.unsplash.com/photo-1599820897370-3f6cdbdb92f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Valle Sagrado" loading="lazy">
                     <div class="tour-info">
                         <h3>Valle Sagrado</h3>
                         <p>Pisac, Ollantaytambo, mercados tradicionales y paisajes andinos.</p>
-                        <div class="tour-price">Desde $65 USD</div>
+                        <div class="price">Desde $65 USD</div>
                         <a href="https://wa.me/51987654321?text=Quiero%20información%20del%20Valle%20Sagrado" class="btn" style="padding: 0.5rem 1.5rem;">Consultar</a>
                     </div>
                 </div>
@@ -508,61 +598,58 @@
         <div class="section">
             <h2 class="section-title">Paquetes todo incluido</h2>
             <p class="section-subtitle">Disfruta Cusco sin preocupaciones, todo organizado por Copito</p>
-            <div class="packages-grid">
+            <div class="grid-3">
                 <div class="package-card">
-                    <i class="fas fa-landmark"></i>
+                    <i class="fas fa-landmark package-icon"></i>
                     <h3>Clásico Cusco</h3>
                     <p>4 días / 3 noches: City Tour + Valle Sagrado + Machu Picchu.</p>
-                    <p class="tour-price">$380 USD</p>
+                    <div class="price">$380 USD</div>
                     <a href="https://wa.me/51987654321?text=Quiero%20el%20paquete%20Clásico%20Cusco" class="btn" style="margin-top: 1rem;">Reservar</a>
                 </div>
                 <div class="package-card">
-                    <i class="fas fa-hiking"></i>
+                    <i class="fas fa-hiking package-icon"></i>
                     <h3>Aventura Natural</h3>
                     <p>5 días: Montaña de Colores + Laguna Humantay + Machu Picchu.</p>
-                    <p class="tour-price">$450 USD</p>
+                    <div class="price">$450 USD</div>
                     <a href="https://wa.me/51987654321?text=Quiero%20el%20paquete%20Aventura%20Natural" class="btn" style="margin-top: 1rem;">Reservar</a>
                 </div>
                 <div class="package-card">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart package-icon"></i>
                     <h3>Luna de Miel</h3>
                     <p>6 días experiencias exclusivas, alojamiento premium y cenas especiales.</p>
-                    <p class="tour-price">$720 USD</p>
+                    <div class="price">$720 USD</div>
                     <a href="https://wa.me/51987654321?text=Quiero%20el%20paquete%20Luna%20de%20Miel" class="btn" style="margin-top: 1rem;">Reservar</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Blog Preview -->
-    <div class="container" id="blog">
+    <!-- Testimonios (Carrusel) -->
+    <div class="container" id="testimonios">
         <div class="section">
-            <h2 class="section-title">Consejos de viaje con Copito</h2>
-            <p class="section-subtitle">Inspírate y prepárate para la mejor experiencia</p>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Machu Picchu">
-                    <div class="blog-content">
-                        <h3>¿Cuándo visitar Machu Picchu?</h3>
-                        <p>Temporada seca, recomendaciones y cómo evitar multitudes.</p>
-                        <a href="#" style="color: var(--primary);">Leer más →</a>
+            <h2 class="section-title">Lo que dicen nuestros viajeros</h2>
+            <p class="section-subtitle">Experiencias reales con Copito 🐰</p>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Increíble atención, Copito nos ayudó en cada paso. Machu Picchu fue mágico. 100% recomendado."</p>
+                        <h4>— María G.</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"La Montaña de Colores es impresionante, y el guía muy profesional. Todo perfecto."</p>
+                        <h4>— Carlos R.</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Agencia local confiable. Reservamos el paquete clásico y superó nuestras expectativas."</p>
+                        <h4>— Laura y Juan</h4>
                     </div>
                 </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1542884841-2fe44cfe0a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Montaña de Colores">
-                    <div class="blog-content">
-                        <h3>Altitud: cómo aclimatarse en Cusco</h3>
-                        <p>Consejos para evitar el mal de altura y disfrutar al máximo.</p>
-                        <a href="#" style="color: var(--primary);">Leer más →</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1584539692099-5662b2e2fea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Valle Sagrado">
-                    <div class="blog-content">
-                        <h3>Valle Sagrado: joyas ocultas</h3>
-                        <p>Mercados artesanales y pueblos andinos que debes conocer.</p>
-                        <a href="#" style="color: var(--primary);">Leer más →</a>
-                    </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -575,7 +662,7 @@
             <p class="section-subtitle">Escríbenos y armamos tu viaje sin estrés y con atención personalizada.</p>
             <div class="contact-grid">
                 <div class="contact-form">
-                    <form id="contactForm" action="#" method="post">
+                    <form id="contactForm">
                         <div class="form-group">
                             <input type="text" placeholder="Nombre completo" required>
                         </div>
@@ -586,9 +673,19 @@
                             <input type="tel" placeholder="WhatsApp / Teléfono">
                         </div>
                         <div class="form-group">
-                            <textarea rows="4" placeholder="¿Qué tour o paquete te interesa?"></textarea>
+                            <select>
+                                <option>Selecciona un tour o paquete</option>
+                                <option>Machu Picchu</option>
+                                <option>Montaña de Colores</option>
+                                <option>Valle Sagrado</option>
+                                <option>Paquete Clásico</option>
+                                <option>Paquete Aventura</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn" style="width: 100%; justify-content: center;">Enviar mensaje</button>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Mensaje adicional"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; justify-content: center;">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
                         <p style="font-size: 0.75rem; margin-top: 1rem; text-align: center;">Recibirás respuesta de Copito en breve 🐰</p>
                     </form>
                 </div>
@@ -626,7 +723,7 @@
                 <h4>Enlaces rápidos</h4>
                 <a href="#tours">Tours destacados</a>
                 <a href="#paquetes">Paquetes</a>
-                <a href="#blog">Blog de viajes</a>
+                <a href="#testimonios">Testimonios</a>
                 <a href="#contacto">Contacto</a>
             </div>
             <div>
@@ -650,7 +747,6 @@
     </div>
 </footer>
 
-<!-- Botón flotante WhatsApp -->
 <a href="https://wa.me/51987654321?text=Hola%20Copito%2C%20quiero%20vivir%20una%20aventura%20en%20Cusco" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -658,43 +754,97 @@
 <script>
     // Menú móvil
     const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+    const navMenu = document.getElementById('navMenu');
+    const overlay = document.getElementById('overlay');
 
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-
-    // Formulario simple (simula envío)
-    const form = document.getElementById('contactForm');
-    if(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Gracias! Copito 🐰 te responderá en breve. Revisa tu WhatsApp o correo.');
-            form.reset();
-        });
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
     }
 
-    // Resaltar enlace activo al hacer scroll
+    function openMenu() {
+        navMenu.classList.add('active');
+        overlay.classList.add('active');
+    }
+
+    menuToggle.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Carrusel de testimonios
+    const track = document.getElementById('testimonialTrack');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentIndex = 0;
+    let slides = document.querySelectorAll('.testimonial-card');
+    let slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+    const totalSlides = slides.length;
+
+    function updateCarousel() {
+        const slideWidth = slides[0].offsetWidth + 24; // ancho + gap
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function nextSlide() {
+        if (currentIndex < totalSlides - slidesPerView) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSlides - slidesPerView;
+        }
+        updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    window.addEventListener('resize', () => {
+        slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+        currentIndex = 0;
+        updateCarousel();
+    });
+    setTimeout(updateCarousel, 100);
+
+    // Formulario (simulación)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('¡Gracias! Copito 🐰 te responderá en breve. Revisa tu WhatsApp o correo.');
+        form.reset();
+    });
+
+    // Resaltar enlace activo con scrollspy
     const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
         let current = '';
-        const scrollPos = window.scrollY + 100;
+        const scrollPos = window.scrollY + 150;
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
-            if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        navLinks.forEach(link => {
             link.classList.remove('active');
-            if(link.getAttribute('href') === `#${current}`) {
+            if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
             }
         });
