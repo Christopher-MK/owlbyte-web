@@ -1,0 +1,46 @@
+---
+const footerLinks = [
+  { href: '/privacidad', label: 'Privacidad' },
+  { href: '/terminos', label: 'Términos' },
+  { href: '/faq', label: 'FAQ' }
+];
+---
+
+<footer class="bg-navy-900 text-white">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-2 text-lg font-semibold">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-400 text-navy-900">OB</span>
+          OwlByte
+        </div>
+        <p class="mt-4 text-sm text-slate-100">
+          Agencia digital con enfoque creativo + técnico. Construimos experiencias rápidas, escalables y orientadas a resultados.
+        </p>
+      </div>
+      <div class="lg:col-span-4">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">Contacto</h3>
+        <ul class="mt-4 space-y-2 text-sm text-slate-100">
+          <li>hola@owlbyte.agency</li>
+          <li>+52 55 0000 0000</li>
+          <li>Ciudad de México · Remoto LATAM</li>
+        </ul>
+      </div>
+      <div class="lg:col-span-3">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">Enlaces</h3>
+        <ul class="mt-4 space-y-2 text-sm text-slate-100">
+          {footerLinks.map((link) => (
+            <li>
+              <a href={link.href} class="transition hover:text-cyan-400">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-white/10 pt-6 text-xs text-slate-200">
+      © {new Date().getFullYear()} OwlByte. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>

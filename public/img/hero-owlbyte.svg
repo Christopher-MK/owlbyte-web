@@ -1,0 +1,11 @@
+<svg width="560" height="420" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="560" height="420" rx="32" fill="#E6F7FF" />
+  <rect x="40" y="40" width="480" height="280" rx="24" fill="#0B1220" />
+  <rect x="72" y="80" width="200" height="20" rx="10" fill="#3FD0FF" />
+  <rect x="72" y="120" width="300" height="16" rx="8" fill="#1A2740" />
+  <rect x="72" y="150" width="240" height="16" rx="8" fill="#1A2740" />
+  <rect x="72" y="190" width="140" height="36" rx="18" fill="#3FD0FF" />
+  <rect x="72" y="260" width="380" height="10" rx="5" fill="#1A2740" />
+  <rect x="72" y="280" width="260" height="10" rx="5" fill="#1A2740" />
+  <text x="280" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#0B1220">OwlByte Studio</text>
+</svg>

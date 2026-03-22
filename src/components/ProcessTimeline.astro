@@ -1,0 +1,36 @@
+---
+const steps = [
+  {
+    title: 'Descubrimiento',
+    description: 'Entendemos tu negocio, audiencia y metas para definir el rumbo.'
+  },
+  {
+    title: 'Estrategia y arquitectura',
+    description: 'Wireframes, contenidos clave y estructura de conversión.'
+  },
+  {
+    title: 'Diseño UI + Branding',
+    description: 'Diseño visual, sistema de componentes y prototipos claros.'
+  },
+  {
+    title: 'Desarrollo y QA',
+    description: 'Construcción técnica, performance y validación en dispositivos.'
+  },
+  {
+    title: 'Lanzamiento y mejora',
+    description: 'Monitoreo, métricas y roadmap de optimización continua.'
+  }
+];
+---
+
+<ol class="relative border-s border-slate-200">
+  {steps.map((step, index) => (
+    <li class="mb-10 ms-6">
+      <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-400 text-xs font-semibold text-navy-900">
+        {index + 1}
+      </span>
+      <h3 class="text-base font-semibold text-navy-900">{step.title}</h3>
+      <p class="mt-2 text-sm text-slate-600">{step.description}</p>
+    </li>
+  ))}
+</ol>

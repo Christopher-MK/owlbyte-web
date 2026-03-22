@@ -1,0 +1,39 @@
+---
+const { title, subtitle, primaryCta, secondaryCta, image } = Astro.props;
+---
+
+<section class="bg-slate-50">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="container-grid items-center">
+      <div class="lg:col-span-6">
+        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-500">Agencia digital</span>
+        <h1 class="mt-4 text-4xl font-semibold leading-tight text-navy-900 md:text-5xl">
+          {title}
+        </h1>
+        <p class="mt-4 text-base text-slate-600 md:text-lg">
+          {subtitle}
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href={primaryCta.href} class="btn-primary" aria-label={primaryCta.label}>
+            {primaryCta.label}
+          </a>
+          <a href={secondaryCta.href} class="btn-secondary" aria-label={secondaryCta.label}>
+            {secondaryCta.label}
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <div class="card p-6">
+          <img
+            src={image.src}
+            alt={image.alt}
+            width="560"
+            height="420"
+            class="h-auto w-full rounded-xl object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

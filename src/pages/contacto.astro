@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const title = 'Contacto | OwlByte';
+const description = 'Agenda una sesión con OwlByte para diseñar tu estrategia digital con foco en resultados.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="container-grid">
+        <div class="lg:col-span-5">
+          <h1 class="text-4xl font-semibold text-navy-900">Conversemos sobre tu próximo paso</h1>
+          <p class="mt-4 text-base text-slate-600">
+            Completa el formulario y te respondemos en 24-48 horas hábiles con un diagnóstico inicial.
+          </p>
+          <div class="mt-6 space-y-3 text-sm text-slate-600">
+            <p><strong>Email:</strong> hola@owlbyte.agency</p>
+            <p><strong>Teléfono:</strong> +52 55 0000 0000</p>
+            <p><strong>Horario:</strong> Lunes a viernes · 9:00 - 18:00</p>
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="card space-y-4 p-6" aria-label="Formulario de contacto">
+            <div>
+              <label for="name" class="text-sm font-semibold text-navy-900">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-cyan-400 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label for="email" class="text-sm font-semibold text-navy-900">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-cyan-400 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label for="service" class="text-sm font-semibold text-navy-900">Servicio de interés</label>
+              <select
+                id="service"
+                name="service"
+                class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-cyan-400 focus:outline-none"
+              >
+                <option>Diseño web</option>
+                <option>Branding</option>
+                <option>Marketing digital</option>
+                <option>Ecommerce</option>
+                <option>Automatización</option>
+                <option>Optimización</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="text-sm font-semibold text-navy-900">Mensaje</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-cyan-400 focus:outline-none"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full" aria-label="Enviar formulario">
+              Enviar mensaje
+            </button>
+            <p id="form-success" class="hidden rounded-xl border border-cyan-400 bg-cyan-50 px-4 py-3 text-sm text-navy-900">
+              ¡Gracias! Recibimos tu mensaje y te contactaremos pronto.
+            </p>
+            <p class="text-xs text-slate-500">
+              También puedes integrar este formulario con Formspree o Cloudflare Workers. Mira las opciones en el README.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.querySelector('#contact-form');
+    const successMessage = document.querySelector('#form-success');
+
+    if (form && successMessage) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        successMessage.classList.remove('hidden');
+        form.reset();
+      });
+    }
+  </script>
+</BaseLayout>
