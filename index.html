@@ -1,926 +1,865 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Owlbyte | Presencia digital que atrae, convence y convierte</title>
-  <meta
-    name="description"
-    content="Owlbyte combina Google Maps, desarrollo web estratégico y marketing digital para convertir búsquedas en clientes."
-  />
-  <meta name="theme-color" content="#08111d" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owlbyte | Agencia de presencia digital</title>
+  <meta name="description" content="Owlbyte combina Google Maps, desarrollo web y marketing digital para convertir búsquedas en clientes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #08111d;
-      --bg-2: #0d1728;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-2: rgba(255, 255, 255, 0.04);
-      --line: rgba(255, 255, 255, 0.1);
-      --text: #edf4ff;
-      --muted: #a6b3c8;
-      --primary: #6ee7ff;
-      --primary-2: #32d7ff;
-      --accent: #8b5cf6;
-      --success: #2bd2a4;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-      --radius: 24px;
-      --radius-sm: 18px;
-      --max: 1180px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(110, 231, 255, 0.12), transparent 26%),
-        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.14), transparent 22%),
-        linear-gradient(180deg, #07111d 0%, #08111d 40%, #08111d 100%);
-      line-height: 1.55;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0f1c;
+      color: #ffffff;
+      line-height: 1.5;
+      overflow-x: hidden;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
+    /* Variables */
+    :root {
+      --primary: #00e0ff;
+      --primary-dark: #00b4d8;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+      --dark: #0a0f1c;
+      --darker: #05070f;
+      --gray: #94a3b8;
+      --light-gray: #e2e8f0;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --transition: all 0.3s ease;
+    }
 
+    /* Background with subtle gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(0, 224, 255, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 70%, rgba(124, 58, 237, 0.08) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Utility */
     .container {
-      width: min(var(--max), calc(100% - 2rem));
+      max-width: 1280px;
       margin: 0 auto;
+      padding: 0 24px;
     }
 
     .section {
-      padding: 88px 0;
+      padding: 100px 0;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(110, 231, 255, 0.18);
-      background: rgba(110, 231, 255, 0.08);
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 0 0 5px rgba(110, 231, 255, 0.1);
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
     }
 
-    h1, h2, h3, p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      font-size: 1.15rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: clamp(1rem, 1.5vw, 1.14rem);
-      line-height: 1.8;
-      max-width: 720px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.8rem;
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      min-height: 54px;
-      padding: 0 1.25rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.96rem;
-      font-weight: 700;
-      transition: 0.24s ease;
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
       cursor: pointer;
-      white-space: nowrap;
+      border: none;
+      font-family: inherit;
+      font-size: 0.9rem;
     }
 
     .btn-primary {
-      color: #07111d;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      box-shadow: 0 18px 40px rgba(50, 215, 255, 0.22);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #0a0f1c;
+      box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 224, 255, 0.4);
     }
 
-    .btn-secondary {
-      color: var(--text);
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: white;
+    }
+
+    .btn-outline:hover {
       background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.12);
+      border-color: var(--primary);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .header {
+    /* Header */
+    header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(7, 17, 29, 0.72);
-      backdrop-filter: blur(14px);
+      z-index: 100;
+      background: rgba(10, 15, 28, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
     }
 
-    .nav {
+    .navbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      min-height: 80px;
-    }
-
-    .brand {
-      display: inline-flex;
       align-items: center;
-      gap: 0.9rem;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 15px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #08111d;
-      font-weight: 900;
-      box-shadow: var(--shadow);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text small {
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0;
-      margin-top: 0.15rem;
+      background: linear-gradient(135deg, #fff, var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
     }
 
     .nav-links {
       display: flex;
+      gap: 2rem;
       align-items: center;
-      gap: 1.35rem;
-      color: var(--muted);
-      font-size: 0.94rem;
     }
 
     .nav-links a {
-      cursor: pointer;
+      color: var(--light-gray);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
     }
 
     .nav-links a:hover {
-      color: var(--text);
-    }
-
-    /* Estilos para páginas (contenedores dinámicos) */
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .stats-grid,
-    .cards-3,
-    .cards-4,
-    .steps-grid,
-    .cases-grid,
-    .faq-grid,
-    .footer-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .stats-grid { grid-template-columns: repeat(4, 1fr); margin-top: 1.7rem; }
-    .cards-3 { grid-template-columns: repeat(3, 1fr); }
-    .cards-4 { grid-template-columns: repeat(4, 1fr); }
-    .steps-grid { grid-template-columns: repeat(5, 1fr); }
-    .cases-grid { grid-template-columns: repeat(3, 1fr); }
-    .faq-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; }
-
-    .stat,
-    .card,
-    .step,
-    .case,
-    .faq,
-    .footer-card {
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-size: 2rem;
-      letter-spacing: -0.04em;
-    }
-
-    .section-head {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      max-width: 780px;
-    }
-
-    .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 0.95rem;
-      font-size: 1.08rem;
-      background: linear-gradient(135deg, rgba(110,231,255,.14), rgba(139,92,246,.14));
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .card p,
-    .step p,
-    .faq p,
-    .footer-card p {
-      margin-top: 0.7rem;
-      color: var(--muted);
-    }
-
-    .card ul {
-      margin: 1rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .card ul li::before {
-      content: "•";
-      margin-right: 0.55rem;
       color: var(--primary);
-      font-weight: 900;
     }
 
-    .card .btn {
-      margin-top: 1.15rem;
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--glass-border);
+    }
+
+    .floating-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 12px 20px;
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .floating-card i {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--glass);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .service-card li {
+      margin-bottom: 0.5rem;
+      color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-card li::before {
+      content: "→";
+      color: var(--primary);
+    }
+
+    /* Process */
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      background: var(--glass);
+      border-radius: 24px;
+      padding: 2rem 1rem;
+      border: 1px solid var(--glass-border);
     }
 
     .step-number {
-      display: inline-grid;
-      place-items: center;
       width: 50px;
       height: 50px;
-      margin-bottom: 1rem;
-      border-radius: 16px;
-      font-weight: 900;
-      color: #08111d;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin: 0 auto 1rem auto;
+      color: #0a0f1c;
     }
 
-    .case {
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+    .step h3 {
+      margin-bottom: 0.5rem;
     }
 
-    .case-top {
+    .step p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Cases */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .case-card {
+      background: var(--glass);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .case-card:hover {
+      border-color: var(--primary);
+    }
+
+    .case-header {
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
       align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .case-header h3 {
+      font-size: 1.2rem;
     }
 
     .badge {
-      border-radius: 999px;
-      padding: 0.35rem 0.7rem;
-      font-size: 0.8rem;
-      font-weight: 700;
+      background: rgba(0, 224, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-size: 0.7rem;
       color: var(--primary);
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
     }
 
     .case-metric {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--glass-border);
       display: flex;
       align-items: baseline;
-      gap: 0.7rem;
+      gap: 0.5rem;
     }
 
     .case-metric strong {
-      font-size: 2rem;
-      letter-spacing: -0.05em;
+      font-size: 1.8rem;
+      color: var(--primary);
     }
 
-    .cta-band {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 2rem;
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: linear-gradient(135deg, rgba(110,231,255,.12), rgba(139,92,246,.12));
-      box-shadow: var(--shadow);
-    }
-
-    form {
+    /* Contact */
+    .contact-grid {
       display: grid;
-      gap: 0.95rem;
-      margin-top: 1.25rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .field {
-      width: 100%;
-      min-height: 54px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 0.95rem 1rem;
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      outline: none;
-      font: inherit;
+    .contact-info h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    .field::placeholder {
-      color: #8897af;
+    .contact-info p {
+      color: var(--gray);
+      margin-bottom: 2rem;
     }
 
-    textarea.field {
-      min-height: 130px;
-      resize: vertical;
+    .contact-details {
+      margin-top: 2rem;
     }
 
-    footer {
-      padding: 24px 0 48px;
-      color: var(--muted);
-    }
-
-    .footer-bottom {
+    .contact-details div {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
-      margin-top: 1.25rem;
-      padding-top: 1.15rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.94rem;
+      margin-bottom: 1rem;
     }
 
-    @media (max-width: 1080px) {
-      .stats-grid,
-      .cards-4,
-      .steps-grid,
-      .footer-grid,
-      .cases-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .contact-details i {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
 
-      .cards-3,
-      .faq-grid {
+    .contact-form {
+      background: var(--glass);
+      backdrop-filter: blur(5px);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--darker);
+      border-top: 1px solid var(--glass-border);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col p, .footer-col a {
+      color: var(--gray);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid, .contact-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-stats {
+        justify-content: center;
       }
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 768px) {
       .nav-links {
         display: none;
-      }
-
-      .stats-grid,
-      .cards-3,
-      .cards-4,
-      .steps-grid,
-      .cases-grid,
-      .faq-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-band,
-      .footer-bottom {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 15, 28, 0.95);
+        backdrop-filter: blur(10px);
         flex-direction: column;
-        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--glass-border);
       }
-
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
       .section {
-        padding: 72px 0;
+        padding: 70px 0;
       }
-
-      h1 {
-        line-height: 1.02;
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .process-steps {
+        flex-direction: column;
       }
     }
   </style>
+  <!-- Font Awesome for icons (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#" data-nav="inicio">
-        <span class="brand-mark">O</span>
-        <span class="brand-text">
-          Owlbyte
-          <small>owlbyte.me</small>
-        </span>
-      </a>
-
-      <nav class="nav-links">
-        <a data-nav="inicio">Inicio</a>
-        <a data-nav="servicios">Servicios</a>
-        <a data-nav="proceso">Proceso</a>
-        <a data-nav="casos">Casos</a>
-        <a data-nav="insights">Insights</a>
-        <a data-nav="contacto">Contacto</a>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">Owlbyte</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#process">Proceso</a>
+          <a href="#cases">Casos</a>
+          <a href="#contact">Contacto</a>
+        </div>
+        <button class="mobile-menu-btn" id="menuBtn" aria-label="Menú">
+          <i class="fas fa-bars"></i>
+        </button>
       </nav>
-
-      <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
     </div>
   </header>
 
   <main>
-    <!-- Página Inicio -->
-    <div id="page-inicio" class="page active">
-      <section class="hero">
-        <div class="container hero-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center;">
-          <div class="hero-copy">
-            <span class="eyebrow">Diseño premium + conversión real</span>
-            <h1>
-              Construimos presencia digital que
-              atrae, convence y convierte.
-            </h1>
-            <p class="lead">
-              Owlbyte combina <strong>Google Maps</strong>, <strong>desarrollo web estratégico</strong> y
-              <strong>marketing digital</strong> para que tu negocio deje de perder oportunidades y empiece
-              a crecer con una estructura digital seria.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
-              <a class="btn btn-secondary" data-nav="servicios">Explorar servicios</a>
-            </div>
-
-            <div class="stats-grid">
-              <div class="stat">
-                <strong>Maps</strong>
-                <span class="muted">Visibilidad local para búsquedas con intención.</span>
-              </div>
-              <div class="stat">
-                <strong>Web</strong>
-                <span class="muted">Arquitectura clara orientada a conversión.</span>
-              </div>
-              <div class="stat">
-                <strong>Reviews</strong>
-                <span class="muted">Más confianza antes del primer clic.</span>
-              </div>
-              <div class="stat">
-                <strong>Growth</strong>
-                <span class="muted">Optimización continua basada en datos.</span>
-              </div>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Presencia digital que <span>atrae, convence y convierte</span></h1>
+          <p>Owlbyte combina Google Maps, desarrollo web estratégico y marketing digital para convertir búsquedas en clientes reales. Tu negocio merece una estructura digital que funcione.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Solicitar diagnóstico</a>
+            <a href="#services" class="btn btn-outline">Explorar servicios</a>
           </div>
-
-          <div class="hero-card">
-            <div class="dashboard" style="display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 1rem;">
-              <div class="panel">
-                <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;">
-                  <div>
-                    <h3>Visibilidad local</h3>
-                    <p class="muted" style="margin-top:.35rem;">Maps, reseñas y búsquedas con alta intención</p>
-                  </div>
-                  <span class="pill" style="display:inline-flex;align-items:center;gap:0.4rem;border-radius:999px;padding:0.45rem 0.7rem;background:rgba(43,210,164,0.12);color:#9df1db;font-size:0.82rem;font-weight:700;">+42% reservas</span>
-                </div>
-                <div class="map-shell" style="height:250px;margin-top:0.9rem;border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px),radial-gradient(circle at 18% 32%,rgba(110,231,255,.18),transparent 18%),radial-gradient(circle at 75% 64%,rgba(139,92,246,.18),transparent 18%),#0f1930;background-size:34px 34px,34px 34px,auto,auto,auto;">
-                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:22%;left:19%;"></span>
-                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:51%;left:60%;"></span>
-                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:70%;left:35%;"></span>
-                </div>
-              </div>
-
-              <div style="display:grid;gap:1rem;">
-                <div class="panel">
-                  <h3>Sistema digital</h3>
-                  <p class="muted">Maps descubre. La web confirma. La estrategia convierte.</p>
-                  <div class="chip-row" style="display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.9rem;">
-                    <span class="chip" style="padding:0.5rem 0.7rem;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:0.8rem;color:#dce8fb;font-weight:600;">Google Business Profile</span>
-                    <span class="chip">Web premium</span>
-                    <span class="chip">Reseñas</span>
-                    <span class="chip">SEO local</span>
-                  </div>
-                </div>
-
-                <div class="panel">
-                  <h3>Flujo ideal</h3>
-                  <div class="flow" style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;color:var(--muted);font-size:0.82rem;font-weight:600;">
-                    <span class="flow-pill" style="border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:0.55rem 0.75rem;color:var(--text);">Search / Maps</span>
-                    <span class="arrow" style="opacity:0.5;">→</span>
-                    <span class="flow-pill">Comparación</span>
-                    <span class="arrow">→</span>
-                    <span class="flow-pill">Web</span>
-                    <span class="arrow">→</span>
-                    <span class="flow-pill">Lead / Reserva</span>
-                  </div>
-                </div>
-              </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>+42%</h3>
+              <p>más reservas en Maps</p>
+            </div>
+            <div class="stat-item">
+              <h3>+34%</h3>
+              <p>más leads web</p>
+            </div>
+            <div class="stat-item">
+              <h3>+58%</h3>
+              <p>visibilidad local</p>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow">Lo que resolvemos</span>
-            <h2>Tu negocio puede estar online y aun así estar perdiendo clientes.</h2>
-            <p class="lead">
-              Muchos negocios tienen una web, un perfil de Maps y presencia en redes, pero carecen
-              de una estructura que una visibilidad, confianza y conversión en un solo sistema.
-            </p>
-          </div>
-
-          <div class="cards-4">
-            <article class="card">
-              <div class="icon">📍</div>
-              <h3>Maps sin estrategia</h3>
-              <p>Perfiles mal optimizados, categorías incorrectas y baja visibilidad local.</p>
-            </article>
-            <article class="card">
-              <div class="icon">🌐</div>
-              <h3>Webs que no convierten</h3>
-              <p>Bonitas, sí. Claras, rápidas y orientadas a negocio, no siempre.</p>
-            </article>
-            <article class="card">
-              <div class="icon">⭐</div>
-              <h3>Reputación débil</h3>
-              <p>Sin reseñas trabajadas se pierde confianza incluso antes del clic.</p>
-            </article>
-            <article class="card">
-              <div class="icon">📈</div>
-              <h3>Marketing sin sistema</h3>
-              <p>Acciones sueltas sin una lógica de captación, cierre y seguimiento.</p>
-            </article>
+        <div class="hero-image">
+          <img src="https://placehold.co/600x400/0a0f1c/00e0ff?text=Owlbyte+Dashboard" alt="Dashboard Owlbyte">
+          <div class="floating-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Google Maps Optimizado</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="container">
-          <div class="cta-band">
-            <div>
-              <span class="eyebrow">Diagnóstico inicial</span>
-              <h2 style="margin-top:1rem;">Si tu negocio ya existe online, hagamos que se vea a la altura.</h2>
-              <p class="lead" style="margin-top:1rem;">
-                Podemos revisar tu estructura actual y mostrarte dónde estás perdiendo visibilidad,
-                confianza o conversiones.
-              </p>
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Servicios integrados</h2>
+          <p>Tres frentes que trabajan juntos para atraer, convencer y cerrar clientes.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Google Maps & SEO Local</h3>
+            <p>Optimizamos tu perfil de Google Business para que aparezcas en las búsquedas clave de tu zona.</p>
+            <ul>
+              <li>Perfil completo con categorías estratégicas</li>
+              <li>Gestión de reseñas y respuestas</li>
+              <li>Fotos y publicaciones que generan confianza</li>
+              <li>Visibilidad en "cerca de mí"</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Desarrollo Web Estratégico</h3>
+            <p>Sitios rápidos, limpios y diseñados para convertir visitantes en clientes.</p>
+            <ul>
+              <li>Arquitectura clara y UX optimizada</li>
+              <li>Diseño responsive y moderno</li>
+              <li>Integración con Maps y formularios</li>
+              <li>SEO técnico implementado</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Marketing Digital</h3>
+            <p>Estrategias basadas en datos, no en intuición. Campañas que generan resultados.</p>
+            <ul>
+              <li>Contenido con intención de compra</li>
+              <li>Campañas en Google y redes sociales</li>
+              <li>Embudos de conversión medibles</li>
+              <li>Optimización continua</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nuestro proceso</h2>
+          <p>Sistema probado, sin improvisación.</p>
+        </div>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Diagnóstico</h3>
+            <p>Analizamos tu web, Maps, competencia y puntos de fuga.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Arquitectura</h3>
+            <p>Definimos estructura, prioridades y objetivos.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Implementación</h3>
+            <p>Desarrollamos y optimizamos cada pieza.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Validación</h3>
+            <p>Medimos comportamiento y conversiones.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <h3>Optimización</h3>
+            <p>Ajustamos basados en datos reales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases / Results -->
+    <section id="cases" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Casos de éxito</h2>
+          <p>Resultados que hablan por sí mismos.</p>
+        </div>
+        <div class="cases-grid">
+          <div class="case-card">
+            <div class="case-header">
+              <h3>Restaurante Local</h3>
+              <span class="badge">Maps + Reseñas</span>
             </div>
-            <div class="btn-row" style="margin-top:0;">
-              <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
-              <a class="btn btn-secondary" data-nav="casos">Ver casos</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página Servicios -->
-    <div id="page-servicios" class="page">
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow">Servicios</span>
-            <h2>Tres frentes, una sola lógica: atraer, convencer y cerrar.</h2>
-            <p class="lead">
-              La web deja de ser una pieza aislada y pasa a trabajar junto con Maps, reputación y
-              marketing para construir una presencia digital completa.
-            </p>
-          </div>
-
-          <div class="cards-3">
-            <article class="card">
-              <div class="icon">🧭</div>
-              <h3>Google Maps & SEO local</h3>
-              <p>Optimizamos tu presencia para búsquedas como “restaurantes en Cusco” o “cerca de mí”.</p>
-              <ul>
-                <li>Optimización de Google Business Profile</li>
-                <li>Categorías + keywords locales</li>
-                <li>Fotos, publicaciones y reseñas</li>
-                <li>Gestión de visibilidad en Maps</li>
-              </ul>
-              <a class="btn btn-secondary" data-nav="contacto">Quiero aparecer en Google</a>
-            </article>
-
-            <article class="card">
-              <div class="icon">💻</div>
-              <h3>Desarrollo web estratégico</h3>
-              <p>Diseñamos sitios rápidos, claros y profesionales para desktop, tablet y móvil.</p>
-              <ul>
-                <li>Arquitectura multi-página</li>
-                <li>Jerarquía visual limpia</li>
-                <li>UX orientada a conversión</li>
-                <li>Integración con tu ecosistema digital</li>
-              </ul>
-              <a class="btn btn-secondary" data-nav="contacto">Quiero una web que convierta</a>
-            </article>
-
-            <article class="card">
-              <div class="icon">🚀</div>
-              <h3>Marketing digital</h3>
-              <p>Contenido, campañas y embudos con una lógica de crecimiento real, no acciones sueltas.</p>
-              <ul>
-                <li>Estrategia de contenido con intención</li>
-                <li>Campañas orientadas a resultados</li>
-                <li>Optimización de puntos de contacto</li>
-                <li>Medición de leads y reservas</li>
-              </ul>
-              <a class="btn btn-secondary" data-nav="contacto">Quiero más clientes</a>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página Proceso -->
-    <div id="page-proceso" class="page">
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow">Proceso</span>
-            <h2>No improvisamos. Seguimos un sistema.</h2>
-            <p class="lead">
-              La mayoría de problemas digitales vienen de procesos desordenados. Nuestra estructura
-              evita improvisación y facilita crecer sobre una base seria.
-            </p>
-          </div>
-
-          <div class="steps-grid">
-            <article class="step">
-              <div class="step-number">01</div>
-              <h3>Diagnóstico</h3>
-              <p>Revisamos web, Maps, reputación, competencia y puntos de fuga.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">02</div>
-              <h3>Arquitectura</h3>
-              <p>Definimos estructura, prioridades y objetivos de conversión.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">03</div>
-              <h3>Implementación</h3>
-              <p>Desplegamos mejoras visuales, técnicas y estratégicas.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">04</div>
-              <h3>Validación</h3>
-              <p>Medimos interacción, formularios, clics, llamadas y comportamiento.</p>
-            </article>
-            <article class="step">
-              <div class="step-number">05</div>
-              <h3>Optimización</h3>
-              <p>Ajustamos según resultados, no por intuición.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página Casos -->
-    <div id="page-casos" class="page">
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow">Casos reales</span>
-            <h2>Resultados que hablan por sí mismos.</h2>
-            <p class="lead">
-              Hemos ayudado a negocios a transformar su presencia digital. Aquí algunos ejemplos.
-            </p>
-          </div>
-
-          <div class="cases-grid">
-            <article class="case">
-              <div class="case-top">
-                <h3>Restaurante local</h3>
-                <span class="badge">Maps + reseñas</span>
-              </div>
-              <p class="muted" style="margin-top:.8rem;">Perfil mal optimizado, baja calidad visual y pocas reseñas estratégicas.</p>
-              <div class="case-metric">
-                <strong>+58%</strong>
-                <span class="muted">más clics en “Cómo llegar”</span>
-              </div>
-            </article>
-            <article class="case">
-              <div class="case-top">
-                <h3>Agencia de servicios</h3>
-                <span class="badge">Web + leads</span>
-              </div>
-              <p class="muted" style="margin-top:.8rem;">Sitio lento, estructura confusa y ausencia de CTA claros para generar leads.</p>
-              <div class="case-metric">
-                <strong>+34%</strong>
-                <span class="muted">más formularios enviados</span>
-              </div>
-            </article>
-            <article class="case">
-              <div class="case-top">
-                <h3>Marca local</h3>
-                <span class="badge">Ecosistema completo</span>
-              </div>
-              <p class="muted" style="margin-top:.8rem;">Dependencia de terceros y falta de un activo propio que consolide marca.</p>
-              <div class="case-metric">
-                <strong>+41%</strong>
-                <span class="muted">más reservas directas</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página Insights (blog) -->
-    <div id="page-insights" class="page">
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
-            <span class="eyebrow">Insights</span>
-            <h2>Artículos y recursos para crecer con criterio.</h2>
-            <p class="lead">
-              Estrategia, casos reales y consejos prácticos para mejorar tu presencia digital.
-            </p>
-          </div>
-
-          <div class="cards-3">
-            <article class="card">
-              <div class="icon">📌</div>
-              <h3>5 errores comunes en Google Maps</h3>
-              <p>Cómo afectan a tu visibilidad local y cómo solucionarlos fácilmente.</p>
-              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
-            </article>
-            <article class="card">
-              <div class="icon">⚡</div>
-              <h3>Velocidad web: el factor invisible que mata conversiones</h3>
-              <p>Por qué un sitio lento puede estar saboteando tus ventas.</p>
-              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
-            </article>
-            <article class="card">
-              <div class="icon">📊</div>
-              <h3>Métricas que importan (y que nadie mide)</h3>
-              <p>Deja de mirar solo visitas. Enfócate en leads y conversiones.</p>
-              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página Contacto -->
-    <div id="page-contacto" class="page">
-      <section class="section">
-        <div class="container footer-grid" style="grid-template-columns: 1fr 1fr;">
-          <div class="footer-card">
-            <span class="eyebrow">Contacto</span>
-            <h2 style="margin-top:1rem;">Hablemos de tu negocio.</h2>
-            <p>
-              Si quieres una web que sirva como activo de marca y una presencia local que realmente
-              genere clientes, Owlbyte está construido para eso.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href="mailto:hola@owlbyte.me">hola@owlbyte.me</a>
-              <a class="btn btn-secondary" href="#">WhatsApp</a>
+            <p>Perfil desactualizado, baja visibilidad en búsquedas locales. Optimizamos fotos, categorías y reseñas.</p>
+            <div class="case-metric">
+              <strong>+58%</strong>
+              <span>más clics en "Cómo llegar"</span>
             </div>
           </div>
-
-          <div class="footer-card">
-            <h3>Envíanos un mensaje</h3>
-            <form id="contact-form">
-              <input class="field" type="text" id="nombre" placeholder="Nombre" required />
-              <input class="field" type="email" id="email" placeholder="Correo electrónico" required />
-              <textarea class="field" id="mensaje" placeholder="Cuéntanos qué necesitas" rows="4" required></textarea>
-              <button class="btn btn-primary" type="submit">Enviar solicitud</button>
-            </form>
-            <p class="muted" style="margin-top: 0.5rem; font-size: 0.8rem;">Recibirás respuesta en menos de 24 horas.</p>
+          <div class="case-card">
+            <div class="case-header">
+              <h3>Agencia de Servicios</h3>
+              <span class="badge">Web + Leads</span>
+            </div>
+            <p>Sitio lento y sin estructura de conversión. Rediseñamos y optimizamos UX.</p>
+            <div class="case-metric">
+              <strong>+34%</strong>
+              <span>más formularios enviados</span>
+            </div>
+          </div>
+          <div class="case-card">
+            <div class="case-header">
+              <h3>Marca Local</h3>
+              <span class="badge">Ecosistema completo</span>
+            </div>
+            <p>Dependencia de redes sociales sin activo propio. Creamos web + Maps integrados.</p>
+            <div class="case-metric">
+              <strong>+41%</strong>
+              <span>más reservas directas</span>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>¿Listo para crecer?</h2>
+          <p>Cuéntanos tu negocio y recibirás un diagnóstico inicial sin compromiso.</p>
+          <div class="contact-details">
+            <div><i class="fas fa-envelope"></i> hola@owlbyte.me</div>
+            <div><i class="fab fa-whatsapp"></i> +51 984 123 456</div>
+            <div><i class="fas fa-map-marker-alt"></i> Cusco, Perú</div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Nombre completo" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder="¿Qué necesitas? (web, Maps, marketing...)" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      <div class="footer-bottom">
-        <span>© 2026 Owlbyte. Captamos clientes, no solo tráfico.</span>
-        <span>Diseñado para desktop, tablet y móvil.</span>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Owlbyte</h3>
+          <p>Presencia digital que atrae, convence y convierte.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Servicios</h3>
+          <a href="#">Google Maps & SEO Local</a>
+          <a href="#">Desarrollo Web</a>
+          <a href="#">Marketing Digital</a>
+        </div>
+        <div class="footer-col">
+          <h3>Recursos</h3>
+          <a href="#">Blog</a>
+          <a href="#">Casos de éxito</a>
+          <a href="#">Guías gratuitas</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <a href="mailto:hola@owlbyte.me">hola@owlbyte.me</a>
+          <a href="#">+51 984 123 456</a>
+          <a href="#">Cusco, Perú</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 Owlbyte. Todos los derechos reservados.
       </div>
     </div>
   </footer>
 
   <script>
-    // Navegación por hash
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
       });
-      const activePage = document.getElementById(`page-${pageId}`);
-      if (activePage) activePage.classList.add('active');
-      // Actualizar hash sin disparar evento
-      if (window.location.hash !== `#${pageId}`) {
-        window.location.hash = pageId;
-      }
-    }
+    });
 
-    function handleNavigation(e) {
-      const target = e.target.closest('[data-nav]');
-      if (!target) return;
-      e.preventDefault();
-      const page = target.getAttribute('data-nav');
-      showPage(page);
-      // Scroll al inicio
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    document.addEventListener('click', handleNavigation);
-
-    // Cargar página según hash al inicio
-    function loadFromHash() {
-      let hash = window.location.hash.slice(1);
-      if (!hash || !document.getElementById(`page-${hash}`)) {
-        hash = 'inicio';
-      }
-      showPage(hash);
-    }
-
-    window.addEventListener('hashchange', loadFromHash);
-    loadFromHash();
-
-    // Manejo del formulario de contacto (simulación)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const mensaje = document.getElementById('mensaje').value.trim();
-
-        if (!nombre || !email || !mensaje) {
-          alert('Por favor completa todos los campos.');
-          return;
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
-        // Aquí podrías enviar los datos a tu backend o servicio de email
-        alert(`Gracias ${nombre}, hemos recibido tu mensaje. Te contactaremos pronto.`);
-        contactForm.reset();
       });
-    }
+    });
+
+    // Form submission simulation
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Por favor completa todos los campos.');
+        return;
+      }
+
+      alert(`Gracias ${name}, hemos recibido tu mensaje. Te contactaremos a la brevedad.`);
+      contactForm.reset();
+    });
   </script>
 </body>
 </html>
