@@ -214,146 +214,21 @@
       font-size: 0.94rem;
     }
 
+    .nav-links a {
+      cursor: pointer;
+    }
+
     .nav-links a:hover {
       color: var(--text);
     }
 
-    .hero {
-      padding: 74px 0 56px;
+    /* Estilos para páginas (contenedores dinámicos) */
+    .page {
+      display: none;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .hero-copy .lead {
-      margin-top: 1.35rem;
-    }
-
-    .hero-copy strong {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .hero-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 32px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: var(--shadow);
-      padding: 1.2rem;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      right: -8%;
-      bottom: -30%;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, rgba(110,231,255,.24), transparent 68%);
-      filter: blur(8px);
-    }
-
-    .dashboard {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 1rem;
-    }
-
-    .panel {
-      position: relative;
-      overflow: hidden;
-      min-height: 190px;
-      padding: 1rem;
-      border-radius: 22px;
-      background: rgba(8, 17, 29, 0.72);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border-radius: 999px;
-      padding: 0.45rem 0.7rem;
-      background: rgba(43,210,164,0.12);
-      color: #9df1db;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .map-shell {
-      height: 250px;
-      margin-top: 0.9rem;
-      border-radius: 18px;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
-        radial-gradient(circle at 18% 32%, rgba(110,231,255,.18), transparent 18%),
-        radial-gradient(circle at 75% 64%, rgba(139,92,246,.18), transparent 18%),
-        #0f1930;
-      background-size: 34px 34px, 34px 34px, auto, auto, auto;
-    }
-
-    .pin {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border: 3px solid white;
-      box-shadow: 0 0 0 10px rgba(110,231,255,.08);
-    }
-
-    .pin-1 { top: 22%; left: 19%; }
-    .pin-2 { top: 51%; left: 60%; }
-    .pin-3 { top: 70%; left: 35%; }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 0.9rem;
-    }
-
-    .chip {
-      padding: 0.5rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.8rem;
-      color: #dce8fb;
-      font-weight: 600;
-    }
-
-    .flow {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-    .flow-pill {
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 0.55rem 0.75rem;
-      color: var(--text);
-    }
-
-    .arrow {
-      opacity: 0.5;
+    .page.active {
+      display: block;
     }
 
     .stats-grid,
@@ -547,12 +422,10 @@
     }
 
     @media (max-width: 1080px) {
-      .hero-grid,
-      .dashboard,
+      .stats-grid,
       .cards-4,
       .steps-grid,
       .footer-grid,
-      .stats-grid,
       .cases-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -568,12 +441,6 @@
         display: none;
       }
 
-      .hero {
-        padding-top: 46px;
-      }
-
-      .hero-grid,
-      .dashboard,
       .stats-grid,
       .cards-3,
       .cards-4,
@@ -603,7 +470,7 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="#">
+      <a class="brand" href="#" data-nav="inicio">
         <span class="brand-mark">O</span>
         <span class="brand-text">
           Owlbyte
@@ -612,347 +479,380 @@
       </a>
 
       <nav class="nav-links">
-        <a href="#">Inicio</a>
-        <a href="#">Servicios</a>
-        <a href="#">Proceso</a>
-        <a href="#">Casos</a>
-        <a href="#">Insights</a>
-        <a href="#">Contacto</a>
+        <a data-nav="inicio">Inicio</a>
+        <a data-nav="servicios">Servicios</a>
+        <a data-nav="proceso">Proceso</a>
+        <a data-nav="casos">Casos</a>
+        <a data-nav="insights">Insights</a>
+        <a data-nav="contacto">Contacto</a>
       </nav>
 
-      <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
+      <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Diseño premium + conversión real</span>
-          <h1>
-            Construimos presencia digital que
-            atrae, convence y convierte.
-          </h1>
-          <p class="lead">
-            Owlbyte combina <strong>Google Maps</strong>, <strong>desarrollo web estratégico</strong> y
-            <strong>marketing digital</strong> para que tu negocio deje de perder oportunidades y empiece
-            a crecer con una estructura digital seria.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
-            <a class="btn btn-secondary" href="#servicios">Explorar servicios</a>
-          </div>
+    <!-- Página Inicio -->
+    <div id="page-inicio" class="page active">
+      <section class="hero">
+        <div class="container hero-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center;">
+          <div class="hero-copy">
+            <span class="eyebrow">Diseño premium + conversión real</span>
+            <h1>
+              Construimos presencia digital que
+              atrae, convence y convierte.
+            </h1>
+            <p class="lead">
+              Owlbyte combina <strong>Google Maps</strong>, <strong>desarrollo web estratégico</strong> y
+              <strong>marketing digital</strong> para que tu negocio deje de perder oportunidades y empiece
+              a crecer con una estructura digital seria.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
+              <a class="btn btn-secondary" data-nav="servicios">Explorar servicios</a>
+            </div>
 
-          <div class="stats-grid">
-            <div class="stat">
-              <strong>Maps</strong>
-              <span class="muted">Visibilidad local para búsquedas con intención.</span>
-            </div>
-            <div class="stat">
-              <strong>Web</strong>
-              <span class="muted">Arquitectura clara orientada a conversión.</span>
-            </div>
-            <div class="stat">
-              <strong>Reviews</strong>
-              <span class="muted">Más confianza antes del primer clic.</span>
-            </div>
-            <div class="stat">
-              <strong>Growth</strong>
-              <span class="muted">Optimización continua basada en datos.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="dashboard">
-            <div class="panel">
-              <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;">
-                <div>
-                  <h3>Visibilidad local</h3>
-                  <p class="muted" style="margin-top:.35rem;">Maps, reseñas y búsquedas con alta intención</p>
-                </div>
-                <span class="pill">+42% reservas</span>
+            <div class="stats-grid">
+              <div class="stat">
+                <strong>Maps</strong>
+                <span class="muted">Visibilidad local para búsquedas con intención.</span>
               </div>
-              <div class="map-shell">
-                <span class="pin pin-1"></span>
-                <span class="pin pin-2"></span>
-                <span class="pin pin-3"></span>
+              <div class="stat">
+                <strong>Web</strong>
+                <span class="muted">Arquitectura clara orientada a conversión.</span>
+              </div>
+              <div class="stat">
+                <strong>Reviews</strong>
+                <span class="muted">Más confianza antes del primer clic.</span>
+              </div>
+              <div class="stat">
+                <strong>Growth</strong>
+                <span class="muted">Optimización continua basada en datos.</span>
               </div>
             </div>
+          </div>
 
-            <div style="display:grid;gap:1rem;">
+          <div class="hero-card">
+            <div class="dashboard" style="display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 1rem;">
               <div class="panel">
-                <h3>Sistema digital</h3>
-                <p class="muted">Maps descubre. La web confirma. La estrategia convierte.</p>
-                <div class="chip-row">
-                  <span class="chip">Google Business Profile</span>
-                  <span class="chip">Web premium</span>
-                  <span class="chip">Reseñas</span>
-                  <span class="chip">SEO local</span>
+                <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;">
+                  <div>
+                    <h3>Visibilidad local</h3>
+                    <p class="muted" style="margin-top:.35rem;">Maps, reseñas y búsquedas con alta intención</p>
+                  </div>
+                  <span class="pill" style="display:inline-flex;align-items:center;gap:0.4rem;border-radius:999px;padding:0.45rem 0.7rem;background:rgba(43,210,164,0.12);color:#9df1db;font-size:0.82rem;font-weight:700;">+42% reservas</span>
+                </div>
+                <div class="map-shell" style="height:250px;margin-top:0.9rem;border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px),radial-gradient(circle at 18% 32%,rgba(110,231,255,.18),transparent 18%),radial-gradient(circle at 75% 64%,rgba(139,92,246,.18),transparent 18%),#0f1930;background-size:34px 34px,34px 34px,auto,auto,auto;">
+                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:22%;left:19%;"></span>
+                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:51%;left:60%;"></span>
+                  <span class="pin" style="position:absolute;width:18px;height:18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--accent));border:3px solid white;box-shadow:0 0 0 10px rgba(110,231,255,.08);top:70%;left:35%;"></span>
                 </div>
               </div>
 
-              <div class="panel">
-                <h3>Flujo ideal</h3>
-                <div class="flow">
-                  <span class="flow-pill">Search / Maps</span>
-                  <span class="arrow">→</span>
-                  <span class="flow-pill">Comparación</span>
-                  <span class="arrow">→</span>
-                  <span class="flow-pill">Web</span>
-                  <span class="arrow">→</span>
-                  <span class="flow-pill">Lead / Reserva</span>
+              <div style="display:grid;gap:1rem;">
+                <div class="panel">
+                  <h3>Sistema digital</h3>
+                  <p class="muted">Maps descubre. La web confirma. La estrategia convierte.</p>
+                  <div class="chip-row" style="display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.9rem;">
+                    <span class="chip" style="padding:0.5rem 0.7rem;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:0.8rem;color:#dce8fb;font-weight:600;">Google Business Profile</span>
+                    <span class="chip">Web premium</span>
+                    <span class="chip">Reseñas</span>
+                    <span class="chip">SEO local</span>
+                  </div>
+                </div>
+
+                <div class="panel">
+                  <h3>Flujo ideal</h3>
+                  <div class="flow" style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;color:var(--muted);font-size:0.82rem;font-weight:600;">
+                    <span class="flow-pill" style="border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:0.55rem 0.75rem;color:var(--text);">Search / Maps</span>
+                    <span class="arrow" style="opacity:0.5;">→</span>
+                    <span class="flow-pill">Comparación</span>
+                    <span class="arrow">→</span>
+                    <span class="flow-pill">Web</span>
+                    <span class="arrow">→</span>
+                    <span class="flow-pill">Lead / Reserva</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Lo que resolvemos</span>
-          <h2>Tu negocio puede estar online y aun así estar perdiendo clientes.</h2>
-          <p class="lead">
-            Muchos negocios tienen una web, un perfil de Maps y presencia en redes, pero carecen
-            de una estructura que una visibilidad, confianza y conversión en un solo sistema.
-          </p>
-        </div>
-
-        <div class="cards-4">
-          <article class="card">
-            <div class="icon">📍</div>
-            <h3>Maps sin estrategia</h3>
-            <p>Perfiles mal optimizados, categorías incorrectas y baja visibilidad local.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🌐</div>
-            <h3>Webs que no convierten</h3>
-            <p>Bonitas, sí. Claras, rápidas y orientadas a negocio, no siempre.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">⭐</div>
-            <h3>Reputación débil</h3>
-            <p>Sin reseñas trabajadas se pierde confianza incluso antes del clic.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">📈</div>
-            <h3>Marketing sin sistema</h3>
-            <p>Acciones sueltas sin una lógica de captación, cierre y seguimiento.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="servicios">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Servicios</span>
-          <h2>Tres frentes, una sola lógica: atraer, convencer y cerrar.</h2>
-          <p class="lead">
-            La web deja de ser una pieza aislada y pasa a trabajar junto con Maps, reputación y
-            marketing para construir una presencia digital completa.
-          </p>
-        </div>
-
-        <div class="cards-3">
-          <article class="card">
-            <div class="icon">🧭</div>
-            <h3>Google Maps & SEO local</h3>
-            <p>Optimizamos tu presencia para búsquedas como “restaurantes en Cusco” o “cerca de mí”.</p>
-            <ul>
-              <li>Optimización de Google Business Profile</li>
-              <li>Categorías + keywords locales</li>
-              <li>Fotos, publicaciones y reseñas</li>
-              <li>Gestión de visibilidad en Maps</li>
-            </ul>
-            <a class="btn btn-secondary" href="#contacto">Quiero aparecer en Google</a>
-          </article>
-
-          <article class="card">
-            <div class="icon">💻</div>
-            <h3>Desarrollo web estratégico</h3>
-            <p>Diseñamos sitios rápidos, claros y profesionales para desktop, tablet y móvil.</p>
-            <ul>
-              <li>Arquitectura multi-página</li>
-              <li>Jerarquía visual limpia</li>
-              <li>UX orientada a conversión</li>
-              <li>Integración con tu ecosistema digital</li>
-            </ul>
-            <a class="btn btn-secondary" href="#contacto">Quiero una web que convierta</a>
-          </article>
-
-          <article class="card">
-            <div class="icon">🚀</div>
-            <h3>Marketing digital</h3>
-            <p>Contenido, campañas y embudos con una lógica de crecimiento real, no acciones sueltas.</p>
-            <ul>
-              <li>Estrategia de contenido con intención</li>
-              <li>Campañas orientadas a resultados</li>
-              <li>Optimización de puntos de contacto</li>
-              <li>Medición de leads y reservas</li>
-            </ul>
-            <a class="btn btn-secondary" href="#contacto">Quiero más clientes</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Proceso</span>
-          <h2>No improvisamos. Seguimos un sistema.</h2>
-          <p class="lead">
-            La mayoría de problemas digitales vienen de procesos desordenados. Nuestra estructura
-            evita improvisación y facilita crecer sobre una base seria.
-          </p>
-        </div>
-
-        <div class="steps-grid">
-          <article class="step">
-            <div class="step-number">01</div>
-            <h3>Diagnóstico</h3>
-            <p>Revisamos web, Maps, reputación, competencia y puntos de fuga.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">02</div>
-            <h3>Arquitectura</h3>
-            <p>Definimos estructura, prioridades y objetivos de conversión.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">03</div>
-            <h3>Implementación</h3>
-            <p>Desplegamos mejoras visuales, técnicas y estratégicas.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">04</div>
-            <h3>Validación</h3>
-            <p>Medimos interacción, formularios, clics, llamadas y comportamiento.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">05</div>
-            <h3>Optimización</h3>
-            <p>Ajustamos según resultados, no por intuición.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Casos / ejemplos</span>
-          <h2>Una presencia profesional también necesita evidencia.</h2>
-          <p class="lead">
-            Esta sección queda lista para que luego reemplaces estos ejemplos con casos reales de clientes.
-          </p>
-        </div>
-
-        <div class="cases-grid">
-          <article class="case">
-            <div class="case-top">
-              <h3>Restaurante local</h3>
-              <span class="badge">Maps + reseñas</span>
-            </div>
-            <p class="muted" style="margin-top:.8rem;">Perfil mal optimizado, baja calidad visual y pocas reseñas estratégicas.</p>
-            <div class="case-metric">
-              <strong>+58%</strong>
-              <span class="muted">más clics en “Cómo llegar”</span>
-            </div>
-          </article>
-
-          <article class="case">
-            <div class="case-top">
-              <h3>Agencia de servicios</h3>
-              <span class="badge">Web + leads</span>
-            </div>
-            <p class="muted" style="margin-top:.8rem;">Sitio lento, estructura confusa y ausencia de CTA claros para generar leads.</p>
-            <div class="case-metric">
-              <strong>+34%</strong>
-              <span class="muted">más formularios enviados</span>
-            </div>
-          </article>
-
-          <article class="case">
-            <div class="case-top">
-              <h3>Marca local</h3>
-              <span class="badge">Ecosistema completo</span>
-            </div>
-            <p class="muted" style="margin-top:.8rem;">Dependencia de terceros y falta de un activo propio que consolide marca.</p>
-            <div class="case-metric">
-              <strong>+41%</strong>
-              <span class="muted">más reservas directas</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-band">
-          <div>
-            <span class="eyebrow">Diagnóstico inicial</span>
-            <h2 style="margin-top:1rem;">Si tu negocio ya existe online, hagamos que se vea a la altura.</h2>
-            <p class="lead" style="margin-top:1rem;">
-              Podemos revisar tu estructura actual y mostrarte dónde estás perdiendo visibilidad,
-              confianza o conversiones.
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Lo que resolvemos</span>
+            <h2>Tu negocio puede estar online y aun así estar perdiendo clientes.</h2>
+            <p class="lead">
+              Muchos negocios tienen una web, un perfil de Maps y presencia en redes, pero carecen
+              de una estructura que una visibilidad, confianza y conversión en un solo sistema.
             </p>
           </div>
-          <div class="btn-row" style="margin-top:0;">
-            <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
-            <a class="btn btn-secondary" href="#">Ver casos</a>
+
+          <div class="cards-4">
+            <article class="card">
+              <div class="icon">📍</div>
+              <h3>Maps sin estrategia</h3>
+              <p>Perfiles mal optimizados, categorías incorrectas y baja visibilidad local.</p>
+            </article>
+            <article class="card">
+              <div class="icon">🌐</div>
+              <h3>Webs que no convierten</h3>
+              <p>Bonitas, sí. Claras, rápidas y orientadas a negocio, no siempre.</p>
+            </article>
+            <article class="card">
+              <div class="icon">⭐</div>
+              <h3>Reputación débil</h3>
+              <p>Sin reseñas trabajadas se pierde confianza incluso antes del clic.</p>
+            </article>
+            <article class="card">
+              <div class="icon">📈</div>
+              <h3>Marketing sin sistema</h3>
+              <p>Acciones sueltas sin una lógica de captación, cierre y seguimiento.</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="contacto">
-      <div class="container footer-grid">
-        <div class="footer-card">
-          <span class="eyebrow">Contacto</span>
-          <h2 style="margin-top:1rem;">Hablemos de tu negocio.</h2>
-          <p>
-            Si quieres una web que sirva como activo de marca y una presencia local que realmente
-            genere clientes, Owlbyte está construido para eso.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="mailto:hola@owlbyte.me">hola@owlbyte.me</a>
-            <a class="btn btn-secondary" href="#">WhatsApp</a>
+      <section class="section">
+        <div class="container">
+          <div class="cta-band">
+            <div>
+              <span class="eyebrow">Diagnóstico inicial</span>
+              <h2 style="margin-top:1rem;">Si tu negocio ya existe online, hagamos que se vea a la altura.</h2>
+              <p class="lead" style="margin-top:1rem;">
+                Podemos revisar tu estructura actual y mostrarte dónde estás perdiendo visibilidad,
+                confianza o conversiones.
+              </p>
+            </div>
+            <div class="btn-row" style="margin-top:0;">
+              <a class="btn btn-primary" data-nav="contacto">Solicitar diagnóstico</a>
+              <a class="btn btn-secondary" data-nav="casos">Ver casos</a>
+            </div>
           </div>
         </div>
+      </section>
+    </div>
 
-        <div class="footer-card">
-          <h3>Servicios</h3>
-          <p>Google Maps<br>Desarrollo web<br>Marketing digital<br>Reputación y reseñas</p>
-        </div>
+    <!-- Página Servicios -->
+    <div id="page-servicios" class="page">
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Servicios</span>
+            <h2>Tres frentes, una sola lógica: atraer, convencer y cerrar.</h2>
+            <p class="lead">
+              La web deja de ser una pieza aislada y pasa a trabajar junto con Maps, reputación y
+              marketing para construir una presencia digital completa.
+            </p>
+          </div>
 
-        <div class="footer-card">
-          <h3>Ubicación</h3>
-          <p>Cusco, Perú<br>Atención remota y presencial</p>
-        </div>
+          <div class="cards-3">
+            <article class="card">
+              <div class="icon">🧭</div>
+              <h3>Google Maps & SEO local</h3>
+              <p>Optimizamos tu presencia para búsquedas como “restaurantes en Cusco” o “cerca de mí”.</p>
+              <ul>
+                <li>Optimización de Google Business Profile</li>
+                <li>Categorías + keywords locales</li>
+                <li>Fotos, publicaciones y reseñas</li>
+                <li>Gestión de visibilidad en Maps</li>
+              </ul>
+              <a class="btn btn-secondary" data-nav="contacto">Quiero aparecer en Google</a>
+            </article>
 
-        <div class="footer-card">
-          <h3>Diagnóstico</h3>
-          <form>
-            <input class="field" type="text" placeholder="Nombre" />
-            <input class="field" type="email" placeholder="Correo" />
-            <textarea class="field" placeholder="Cuéntanos qué necesitas"></textarea>
-            <button class="btn btn-primary" type="button">Enviar solicitud</button>
-          </form>
+            <article class="card">
+              <div class="icon">💻</div>
+              <h3>Desarrollo web estratégico</h3>
+              <p>Diseñamos sitios rápidos, claros y profesionales para desktop, tablet y móvil.</p>
+              <ul>
+                <li>Arquitectura multi-página</li>
+                <li>Jerarquía visual limpia</li>
+                <li>UX orientada a conversión</li>
+                <li>Integración con tu ecosistema digital</li>
+              </ul>
+              <a class="btn btn-secondary" data-nav="contacto">Quiero una web que convierta</a>
+            </article>
+
+            <article class="card">
+              <div class="icon">🚀</div>
+              <h3>Marketing digital</h3>
+              <p>Contenido, campañas y embudos con una lógica de crecimiento real, no acciones sueltas.</p>
+              <ul>
+                <li>Estrategia de contenido con intención</li>
+                <li>Campañas orientadas a resultados</li>
+                <li>Optimización de puntos de contacto</li>
+                <li>Medición de leads y reservas</li>
+              </ul>
+              <a class="btn btn-secondary" data-nav="contacto">Quiero más clientes</a>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+    <!-- Página Proceso -->
+    <div id="page-proceso" class="page">
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Proceso</span>
+            <h2>No improvisamos. Seguimos un sistema.</h2>
+            <p class="lead">
+              La mayoría de problemas digitales vienen de procesos desordenados. Nuestra estructura
+              evita improvisación y facilita crecer sobre una base seria.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step">
+              <div class="step-number">01</div>
+              <h3>Diagnóstico</h3>
+              <p>Revisamos web, Maps, reputación, competencia y puntos de fuga.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">02</div>
+              <h3>Arquitectura</h3>
+              <p>Definimos estructura, prioridades y objetivos de conversión.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">03</div>
+              <h3>Implementación</h3>
+              <p>Desplegamos mejoras visuales, técnicas y estratégicas.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">04</div>
+              <h3>Validación</h3>
+              <p>Medimos interacción, formularios, clics, llamadas y comportamiento.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">05</div>
+              <h3>Optimización</h3>
+              <p>Ajustamos según resultados, no por intuición.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Página Casos -->
+    <div id="page-casos" class="page">
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Casos reales</span>
+            <h2>Resultados que hablan por sí mismos.</h2>
+            <p class="lead">
+              Hemos ayudado a negocios a transformar su presencia digital. Aquí algunos ejemplos.
+            </p>
+          </div>
+
+          <div class="cases-grid">
+            <article class="case">
+              <div class="case-top">
+                <h3>Restaurante local</h3>
+                <span class="badge">Maps + reseñas</span>
+              </div>
+              <p class="muted" style="margin-top:.8rem;">Perfil mal optimizado, baja calidad visual y pocas reseñas estratégicas.</p>
+              <div class="case-metric">
+                <strong>+58%</strong>
+                <span class="muted">más clics en “Cómo llegar”</span>
+              </div>
+            </article>
+            <article class="case">
+              <div class="case-top">
+                <h3>Agencia de servicios</h3>
+                <span class="badge">Web + leads</span>
+              </div>
+              <p class="muted" style="margin-top:.8rem;">Sitio lento, estructura confusa y ausencia de CTA claros para generar leads.</p>
+              <div class="case-metric">
+                <strong>+34%</strong>
+                <span class="muted">más formularios enviados</span>
+              </div>
+            </article>
+            <article class="case">
+              <div class="case-top">
+                <h3>Marca local</h3>
+                <span class="badge">Ecosistema completo</span>
+              </div>
+              <p class="muted" style="margin-top:.8rem;">Dependencia de terceros y falta de un activo propio que consolide marca.</p>
+              <div class="case-metric">
+                <strong>+41%</strong>
+                <span class="muted">más reservas directas</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Página Insights (blog) -->
+    <div id="page-insights" class="page">
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Insights</span>
+            <h2>Artículos y recursos para crecer con criterio.</h2>
+            <p class="lead">
+              Estrategia, casos reales y consejos prácticos para mejorar tu presencia digital.
+            </p>
+          </div>
+
+          <div class="cards-3">
+            <article class="card">
+              <div class="icon">📌</div>
+              <h3>5 errores comunes en Google Maps</h3>
+              <p>Cómo afectan a tu visibilidad local y cómo solucionarlos fácilmente.</p>
+              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
+            </article>
+            <article class="card">
+              <div class="icon">⚡</div>
+              <h3>Velocidad web: el factor invisible que mata conversiones</h3>
+              <p>Por qué un sitio lento puede estar saboteando tus ventas.</p>
+              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
+            </article>
+            <article class="card">
+              <div class="icon">📊</div>
+              <h3>Métricas que importan (y que nadie mide)</h3>
+              <p>Deja de mirar solo visitas. Enfócate en leads y conversiones.</p>
+              <a class="btn btn-secondary" href="#" style="pointer-events: none;">Leer más (próximamente)</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Página Contacto -->
+    <div id="page-contacto" class="page">
+      <section class="section">
+        <div class="container footer-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="footer-card">
+            <span class="eyebrow">Contacto</span>
+            <h2 style="margin-top:1rem;">Hablemos de tu negocio.</h2>
+            <p>
+              Si quieres una web que sirva como activo de marca y una presencia local que realmente
+              genere clientes, Owlbyte está construido para eso.
+            </p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="mailto:hola@owlbyte.me">hola@owlbyte.me</a>
+              <a class="btn btn-secondary" href="#">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="footer-card">
+            <h3>Envíanos un mensaje</h3>
+            <form id="contact-form">
+              <input class="field" type="text" id="nombre" placeholder="Nombre" required />
+              <input class="field" type="email" id="email" placeholder="Correo electrónico" required />
+              <textarea class="field" id="mensaje" placeholder="Cuéntanos qué necesitas" rows="4" required></textarea>
+              <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+            </form>
+            <p class="muted" style="margin-top: 0.5rem; font-size: 0.8rem;">Recibirás respuesta en menos de 24 horas.</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -963,5 +863,64 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Navegación por hash
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      const activePage = document.getElementById(`page-${pageId}`);
+      if (activePage) activePage.classList.add('active');
+      // Actualizar hash sin disparar evento
+      if (window.location.hash !== `#${pageId}`) {
+        window.location.hash = pageId;
+      }
+    }
+
+    function handleNavigation(e) {
+      const target = e.target.closest('[data-nav]');
+      if (!target) return;
+      e.preventDefault();
+      const page = target.getAttribute('data-nav');
+      showPage(page);
+      // Scroll al inicio
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('click', handleNavigation);
+
+    // Cargar página según hash al inicio
+    function loadFromHash() {
+      let hash = window.location.hash.slice(1);
+      if (!hash || !document.getElementById(`page-${hash}`)) {
+        hash = 'inicio';
+      }
+      showPage(hash);
+    }
+
+    window.addEventListener('hashchange', loadFromHash);
+    loadFromHash();
+
+    // Manejo del formulario de contacto (simulación)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !email || !mensaje) {
+          alert('Por favor completa todos los campos.');
+          return;
+        }
+
+        // Aquí podrías enviar los datos a tu backend o servicio de email
+        alert(`Gracias ${nombre}, hemos recibido tu mensaje. Te contactaremos pronto.`);
+        contactForm.reset();
+      });
+    }
+  </script>
 </body>
 </html>
