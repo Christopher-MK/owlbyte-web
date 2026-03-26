@@ -1,37 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>OWLBYTE</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sitio web de práctica HTML5 - OWLBYTE">
+    <meta name="author" content="OWLBYTE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWLBYTE | Desarrollo Web</title>
 </head>
 <body>
+
+    <!-- ========== HEADER ========== -->
     <header>
-        <h1>OWLByte</h1>
+        <h1>🐾 OWLBYTE</h1>
+        <p>De cero a desarrollador web — bit a bit</p>
+        
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="proyectos.html">Proyectos</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#tabla">Tecnologías</a>
         </nav>
     </header>
 
+    <!-- ========== MAIN ========== -->
     <main>
-        <section>
-            <h2>¿Qué haces aquí?</h2>
-            <p>Este es un espacio de pruebas y aprendizaje.</p>
+
+        <!-- SECCIÓN INICIO (con ID para enlace interno) -->
+        <section id="inicio">
+            <h2>¿Qué estás haciendo aquí?</h2>
+            <p>Este es mi campo de pruebas. Aquí estoy construyendo los <strong>cimientos</strong> de mi carrera como <em>desarrollador web</em>.</p>
+            <p>HTML5 es solo el primer paso. Pronto vendrán <strong>CSS</strong> y <strong>JavaScript</strong>.</p>
+            <hr>
+            <h3>Mi filosofía</h3>
+            <blockquote>
+                "Escribir código es seguir una serie de pasos respetando reglas. 
+                Tener una idea clara y saber qué herramienta usar en el momento correcto."
+            </blockquote>
         </section>
 
-        <section>
-            <h2>Tecnologías que estoy aprendiendo</h2>
+        <!-- SECCIÓN PROYECTOS -->
+        <section id="proyectos">
+            <h2>📁 Proyectos en desarrollo</h2>
             <ul>
-                <li>HTML - Estructura</li>
-                <li>CSS - Estilo (próximamente)</li>
-                <li>JavaScript - Interactividad (próximamente)</li>
+                <li>
+                    <strong>Portafolio personal</strong> 
+                    <ul>
+                        <li>HTML5 semántico</li>
+                        <li>CSS (próximamente)</li>
+                        <li>JavaScript (próximamente)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Blog de aprendizaje</strong>
+                    <ul>
+                        <li>Artículos semanales</li>
+                        <li>Ejemplos de código</li>
+                        <li>Reflexiones personales</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Landing page</strong>
+                    <ul>
+                        <li>Diseño responsive</li>
+                        <li>Formulario de contacto</li>
+                        <li>Integración con GitHub Pages</li>
+                    </ul>
+                </li>
             </ul>
         </section>
+
+        <!-- SECCIÓN RECURSOS (con enlaces externos) -->
+        <section id="recursos">
+            <h2>📚 Recursos que uso para aprender</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/es/" target="_blank">MDN Web Docs</a> - Documentación oficial</li>
+                <li><a href="https://github.com/" target="_blank">GitHub</a> - Donde guardo mi código</li>
+                <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> - Ejercicios prácticos</li>
+                <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools</a> - Referencia rápida</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN TABLA DE TECNOLOGÍAS -->
+        <section id="tabla">
+            <h2>📊 Ruta de aprendizaje</h2>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tecnología</th>
+                        <th>Nivel actual</th>
+                        <th>Objetivo</th>
+                        <th>Fecha estimada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>🟢 En práctica</td>
+                        <td>Dominar estructura semántica</td>
+                        <td>Abril 2026</td>
+                    </tr>
+                    <tr>
+                        <td>CSS3</td>
+                        <td>⚪ Próximamente</td>
+                        <td>Diseño responsive y Flexbox/Grid</td>
+                        <td>Mayo 2026</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>⚪ Próximamente</td>
+                        <td>DOM, eventos, APIs</td>
+                        <td>Junio 2026</td>
+                    </tr>
+                    <tr>
+                        <td>React</td>
+                        <td>⚪ Próximamente</td>
+                        <td>Componentes y hooks</td>
+                        <td>Julio 2026</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">🚀 Meta: Desarrollador Frontend Junior antes de Agosto 2026</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- SECCIÓN CONTACTO (con formulario) -->
+        <section id="contacto">
+            <h2>✉️ Contáctame</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                <br>
+                <div>
+                    <label for="asunto">Asunto:</label><br>
+                    <select id="asunto" name="asunto">
+                        <option value="consulta">Consulta</option>
+                        <option value="proyecto">Propuesta de proyecto</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="mensaje">Mensaje:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="5" cols="40" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <br>
+                <div>
+                    <input type="checkbox" id="suscripcion" name="suscripcion">
+                    <label for="suscripcion">Quiero recibir actualizaciones</label>
+                </div>
+                <br>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </section>
+
     </main>
 
+    <!-- ========== FOOTER ========== -->
     <footer>
-        <p>OWLByte - 2026</p>
-        <p>Construyendo desde cero, paso a paso.</p>
+        <p>🐾 OWLBYTE - Aprendiendo HTML5 | 2026</p>
+        <p>
+            <a href="#inicio">Volver arriba</a> | 
+            <a href="https://github.com/tu-usuario" target="_blank">GitHub</a> | 
+            <a href="mailto:owlbyte@ejemplo.com">Email</a>
+        </p>
+        <p><small>Construyendo paso a paso, sin atajos. Bit por bit.</small></p>
     </footer>
+
 </body>
 </html>
