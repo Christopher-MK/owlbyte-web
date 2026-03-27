@@ -1,39 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nada que ver aquí</title>
+  <style>
+    :root {
+      --bg-1: #050816;
+      --bg-2: #0b1026;
+      --neon-a: #00f5ff;
+      --neon-b: #8b5cf6;
+      --neon-c: #ff2bd6;
+      --text: #f5f7ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0,245,255,0.18), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(139,92,246,0.16), transparent 28%),
+        radial-gradient(circle at 50% 80%, rgba(255,43,214,0.14), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
+    }
+
+    .frame {
+      position: relative;
+      width: min(92vw, 1100px);
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05) inset,
+        0 0 24px rgba(0,245,255,0.12),
+        0 0 48px rgba(139,92,246,0.10),
+        0 20px 80px rgba(0,0,0,0.45);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 30px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--neon-a), var(--neon-b), var(--neon-c));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(30px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 180px;
+      height: 180px;
+      background: var(--neon-a);
+      top: -40px;
+      left: -30px;
+    }
+
+    .orb-2 {
+      width: 220px;
+      height: 220px;
+      background: var(--neon-b);
+      bottom: -70px;
+      right: -40px;
+    }
+
+    .title {
+      position: relative;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 0.95;
+      font-size: clamp(2.2rem, 8vw, 7rem);
+      color: #ffffff;
+      text-shadow:
+        0 0 6px rgba(255,255,255,0.9),
+        0 0 12px rgba(0,245,255,0.9),
+        0 0 24px rgba(0,245,255,0.8),
+        0 0 42px rgba(139,92,246,0.7),
+        0 0 70px rgba(255,43,214,0.55);
+      animation: pulse 2.6s ease-in-out infinite;
+      word-break: break-word;
+    }
+
+    .title::after {
+      content: "NADA QUE VER AQUI.";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+      filter: blur(10px);
+      opacity: 0.85;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow:
+          0 0 6px rgba(255,255,255,0.9),
+          0 0 12px rgba(0,245,255,0.9),
+          0 0 24px rgba(0,245,255,0.8),
+          0 0 42px rgba(139,92,246,0.7),
+          0 0 70px rgba(255,43,214,0.55);
+      }
+      50% {
+        transform: scale(1.02);
+        text-shadow:
+          0 0 8px rgba(255,255,255,1),
+          0 0 18px rgba(0,245,255,1),
+          0 0 34px rgba(0,245,255,0.95),
+          0 0 56px rgba(139,92,246,0.85),
+          0 0 90px rgba(255,43,214,0.75);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .frame {
+        width: min(94vw, 1100px);
+        min-height: 42vh;
+        border-radius: 22px;
+      }
+
+      .frame::before {
+        border-radius: 24px;
+      }
+
+      .title {
+        letter-spacing: 0.05em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .frame {
+        padding: 22px 16px;
+      }
+
+      .title {
+        font-size: clamp(1.8rem, 11vw, 3.4rem);
+        line-height: 1;
+      }
+
+      .orb-1 {
+        width: 120px;
+        height: 120px;
+      }
+
+      .orb-2 {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>Mi Página Web</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sobre mí</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section>
-            <h2>Bienvenido</h2>
-            <p>Esta es una página web simple hecha con HTML5 y CSS.</p>
-        </section>
-
-        <section>
-            <h2>Contenido</h2>
-            <p>Aquí puedes agregar más información sobre tu sitio.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Mi Web</p>
-    </footer>
-
+  <main class="frame">
+    <span class="glow-orb orb-1"></span>
+    <span class="glow-orb orb-2"></span>
+    <h1 class="title">NADA QUE VER AQUI.</h1>
+  </main>
 </body>
 </html>
