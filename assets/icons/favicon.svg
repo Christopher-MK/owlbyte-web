@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128' role='img' aria-label='OlwByte favicon'>
+  <defs>
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#1E3A5F'/>
+      <stop offset='100%' stop-color='#C4663A'/>
+    </linearGradient>
+  </defs>
+  <rect width='128' height='128' rx='28' fill='url(#g)'/>
+  <path d='M34 40h26c18 0 28 10 28 24s-10 24-28 24H34V40zm22 37c10 0 16-5 16-13s-6-13-16-13h-7v26h7z' fill='#fff'/>
+  <circle cx='94' cy='40' r='10' fill='#fff' opacity='.9'/>
+</svg>
