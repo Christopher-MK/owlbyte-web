@@ -1,262 +1,386 @@
 <!doctype html>
 <html lang="es">
- <head>
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OlwByte | Portfolio Creativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>OlwByte | Estudio Creativo Premium</title>
+  <!-- Preconectar a fuentes y CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fuentes Mejoradas: DM Sans + Inter + Acento Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <!-- Estilos personalizados Premium -->
   <style>
-        body{font-family:'DM Sans',sans-serif;overflow-x:hidden;background:#0A0A0A}
-        .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
-        .fade-up.visible{opacity:1;transform:translateY(0)}
-        .nav-solid{background:rgba(10,10,10,.95);backdrop-filter:blur(12px)}
-        .portfolio-item:hover .portfolio-overlay{opacity:1}
-        .portfolio-item:hover img{transform:scale(1.05)}
-        .portfolio-overlay{opacity:0;transition:opacity .3s ease}
-        .portfolio-overlay *{transform:translateY(10px);transition:transform .3s ease}
-        .portfolio-item:hover .portfolio-overlay *{transform:translateY(0)}
-        .service-card{border:1px solid #2a2a2a;transition:border-color .3s,box-shadow .3s}
-        .service-card:hover{border-color:#C4663A;box-shadow:0 8px 30px rgba(196,102,58,.15)}
-        .toast{animation:slideDown .3s ease,fadeOut .3s ease 2.7s forwards}
-        @keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
-        @keyframes fadeOut{to{opacity:0;transform:translateY(-100%)}}
-        .mobile-menu{transform:translateY(-100%);transition:transform .4s ease}
-        .mobile-menu.open{transform:translateY(0)}
-        input:focus,textarea:focus{outline:none;border-color:#C4663A!important}
-    </style>
- </head>
- <body class="text-[#FAFAFA] bg-[#0A0A0A]"><!-- Nav -->
-  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#inicio" class="text-xl font-bold text-white hover:text-[#C4663A] transition-colors">OlwByte</a>
-    <div class="hidden md:flex gap-8 text-sm">
-     <a href="#inicio" class="hover:text-[#C4663A] transition-colors">Inicio</a>
-     <a href="#servicios" class="hover:text-[#C4663A] transition-colors">Servicios</a>
-     <a href="#portafolio" class="hover:text-[#C4663A] transition-colors">Portafolio</a>
-     <a href="#about" class="hover:text-[#C4663A] transition-colors">Sobre Mí</a>
-     <a href="#contacto" class="hover:text-[#C4663A] transition-colors">Contacto</a>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'DM Sans', sans-serif;
+      background-color: #050505;
+      background-image: radial-gradient(circle at 25% 0%, rgba(196, 102, 58, 0.03) 0%, transparent 50%);
+      color: #F5F5F5;
+      overflow-x: hidden;
+    }
+
+    /* Clase para gradiente animado en textos */
+    .text-gradient {
+      background: linear-gradient(135deg, #FFFFFF 0%, #C4663A 60%, #E08E5A 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* Navbar Glassmorphism Premium */
+    .nav-premium {
+      background: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid rgba(196, 102, 58, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Efecto de borde brillante en cards */
+    .card-premium {
+      background: #111111;
+      border: 1px solid #222;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-premium::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(196, 102, 58, 0.1), transparent);
+      transition: left 0.7s ease;
+    }
+
+    .card-premium:hover::after {
+      left: 100%;
+    }
+
+    .card-premium:hover {
+      border-color: #C4663A;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -15px rgba(196, 102, 58, 0.2);
+    }
+
+    /* Botones con estilo */
+    .btn-primary {
+      background: linear-gradient(105deg, #C4663A 0%, #E08E5A 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(196, 102, 58, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(196, 102, 58, 0.5);
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: #C4663A;
+      background: rgba(196, 102, 58, 0.1);
+      transform: scale(1.02);
+    }
+
+    /* Overlay de portafolio mejorado */
+    .portfolio-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(196,102,58,0.7) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item img {
+      transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-overlay * {
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay * {
+      transform: translateY(0);
+    }
+
+    /* Animaciones de entrada */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Efecto de glass en inputs */
+    input, textarea {
+      background: #0F0F0F;
+      border: 1px solid #2A2A2A;
+      transition: all 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #C4663A;
+      box-shadow: 0 0 0 3px rgba(196, 102, 58, 0.2);
+      outline: none;
+    }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C4663A;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Glassmorphism -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+      <a href="#inicio" class="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <span class="text-3xl">⚡</span>
+        <span class="bg-gradient-to-r from-white to-[#C4663A] bg-clip-text text-transparent">OlwByte</span>
+      </a>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#inicio" class="hover:text-[#C4663A] transition-colors relative group">Inicio<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C4663A] transition-all group-hover:w-full"></span></a>
+        <a href="#servicios" class="hover:text-[#C4663A] transition-colors group">Servicios</a>
+        <a href="#portafolio" class="hover:text-[#C4663A] transition-colors group">Portafolio</a>
+        <a href="#about" class="hover:text-[#C4663A] transition-colors group">Sobre Mí</a>
+        <a href="#contacto" class="hover:text-[#C4663A] transition-colors group">Contacto</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden"><i data-lucide="menu" class="w-6 h-6"></i></button>
     </div>
-    <button id="menu-toggle" class="md:hidden" aria-label="Abrir menú"><i data-lucide="menu" class="w-6 h-6"></i></button>
-   </div>
-  </nav><!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-[#0A0A0A] flex flex-col items-center justify-center gap-8 text-2xl font-semibold">
-   <button id="menu-close" class="absolute top-6 right-6" aria-label="Cerrar menú"><i data-lucide="x" class="w-8 h-8"></i></button>
-   <a href="#inicio" class="mob-link hover:text-[#C4663A] transition-colors">Inicio</a>
-   <a href="#servicios" class="mob-link hover:text-[#C4663A] transition-colors">Servicios</a>
-   <a href="#portafolio" class="mob-link hover:text-[#C4663A] transition-colors">Portafolio</a>
-   <a href="#about" class="mob-link hover:text-[#C4663A] transition-colors">Sobre Mí</a>
-   <a href="#contacto" class="mob-link hover:text-[#C4663A] transition-colors">Contacto</a>
-  </div><!-- Hero -->
-  <section id="inicio" class="min-h-screen flex items-center pt-20">
-   <div class="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
-    <div>
-     <p class="fade-up text-sm uppercase tracking-widest mb-4 text-[#C4663A] font-semibold">OLWBYTE CREATIVE</p>
-     <h1 class="fade-up mb-6 leading-tight text-4xl md:text-5xl font-bold">Diseño que <span class="text-[#C4663A]">conecta</span>,<br>código que <span class="text-[#C4663A]">transforma</span></h1>
-     <p class="fade-up mb-8 text-gray-300 text-lg">Soluciones digitales personalizadas para hacer crecer tu marca con identidad, estrategia y tecnología.</p>
-     <div class="flex flex-wrap gap-4 fade-up">
-      <a href="#portafolio" class="bg-[#C4663A] hover:bg-[#a8552c] px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105">Ver proyectos</a>
-      <a href="#contacto" class="px-6 py-3 rounded-lg font-semibold border-2 border-[#FAFAFA] hover:border-[#C4663A] hover:text-[#C4663A] transition-colors">Hablemos</a>
-     </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-6 text-2xl font-semibold transition-transform duration-500 transform -translate-y-full">
+    <button id="menu-close" class="absolute top-6 right-6"><i data-lucide="x" class="w-8 h-8"></i></button>
+    <a href="#inicio" class="mob-link hover:text-[#C4663A]">Inicio</a>
+    <a href="#servicios" class="mob-link hover:text-[#C4663A]">Servicios</a>
+    <a href="#portafolio" class="mob-link hover:text-[#C4663A]">Portafolio</a>
+    <a href="#about" class="mob-link hover:text-[#C4663A]">Sobre Mí</a>
+    <a href="#contacto" class="mob-link hover:text-[#C4663A]">Contacto</a>
+  </div>
+
+  <!-- Hero Section con Imagen Real Premium -->
+  <section id="inicio" class="min-h-screen flex items-center pt-24 md:pt-32 relative overflow-hidden">
+    <div class="absolute top-40 -right-20 w-80 h-80 bg-[#C4663A] rounded-full blur-[120px] opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-6 md:px-8 w-full grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="fade-up inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wide text-[#C4663A] mb-6">✦ CREATIVE STUDIO</div>
+        <h1 class="fade-up mb-6 text-5xl md:text-7xl font-bold leading-[1.2] tracking-tight">Diseño que <span class="text-gradient">conecta</span>,<br>código que <span class="text-gradient">transforma</span></h1>
+        <p class="fade-up mb-10 text-gray-300 text-lg max-w-md">Soluciones digitales con identidad, estrategia y alta tecnología para marcas que aspiran a más.</p>
+        <div class="flex flex-wrap gap-5 fade-up">
+          <a href="#portafolio" class="btn-primary px-8 py-4 rounded-xl font-semibold">Ver proyectos ✦</a>
+          <a href="#contacto" class="btn-outline px-8 py-4 rounded-xl font-semibold">Hablemos</a>
+        </div>
+      </div>
+      <div class="fade-up relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#C4663A] to-[#E08E5A] rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition duration-500"></div>
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format" alt="Hero Premium" class="relative rounded-2xl w-full object-cover aspect-[4/5] shadow-2xl border border-white/10">
+      </div>
     </div>
-    <div class="fade-up">
-     <img src="https://placehold.co/600x750/1A1A1A/C4663A?text=OlwByte+Creative" alt="Hero" loading="lazy" class="w-full aspect-[4/5] object-cover rounded-2xl border border-[#2a2a2a]">
+  </section>
+
+  <!-- Servicios mejorados -->
+  <section id="servicios" class="py-28">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-20">
+        <p class="text-[#C4663A] text-sm font-semibold tracking-wider uppercase mb-3 fade-up">Qué ofrezco</p>
+        <h2 class="fade-up text-4xl md:text-5xl font-bold">Servicios <span class="text-gradient">premium</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div class="card-premium rounded-2xl p-7 fade-up bg-[#0C0C0C]"><i data-lucide="palette" class="w-10 h-10 text-[#C4663A] mb-5"></i><h3 class="text-xl font-bold mb-2">UI/UX Design</h3><p class="text-gray-400 text-sm">Interfaces fluidas y centradas en el usuario.</p></div>
+        <div class="card-premium rounded-2xl p-7 fade-up bg-[#0C0C0C]"><i data-lucide="share-2" class="w-10 h-10 text-[#C4663A] mb-5"></i><h3 class="text-xl font-bold mb-2">Social Media</h3><p class="text-gray-400 text-sm">Estrategia y contenido que engancha.</p></div>
+        <div class="card-premium rounded-2xl p-7 fade-up bg-[#0C0C0C]"><i data-lucide="pen-tool" class="w-10 h-10 text-[#C4663A] mb-5"></i><h3 class="text-xl font-bold mb-2">Branding</h3><p class="text-gray-400 text-sm">Identidad visual única y memorable.</p></div>
+        <div class="card-premium rounded-2xl p-7 fade-up bg-[#0C0C0C]"><i data-lucide="trending-up" class="w-10 h-10 text-[#C4663A] mb-5"></i><h3 class="text-xl font-bold mb-2">SEO & Analytics</h3><p class="text-gray-400 text-sm">Posicionamiento y datos para escalar.</p></div>
+      </div>
     </div>
-   </div>
-  </section><!-- Servicios -->
-  <section id="servicios" class="py-24">
-   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-     <h2 class="fade-up mb-4 text-3xl md:text-4xl font-bold">Lo que <span class="text-[#C4663A]">ofrezco</span></h2>
-     <p class="fade-up max-w-xl mx-auto text-gray-300">Soluciones creativas y técnicas para llevar tu marca al siguiente nivel</p>
+  </section>
+
+  <!-- Portafolio con imágenes reales -->
+  <section id="portafolio" class="py-28 bg-[#070707]">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-20">
+        <p class="text-[#C4663A] text-sm font-semibold tracking-wider uppercase mb-3 fade-up">Trabajos recientes</p>
+        <h2 class="fade-up text-4xl md:text-5xl font-bold">Proyectos que <span class="text-gradient">inspiran</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&auto=format" alt="Branding" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">Branding Corporativo</h3><p class="text-[#FFD5B5] text-sm">Identidad Visual</p></div></div>
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&auto=format" alt="Ecommerce" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">E-commerce App</h3><p class="text-[#FFD5B5] text-sm">UI/UX Design</p></div></div>
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format" alt="Social Media" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">Estrategia Redes</h3><p class="text-[#FFD5B5] text-sm">Social Media</p></div></div>
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format" alt="Landing" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">Landing Page</h3><p class="text-[#FFD5B5] text-sm">Desarrollo Web</p></div></div>
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format" alt="Dashboard" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">Dashboard Analytics</h3><p class="text-[#FFD5B5] text-sm">Diseño UI</p></div></div>
+        <div class="portfolio-item fade-up"><img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&auto=format" alt="Packaging" class="w-full aspect-[4/3] object-cover"><div class="portfolio-overlay"><h3 class="font-bold text-xl">Packaging</h3><p class="text-[#FFD5B5] text-sm">Diseño Gráfico</p></div></div>
+      </div>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-     <div class="service-card rounded-xl p-6 fade-up bg-[#1A1A1A]"><i data-lucide="palette" class="w-10 h-10 text-[#C4663A] mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Diseño UI/UX</h3>
-      <p class="text-sm text-gray-300">Interfaces intuitivas y atractivas centradas en el usuario</p>
-     </div>
-     <div class="service-card rounded-xl p-6 fade-up bg-[#1A1A1A]"><i data-lucide="share-2" class="w-10 h-10 text-[#C4663A] mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Social Media</h3>
-      <p class="text-sm text-gray-300">Estrategia y contenido que genera engagement</p>
-     </div>
-     <div class="service-card rounded-xl p-6 fade-up bg-[#1A1A1A]"><i data-lucide="pen-tool" class="w-10 h-10 text-[#C4663A] mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">Branding</h3>
-      <p class="text-sm text-gray-300">Identidad visual única y memorable</p>
-     </div>
-     <div class="service-card rounded-xl p-6 fade-up bg-[#1A1A1A]"><i data-lucide="trending-up" class="w-10 h-10 text-[#C4663A] mb-4"></i>
-      <h3 class="text-xl font-semibold mb-2">SEO & Analytics</h3>
-      <p class="text-sm text-gray-300">Posicionamiento y datos para crecer</p>
-     </div>
-    </div>
-   </div>
-  </section><!-- Portafolio -->
-  <section id="portafolio" class="py-24">
-   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-     <h2 class="fade-up mb-4 text-3xl md:text-4xl font-bold">Proyectos <span class="text-[#C4663A]">recientes</span></h2>
-     <p class="fade-up max-w-xl mx-auto text-gray-300">Trabajos que reflejan pasión, creatividad y resultados</p>
-    </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+1" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">Branding Corporativo</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">Identidad Visual</p>
-      </div>
-     </div>
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+2" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">E-commerce App</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">UI/UX Design</p>
-      </div>
-     </div>
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+3" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">Estrategia Redes</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">Social Media</p>
-      </div>
-     </div>
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+4" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">Landing Page</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">Desarrollo Web</p>
-      </div>
-     </div>
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+5" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">Dashboard Analytics</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">Diseño UI</p>
-      </div>
-     </div>
-     <div class="portfolio-item rounded-xl overflow-hidden relative cursor-pointer fade-up"><img src="https://placehold.co/600x450/1A1A1A/C4663A?text=Proyecto+6" loading="lazy" class="w-full aspect-[4/3] object-cover transition-transform duration-300">
-      <div class="portfolio-overlay absolute inset-0 bg-black/85 flex flex-col items-center justify-center p-4">
-       <h3 class="font-semibold text-lg text-center">Packaging</h3>
-       <p class="text-sm mt-1 text-[#C4663A]">Diseño Gráfico</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Sobre Mí -->
-  <section id="about" class="py-24">
-   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-    <div class="fade-up"><img src="https://placehold.co/600x600/1A1A1A/C4663A?text=OlwByte" loading="lazy" class="w-full aspect-square object-cover rounded-2xl border border-[#2a2a2a]">
-    </div>
-    <div>
-     <h2 class="fade-up mb-6 text-3xl md:text-4xl font-bold">Sobre <span class="text-[#C4663A]">mí</span></h2>
-     <p class="fade-up mb-8 leading-relaxed text-gray-300">Soy un creativo digital apasionado por el diseño y la tecnología. Con más de 5 años de experiencia ayudando a marcas a contar sus historias de forma visualmente impactante y funcional. Mi enfoque combina estética, usabilidad y estrategia para generar resultados reales.</p>
-     <div class="flex gap-10 fade-up">
-      <div class="text-center">
-       <p class="text-3xl font-bold text-[#C4663A]">50+</p>
-       <p class="text-sm mt-1 text-gray-300">Proyectos</p>
-      </div>
-      <div class="text-center">
-       <p class="text-3xl font-bold text-[#C4663A]">30+</p>
-       <p class="text-sm mt-1 text-gray-300">Clientes</p>
-      </div>
-      <div class="text-center">
-       <p class="text-3xl font-bold text-[#C4663A]">5+</p>
-       <p class="text-sm mt-1 text-gray-300">Años</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Contacto -->
-  <section id="contacto" class="py-24">
-   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-     <h2 class="fade-up mb-4 text-3xl md:text-4xl font-bold">Hablemos de tu <span class="text-[#C4663A]">proyecto</span></h2>
-     <p class="fade-up max-w-xl mx-auto text-gray-300">Cuéntame tu idea y trabajemos juntos para hacerla realidad</p>
-    </div>
-    <div class="grid md:grid-cols-5 gap-12">
-     <form id="contact-form" class="md:col-span-3 space-y-5 fade-up">
-      <div><label class="block mb-1 text-sm text-gray-300">Nombre</label> <input id="c-name" type="text" required class="w-full bg-[#1A1A1A] border border-[#333] rounded-lg px-4 py-3 text-[#FAFAFA] transition-colors focus:border-[#C4663A]">
-      </div>
-      <div><label class="block mb-1 text-sm text-gray-300">Email</label> <input id="c-email" type="email" required class="w-full bg-[#1A1A1A] border border-[#333] rounded-lg px-4 py-3 text-[#FAFAFA] transition-colors focus:border-[#C4663A]">
-      </div>
-      <div><label class="block mb-1 text-sm text-gray-300">Mensaje</label> <textarea id="c-msg" rows="5" required class="w-full bg-[#1A1A1A] border border-[#333] rounded-lg px-4 py-3 text-[#FAFAFA] transition-colors resize-none focus:border-[#C4663A]"></textarea>
-      </div><button type="submit" class="bg-[#C4663A] hover:bg-[#a8552c] px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105">Enviar mensaje</button>
-     </form>
-     <div class="md:col-span-2 fade-up flex flex-col justify-center gap-6">
-      <div class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-[#C4663A]"></i> <span>hola@olwbyte.com</span>
+  </section>
+
+  <!-- Sobre Mí + Testimonios (Nuevo toque premium) -->
+  <section id="about" class="py-28">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-up relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#C4663A]/30 to-transparent rounded-2xl blur-xl"></div>
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format" alt="Sobre mí" class="rounded-2xl w-full object-cover aspect-square shadow-2xl border border-white/10">
       </div>
       <div>
-       <p class="mb-3 text-gray-300">Sígueme en redes</p>
-       <div class="flex gap-4"><a href="#" class="text-[#FAFAFA] hover:text-[#C4663A] transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a> <a href="#" class="text-[#FAFAFA] hover:text-[#C4663A] transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a> <a href="#" class="text-[#FAFAFA] hover:text-[#C4663A] transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
-       </div>
+        <p class="text-[#C4663A] text-sm font-semibold tracking-wide mb-2 fade-up">✦ Trayectoria</p>
+        <h2 class="fade-up text-4xl md:text-5xl font-bold mb-6">Sobre <span class="text-gradient">mí</span></h2>
+        <p class="fade-up text-gray-300 mb-8 leading-relaxed">Soy un creativo digital con más de 5 años de experiencia, especializado en diseñar experiencias que conectan emocionalmente y generan resultados. Mi método combina arte, análisis y tecnología para construir marcas con alma.</p>
+        <div class="flex gap-12 fade-up mb-10">
+          <div><p class="text-4xl font-bold text-[#C4663A]">50+</p><p class="text-gray-400">Proyectos</p></div>
+          <div><p class="text-4xl font-bold text-[#C4663A]">30+</p><p class="text-gray-400">Clientes</p></div>
+          <div><p class="text-4xl font-bold text-[#C4663A]">5+</p><p class="text-gray-400">Años</p></div>
+        </div>
+        <!-- Testimonio simulado -->
+        <div class="fade-up bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+          <i data-lucide="quote" class="w-8 h-8 text-[#C4663A] mb-3"></i>
+          <p class="italic text-gray-200">"OlwByte transformó por completo nuestra identidad digital. El trato y la calidad son insuperables."</p>
+          <p class="mt-3 font-semibold">— Ana G., Directora Creativa</p>
+        </div>
       </div>
-     </div>
     </div>
-   </div>
-  </section><!-- Footer -->
-  <footer class="border-t border-[#222] py-8">
-   <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <span class="font-bold text-[#C4663A]">OlwByte</span>
-    <span class="text-sm text-gray-400">© 2025 OlwByte. Todos los derechos reservados.</span>
-   </div>
-  </footer><!-- Toast -->
-  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-[70] hidden">
-   <div class="toast bg-[#C4663A] text-white px-6 py-3 rounded-lg font-medium shadow-lg">
-    ¡Mensaje enviado con éxito!
-   </div>
-  </div>
+  </section>
+
+  <!-- Contacto Mejorado -->
+  <section id="contacto" class="py-28 bg-[#070707]">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-16">
+        <p class="text-[#C4663A] text-sm font-semibold tracking-wider uppercase mb-3 fade-up">Contacto</p>
+        <h2 class="fade-up text-4xl md:text-5xl font-bold">Hablemos de tu <span class="text-gradient">proyecto</span></h2>
+      </div>
+      <div class="grid md:grid-cols-5 gap-12">
+        <form id="contact-form" class="md:col-span-3 space-y-6 fade-up">
+          <input type="text" id="c-name" placeholder="Nombre completo" required class="w-full bg-[#0F0F0F] border border-[#2A2A2A] rounded-xl px-5 py-4 text-white">
+          <input type="email" id="c-email" placeholder="Email profesional" required class="w-full bg-[#0F0F0F] border border-[#2A2A2A] rounded-xl px-5 py-4 text-white">
+          <textarea id="c-msg" rows="5" placeholder="Cuéntame tu idea..." required class="w-full bg-[#0F0F0F] border border-[#2A2A2A] rounded-xl px-5 py-4 text-white resize-none"></textarea>
+          <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold">Enviar mensaje →</button>
+        </form>
+        <div class="md:col-span-2 fade-up flex flex-col justify-center gap-6 bg-white/5 p-8 rounded-2xl border border-white/10">
+          <div class="flex items-center gap-4"><i data-lucide="mail" class="w-6 h-6 text-[#C4663A]"></i><span class="text-gray-200">hello@olwbyte.com</span></div>
+          <div><p class="mb-4 text-gray-300 font-medium">Sígueme en redes</p><div class="flex gap-5"><a href="#" class="hover:text-[#C4663A] transition"><i data-lucide="instagram" class="w-6 h-6"></i></a><a href="#" class="hover:text-[#C4663A] transition"><i data-lucide="linkedin" class="w-6 h-6"></i></a><a href="#" class="hover:text-[#C4663A] transition"><i data-lucide="twitter" class="w-6 h-6"></i></a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3"><span class="font-bold text-[#C4663A]">OlwByte</span><span class="text-gray-500 text-sm">© 2025 Estudio Creativo Premium</span></div>
+  </footer>
+
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-[70] hidden"><div class="bg-gradient-to-r from-[#C4663A] to-[#E08E5A] text-white px-8 py-4 rounded-xl font-semibold shadow-2xl">✨ ¡Mensaje enviado con éxito!</div></div>
+
   <script>
     lucide.createIcons();
 
-    // Scroll animations
+    // Intersection Observer
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-                const siblings = e.target.parentElement.querySelectorAll('.fade-up');
-                const idx = [...siblings].indexOf(e.target);
-                setTimeout(() => e.target.classList.add('visible'), idx * 100);
-                observer.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.1 });
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const siblings = e.target.parentElement?.querySelectorAll('.fade-up');
+          const idx = siblings ? [...siblings].indexOf(e.target) : 0;
+          setTimeout(() => e.target.classList.add('visible'), idx * 100);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     // Navbar solid on scroll
     window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (nav) nav.classList.toggle('nav-solid', window.scrollY > 50);
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 20) nav.classList.add('nav-premium');
+      else nav.classList.remove('nav-premium');
     });
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            const targetId = a.getAttribute('href');
-            if (targetId && targetId !== '#') {
-                const target = document.querySelector(targetId);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }
-            document.getElementById('mobile-menu')?.classList.remove('open');
-        });
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = a.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+        document.getElementById('mobile-menu')?.classList.remove('-translate-y-full');
+        document.getElementById('mobile-menu')?.classList.add('-translate-y-full');
+      });
     });
 
     // Mobile menu
     const menuToggle = document.getElementById('menu-toggle');
     const menuClose = document.getElementById('menu-close');
-    if (menuToggle) menuToggle.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('open'));
-    if (menuClose) menuClose.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-    document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.remove('open')));
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle) menuToggle.addEventListener('click', () => { mobileMenu.classList.remove('-translate-y-full'); mobileMenu.classList.add('translate-y-0'); });
+    if (menuClose) menuClose.addEventListener('click', () => { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); });
+    document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); }));
 
-    // Contact form
+    // Form submit
     const contactForm = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
     let toastTimeout;
-    
     if (contactForm) {
-        contactForm.addEventListener('submit', e => {
-            e.preventDefault();
-            if (toast) {
-                toast.classList.remove('hidden');
-                if (toastTimeout) clearTimeout(toastTimeout);
-                toastTimeout = setTimeout(() => toast.classList.add('hidden'), 3000);
-            }
-            contactForm.reset();
-        });
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        toast.classList.remove('hidden');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.add('hidden'), 3000);
+        contactForm.reset();
+      });
     }
-</script>
- </body>
+  </script>
+</body>
 </html>
