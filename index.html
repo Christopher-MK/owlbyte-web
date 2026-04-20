@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OWLBYTE — Agencia Digital Premium</title>
+  <meta name="description" content="OWLBYTE es una agencia digital premium enfocada en branding, diseño web, performance y experiencias de alto impacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060816;
+      --bg-soft: rgba(255,255,255,0.04);
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.1);
+      --text: #eef2ff;
+      --muted: #a9b2d0;
+      --primary: #7c3aed;
+      --primary-2: #22d3ee;
+      --accent: #f5b942;
+      --shadow: 0 20px 80px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124,58,237,0.28), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(34,211,238,0.18), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(245,185,66,0.08), transparent 24%),
+        linear-gradient(180deg, #050816 0%, #070b1d 48%, #040611 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .orb {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .orb.one { top: 8%; left: -80px; background: var(--primary); }
+    .orb.two { top: 50%; right: -100px; background: var(--primary-2); animation-delay: -4s; }
+    .orb.three { bottom: -80px; left: 35%; background: var(--accent); animation-delay: -8s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-22px) translateX(16px) scale(1.05); }
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(6,8,22,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 40px rgba(124,58,237,0.35);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 26px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.96rem;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .btn, .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 14px 30px rgba(34,211,238,0.18), 0 10px 40px rgba(124,58,237,0.24);
+    }
+
+    .btn-ghost {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn:hover, .btn-ghost:hover { transform: translateY(-2px); }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 70px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #d7def8;
+      border-radius: 999px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 10%, #b794f4 45%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 700px;
+    }
+
+    .kpi {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+    }
+
+    .kpi span { color: var(--muted); font-size: 0.92rem; }
+
+    .hero-card {
+      position: relative;
+      padding: 22px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(34,211,238,0.18), transparent 30%),
+                  radial-gradient(circle at bottom left, rgba(124,58,237,0.22), transparent 38%);
+      pointer-events: none;
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .dash-top, .dash-bottom {
+      display: grid;
+      gap: 16px;
+    }
+
+    .dash-top { grid-template-columns: 1.2fr 0.8fr; }
+    .dash-bottom { grid-template-columns: repeat(3, 1fr); }
+
+    .panel {
+      background: rgba(7,12,30,0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 18px;
+      min-height: 140px;
+    }
+
+    .panel h4 {
+      font-size: 0.95rem;
+      color: #cfd8f8;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .chart {
+      height: 180px;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 14px 14px 6px 6px;
+      background: linear-gradient(180deg, rgba(103,232,249,0.95), rgba(124,58,237,0.88));
+      box-shadow: 0 10px 24px rgba(124,58,237,0.18);
+      animation: rise 1.2s ease both;
+    }
+
+    .bar:nth-child(2){ animation-delay: .08s; }
+    .bar:nth-child(3){ animation-delay: .16s; }
+    .bar:nth-child(4){ animation-delay: .24s; }
+    .bar:nth-child(5){ animation-delay: .32s; }
+    .bar:nth-child(6){ animation-delay: .40s; }
+
+    @keyframes rise {
+      from { transform: scaleY(0.2); transform-origin: bottom; opacity: 0; }
+      to { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+    }
+
+    .metric strong { font-size: 2rem; }
+    .metric span, .mini-card p, .service p, .testimonial p, .contact-card p { color: var(--muted); }
+
+    .mini-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 120px;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service, .testimonial, .contact-card, .showcase-card {
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: 0.28s ease;
+    }
+
+    .service:hover, .testimonial:hover, .showcase-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.22), rgba(34,211,238,0.22));
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.2rem;
+    }
+
+    .service h3, .showcase-card h3 { margin-bottom: 12px; }
+    .service p, .showcase-card p { line-height: 1.7; }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+
+    .showcase-visual {
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .floating-ui {
+      position: absolute;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(8,12,28,0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .floating-ui.one { width: 220px; top: 8%; left: 7%; }
+    .floating-ui.two { width: 240px; top: 42%; right: 8%; animation-delay: -3s; }
+    .floating-ui.three { width: 180px; bottom: 7%; left: 18%; animation-delay: -6s; }
+
+    .ui-line {
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(124,58,237,0.9), rgba(34,211,238,0.8));
+      margin-bottom: 12px;
+    }
+
+    .ui-line.small { width: 42%; opacity: 0.75; }
+    .ui-line.mid { width: 68%; }
+    .ui-line.full { width: 100%; }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .testimonial .author {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px 18px;
+      outline: none;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .field:focus {
+      border-color: rgba(103,232,249,0.6);
+      transform: translateY(-1px);
+    }
+
+    textarea.field {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ticker {
+      overflow: hidden;
+      padding: 16px 0 6px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-top: 26px;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 50px;
+      white-space: nowrap;
+      min-width: max-content;
+      animation: scroll 20s linear infinite;
+      color: #d6ddfa;
+      opacity: 0.9;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .mobile-toggle { display: none; }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .showcase, .contact, .services, .testimonials, .dash-top, .dash-bottom {
+        grid-template-columns: 1fr 1fr;
+      }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .testimonials { grid-template-columns: 1fr; }
+      .showcase { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 780px) {
+      nav ul {
+        position: fixed;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(8,10,22,0.95);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: var(--shadow);
+        display: none;
+      }
+
+      nav ul.open { display: flex; }
+      .mobile-toggle {
+        display: inline-flex;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.09);
+        color: var(--text);
+        border-radius: 14px;
+        padding: 12px 14px;
+        cursor: pointer;
+      }
+
+      .hero-grid, .services, .kpis, .dash-top, .dash-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { min-height: auto; padding-top: 42px; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .hero h1 { font-size: clamp(2.6rem, 15vw, 4.2rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">OB</div>
+        <span>OWLBYTE</span>
+      </div>
+
+      <nav>
+        <button class="mobile-toggle" id="mobileToggle">Menú</button>
+        <ul id="navMenu">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto" class="btn">Hablemos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="reveal visible">
+          <div class="eyebrow">⚡ Estrategia, diseño y crecimiento para marcas ambiciosas</div>
+          <h1>
+            Diseñamos marcas y experiencias
+            <span class="gradient-text">digitales premium</span>
+            que convierten.
+          </h1>
+          <p>
+            En OWLBYTE creamos ecosistemas digitales de alto nivel: branding, web, performance, contenido y automatización.
+            Combinamos estética premium con arquitectura orientada a resultados para escalar negocio, percepción y revenue.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#contacto">Agendar discovery call</a>
+            <a class="btn-ghost" href="#work">Ver casos destacados</a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <strong id="countProjects">0</strong>
+              <span>proyectos premium lanzados</span>
+            </div>
+            <div class="kpi">
+              <strong id="countGrowth">0</strong>
+              <span>promedio de crecimiento en leads</span>
+            </div>
+            <div class="kpi">
+              <strong id="countRetention">0</strong>
+              <span>clientes que continúan con nosotros</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="dashboard">
+            <div class="dash-top">
+              <div class="panel">
+                <h4>Performance Snapshot</h4>
+                <div class="chart">
+                  <div class="bar" style="height: 42%"></div>
+                  <div class="bar" style="height: 55%"></div>
+                  <div class="bar" style="height: 64%"></div>
+                  <div class="bar" style="height: 74%"></div>
+                  <div class="bar" style="height: 86%"></div>
+                  <div class="bar" style="height: 100%"></div>
+                </div>
+              </div>
+              <div class="panel metric">
+                <div>
+                  <h4>Conversion Lift</h4>
+                  <strong>+218%</strong>
+                </div>
+                <span>optimización web + paid media + CRO</span>
+              </div>
+            </div>
+            <div class="dash-bottom">
+              <div class="panel mini-card">
+                <h4>Brand Perception</h4>
+                <strong>Premium</strong>
+                <p>Reposicionamiento visual y verbal.</p>
+              </div>
+              <div class="panel mini-card">
+                <h4>Velocity</h4>
+                <strong>Fast</strong>
+                <p>Sprints ágiles con ejecución senior.</p>
+              </div>
+              <div class="panel mini-card">
+                <h4>Experience</h4>
+                <strong>Fluid</strong>
+                <p>UX precisa, clara y de alto impacto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker reveal">
+        <div class="ticker-track">
+          <span>BRANDING SYSTEMS</span>
+          <span>WEB EXPERIENCE</span>
+          <span>PERFORMANCE MARKETING</span>
+          <span>AUTOMATION</span>
+          <span>CONTENT DIRECTION</span>
+          <span>UI/UX PREMIUM</span>
+          <span>BRANDING SYSTEMS</span>
+          <span>WEB EXPERIENCE</span>
+          <span>PERFORMANCE MARKETING</span>
+          <span>AUTOMATION</span>
+          <span>CONTENT DIRECTION</span>
+          <span>UI/UX PREMIUM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="servicios">
+      <div class="section-header reveal">
+        <div>
+          <h2>Servicios diseñados para elevar percepción y performance.</h2>
+        </div>
+        <p>
+          Cada intervención está pensada para que la marca se vea mejor, comunique con más claridad y convierta con mayor eficiencia.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service reveal">
+          <div class="service-icon">✦</div>
+          <h3>Brand Strategy</h3>
+          <p>Definimos posicionamiento, narrativa, tono y dirección visual para construir una marca sólida, deseable y consistente.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">◉</div>
+          <h3>Web Premium</h3>
+          <p>Creamos sitios inmersivos, rápidos y responsivos con una estética high-end y arquitectura centrada en conversión.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">↗</div>
+          <h3>Growth & Performance</h3>
+          <p>Activamos adquisición, optimización y medición para escalar leads, ventas y retorno de inversión de forma consistente.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">◎</div>
+          <h3>Automation Systems</h3>
+          <p>Automatizamos procesos, nurtures y flujos operativos para reducir fricción y aumentar eficiencia comercial.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="work">
+      <div class="section-header reveal">
+        <div>
+          <h2>Un lenguaje visual premium con ejecución orientada al negocio.</h2>
+        </div>
+        <p>
+          No diseñamos piezas aisladas. Diseñamos sistemas: identidad, experiencia, contenido y crecimiento trabajando como una sola máquina.
+        </p>
+      </div>
+
+      <div class="showcase">
+        <div class="showcase-card showcase-visual reveal">
+          <div class="floating-ui one">
+            <div class="ui-line full"></div>
+            <div class="ui-line mid"></div>
+            <div class="ui-line small"></div>
+          </div>
+          <div class="floating-ui two">
+            <div class="ui-line full"></div>
+            <div class="ui-line full"></div>
+            <div class="ui-line mid"></div>
+          </div>
+          <div class="floating-ui three">
+            <div class="ui-line mid"></div>
+            <div class="ui-line small"></div>
+          </div>
+        </div>
+
+        <div style="display:grid; gap:18px;">
+          <article class="showcase-card reveal">
+            <h3>Dirección creativa de alto nivel</h3>
+            <p>Diseño editorial, motion, sistemas de color, composición y microinteracciones para elevar la percepción de marca en todos los touchpoints.</p>
+          </article>
+          <article class="showcase-card reveal">
+            <h3>Arquitectura pensada para convertir</h3>
+            <p>Copywriting estratégico, jerarquía visual, CTAs claros y páginas optimizadas para transformar tráfico en oportunidades reales.</p>
+          </article>
+          <article class="showcase-card reveal">
+            <h3>Ejecución técnica elegante</h3>
+            <p>Front-end performante, experiencias fluidas, componentes reutilizables y una base preparada para crecer con el negocio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="resultados">
+      <div class="section-header reveal">
+        <div>
+          <h2>Resultados visibles. No solo diseño bonito.</h2>
+        </div>
+        <p>
+          Una presencia premium debe impactar tanto en la marca como en los números. Ese es el estándar con el que trabajamos.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service reveal">
+          <div class="service-icon">+68%</div>
+          <h3>Más tiempo en sitio</h3>
+          <p>Experiencias con mejor narrativa visual y UX más clara para mantener la atención y guiar la navegación.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">+31%</div>
+          <h3>Mejor tasa de conversión</h3>
+          <p>Optimización de mensajes, estructura, oferta y llamadas a la acción en páginas clave.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">-42%</div>
+          <h3>Menor fricción operativa</h3>
+          <p>Sistemas y automatizaciones que reducen tareas manuales y mejoran los handoffs comerciales.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-icon">×3.4</div>
+          <h3>Incremento en ROAS</h3>
+          <p>Creatividad, performance y optimización continua alineadas con el revenue.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="testimonios">
+      <div class="section-header reveal">
+        <div>
+          <h2>Confianza construida con criterio, detalle y ejecución.</h2>
+        </div>
+        <p>
+          Trabajamos con marcas que valoran la estrategia, el diseño impecable y la capacidad de convertir visión en resultados concretos.
+        </p>
+      </div>
+
+      <div class="testimonials">
+        <article class="testimonial reveal">
+          <p>“OWLBYTE elevó completamente nuestra presencia digital. Pasamos de vernos correctos a vernos como la referencia del segmento.”</p>
+          <div class="author">
+            <div class="avatar">AL</div>
+            <div>
+              <strong>Ana López</strong><br>
+              <span>Founder, Studio Nova</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial reveal">
+          <p>“La combinación entre criterio visual y foco comercial fue precisa. El nuevo sitio no solo se ve premium, también vende mejor.”</p>
+          <div class="author">
+            <div class="avatar">MR</div>
+            <div>
+              <strong>Marco Ruiz</strong><br>
+              <span>CEO, Ventra Labs</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial reveal">
+          <p>“Ordenaron nuestra marca, nuestra comunicación y nuestra web en un sistema mucho más maduro. La percepción cambió de inmediato.”</p>
+          <div class="author">
+            <div class="avatar">CS</div>
+            <div>
+              <strong>Carla Soto</strong><br>
+              <span>Marketing Director, Aeon Partners</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="contacto">
+      <div class="section-header reveal">
+        <div>
+          <h2>Hablemos de la próxima versión de tu marca.</h2>
+        </div>
+        <p>
+          Cuéntanos qué estás construyendo y te mostraremos cómo convertirlo en una presencia digital más sofisticada, más clara y más rentable.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-card reveal">
+          <h3 style="margin-bottom:14px;">Start a premium project</h3>
+          <p style="margin-bottom:18px; line-height:1.7;">
+            Auditoría visual, estrategia de marca, nueva web, crecimiento, automatización o todo el stack. Diseñamos soluciones a medida para negocios con ambición real.
+          </p>
+          <div style="display:grid; gap:12px; color:#dbe4ff;">
+            <div>• Discovery calls estratégicas</div>
+            <div>• Roadmaps de ejecución claros</div>
+            <div>• Enfoque boutique con estándar premium</div>
+          </div>
+        </div>
+
+        <form class="contact-card contact-form reveal" onsubmit="handleSubmit(event)">
+          <input class="field" type="text" placeholder="Nombre" required>
+          <input class="field" type="email" placeholder="Email" required>
+          <input class="field" type="text" placeholder="Empresa / Marca">
+          <textarea class="field" placeholder="Cuéntanos sobre tu proyecto"></textarea>
+          <button class="btn" type="submit">Enviar solicitud</button>
+          <p id="formMessage" style="color: var(--muted);"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <span>© <span id="year"></span> OWLBYTE. Digital agency premium.</span>
+      <span>Diseño, estrategia y performance con estándar high-end.</span>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+    }
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('open'));
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.14 });
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    function animateCounter(id, target, prefix = '', suffix = '') {
+      const el = document.getElementById(id);
+      let start = 0;
+      const duration = 1800;
+      const startTime = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        el.textContent = `${prefix}${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    animateCounter('countProjects', 120, '+');
+    animateCounter('countGrowth', 240, '+', '%');
+    animateCounter('countRetention', 92, '', '%');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const message = document.getElementById('formMessage');
+      message.textContent = 'Gracias. Tu solicitud fue enviada. Te contactaremos pronto.';
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
