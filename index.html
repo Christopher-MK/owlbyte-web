@@ -1,55 +1,498 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Owlbyte | Agencia de Marketing Digital con Resultados Medibles</title>
+  <title>Owlbyte | Marketing Digital con Alma y Datos</title>
   
-  <!-- SEO Mejorado -->
-  <meta name="description" content="Owlbyte: Agencia de marketing digital especializada en ROI medible. Estrategias personalizadas, transparencia total y resultados comprobables. ¡Consulta gratis!">
-  <meta name="keywords" content="agencia marketing digital, ROI medible, estrategia digital, SEO, publicidad online, marketing de contenidos">
-  <meta name="author" content="Owlbyte">
-  <meta name="robots" content="index, follow">
+  <!-- SEO Premium -->
+  <meta name="description" content="Owlbyte: Agencia boutique de marketing digital. Estrategias personalizadas con ROI medible, transparencia radical y diseño que convierte.">
+  <meta name="theme-color" content="#0a0a0f">
   
-  <!-- Open Graph / Redes Sociales -->
-  <meta property="og:title" content="Owlbyte | Marketing Digital con Resultados Reales">
-  <meta property="og:description" content="Estrategias personalizadas • ROI medible • Transparencia total • +150 proyectos exitosos">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Owlbyte | Marketing con Alma y Datos">
+  <meta property="og:description" content="Estrategias que conectan. Resultados que perduran.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://owlbyte.com">
-  <meta property="og:image" content="https://owlbyte.com/og-image.jpg">
+  <meta property="og:url" content="https://owlbyte.me">
+  <meta property="og:image" content="https://owlbyte.me/og-premium.jpg">
   <meta name="twitter:card" content="summary_large_image">
   
-  <!-- Canonical -->
-  <link rel="canonical" href="https://owlbyte.com">
-  
-  <!-- Preconnect para performance -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- Preconnect & Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
   
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind -->
+  <!-- Tailwind + Config -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'display': ['Cormorant Garamond', 'serif'],
+            'sans': ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            'owl': {
+              'dark': '#0a0a0f',
+              'darker': '#050507',
+              'accent': '#f5a623',
+              'accent-glow': 'rgba(245, 166, 35, 0.15)',
+              'purple': '#7c3aed',
+              'purple-glow': 'rgba(124, 58, 237, 0.1)',
+              'surface': 'rgba(255,255,255,0.03)',
+              'surface-hover': 'rgba(255,255,255,0.06)',
+              'border': 'rgba(255,255,255,0.08)',
+              'text': '#f0f0f5',
+              'text-muted': '#a1a1aa',
+              'text-dim': '#71717a',
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'gradient-shift': 'gradientShift 8s ease infinite alternate',
+            'grain': 'grain 0.5s steps(10) infinite',
+            'reveal-text': 'revealText 1s ease forwards',
+            'magnetic': 'magnetic 0.3s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            gradientShift: {
+              '0%': { 'background-position': '0% 50%' },
+              '100%': { 'background-position': '100% 50%' },
+            },
+            grain: {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '10%': { transform: 'translate(-5%, -10%)' },
+              '20%': { transform: 'translate(-15%, 5%)' },
+              '30%': { transform: 'translate(7%, -25%)' },
+              '40%': { transform: 'translate(-5%, 25%)' },
+              '50%': { transform: 'translate(-15%, 10%)' },
+              '60%': { transform: 'translate(15%, 0%)' },
+              '70%': { transform: 'translate(0%, 15%)' },
+              '80%': { transform: 'translate(3%, 35%)' },
+              '90%': { transform: 'translate(-10%, 10%)' },
+            },
+            revealText: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            }
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'gradient-premium': 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%)',
+            'owl-gradient': 'linear-gradient(135deg, rgba(245,166,35,0.1) 0%, rgba(124,58,237,0.1) 100%)',
+          },
+          backdropBlur: {
+            'xs': '2px',
+          }
+        }
+      }
+    }
+  </script>
   
   <!-- Lucide Icons -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   
-  <!-- Schema.org JSON-LD -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles Premium -->
+  <style>
+    :root {
+      --cursor-size: 20px;
+      --cursor-hover-size: 80px;
+      --easing-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    * { cursor: none; }
+    @media (pointer: coarse) { * { cursor: auto; } }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0a0a0f;
+      color: #f0f0f5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    /* ===== CUSTOM CURSOR PREMIUM ===== */
+    .cursor {
+      position: fixed;
+      width: var(--cursor-size);
+      height: var(--cursor-size);
+      border: 1px solid rgba(245, 166, 35, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+      z-index: 9999;
+      mix-blend-mode: difference;
+    }
+    .cursor-dot {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: #f5a623;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+    }
+    .cursor.hover {
+      width: var(--cursor-hover-size);
+      height: var(--cursor-hover-size);
+      background: rgba(245, 166, 35, 0.1);
+      border-color: #f5a623;
+      backdrop-filter: blur(4px);
+    }
+    .cursor.active {
+      width: 40px;
+      height: 40px;
+      background: rgba(245, 166, 35, 0.2);
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    
+    /* ===== GRAIN OVERLAY ===== */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      animation: grain 0.5s steps(10) infinite;
+      z-index: 9998;
+    }
+    
+    /* ===== GLOW EFFECTS ===== */
+    .glow-ambient {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--owl-accent-glow) 0%, transparent 70%);
+      filter: blur(60px);
+      opacity: 0.4;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-ambient.purple {
+      background: radial-gradient(circle, var(--owl-purple-glow) 0%, transparent 70%);
+      animation-delay: -4s;
+    }
+    
+    /* ===== GLASS PREMIUM ===== */
+    .glass-premium {
+      background: var(--owl-surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--owl-border);
+      border-radius: 24px;
+    }
+    .glass-premium:hover {
+      background: var(--owl-surface-hover);
+      border-color: rgba(245, 166, 35, 0.3);
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5), 0 0 60px -10px rgba(245, 166, 35, 0.1);
+    }
+    
+    /* ===== TEXT REVEAL ANIMATION ===== */
+    .reveal-text {
+      overflow: hidden;
+    }
+    .reveal-text span {
+      display: inline-block;
+      animation: revealText 0.8s var(--easing-premium) forwards;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    .reveal-text span:nth-child(1) { animation-delay: 0.1s; }
+    .reveal-text span:nth-child(2) { animation-delay: 0.2s; }
+    .reveal-text span:nth-child(3) { animation-delay: 0.3s; }
+    .reveal-text span:nth-child(4) { animation-delay: 0.4s; }
+    .reveal-text span:nth-child(5) { animation-delay: 0.5s; }
+    
+    /* ===== MAGNETIC BUTTON ===== */
+    .btn-magnetic {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--easing-premium);
+    }
+    .btn-magnetic::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(245,166,35,0.3) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      transition: width 0.6s, height 0.6s;
+    }
+    .btn-magnetic:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .btn-magnetic:hover {
+      transform: scale(1.02);
+    }
+    
+    /* ===== DECORATIVE ELEMENTS ===== */
+    .owl-decoration {
+      position: absolute;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .owl-decoration.orb {
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      border-radius: 50%;
+      animation: float 12s ease-in-out infinite;
+    }
+    .owl-decoration.line {
+      width: 1px;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, rgba(245, 166, 35, 0.5), transparent);
+    }
+    
+    /* ===== SCROLL INDICATOR ===== */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.6;
+      animation: float 3s ease-in-out infinite;
+    }
+    .scroll-indicator .line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, #f5a623, transparent);
+    }
+    
+    /* ===== METRIC CARD HOVER ===== */
+    .metric-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--easing-premium);
+    }
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(245,166,35,0.1), transparent);
+      transition: left 0.6s;
+    }
+    .metric-card:hover::after {
+      left: 100%;
+    }
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 166, 35, 0.4);
+    }
+    
+    /* ===== SERVICE ROW PREMIUM ===== */
+    .service-row {
+      position: relative;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--owl-border);
+      transition: all 0.3s;
+    }
+    .service-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 1px;
+      background: #f5a623;
+      transition: width 0.4s var(--easing-premium);
+    }
+    .service-row:hover::before {
+      width: 100%;
+    }
+    .service-row:hover .service-title {
+      transform: translateX(12px);
+      color: #f5a623;
+    }
+    .service-title {
+      transition: transform 0.4s var(--easing-premium), color 0.3s;
+    }
+    
+    /* ===== PROJECT CARD ===== */
+    .project-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.4s var(--easing-premium);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.95) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      z-index: 2;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s var(--easing-premium);
+    }
+    .project-card:hover .project-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* ===== TESTIMONIAL CAROUSEL ===== */
+    .testimonial-track {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.5s var(--easing-premium);
+    }
+    
+    /* ===== LOADING ANIMATION ===== */
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-owl {
+      width: 80px;
+      height: 80px;
+      position: relative;
+    }
+    .loader-owl::before,
+    .loader-owl::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #f5a623;
+      border-radius: 50%;
+      animation: blink 1.4s infinite ease-in-out;
+    }
+    .loader-owl::before {
+      left: 20px;
+      animation-delay: -0.7s;
+    }
+    .loader-owl::after {
+      right: 20px;
+    }
+    @keyframes blink {
+      0%, 49%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.1); }
+    }
+    
+    /* ===== ACCESSIBILITY ===== */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: #f5a623;
+      color: #0a0a0f;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 10001;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    *:focus-visible {
+      outline: 2px solid #f5a623;
+      outline-offset: 4px;
+    }
+    
+    /* ===== MOBILE OPTIMIZATIONS ===== */
+    @media (max-width: 768px) {
+      :root {
+        --cursor-size: 0;
+        --cursor-hover-size: 0;
+      }
+      * { cursor: auto !important; }
+      .cursor, .cursor-dot { display: none; }
+      
+      .font-display {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+      }
+      
+      .hero-gradient {
+        background-size: 200% 200%;
+      }
+    }
+    
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .cursor, .cursor-dot, .grain-overlay, .glow-ambient {
+        display: none;
+      }
+    }
+  </style>
+  
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Owlbyte",
-    "image": "https://owlbyte.com/logo.png",
-    "description": "Agencia de marketing digital especializada en estrategias personalizadas con ROI medible",
-    "url": "https://owlbyte.com",
-    "telephone": "+52-555-123-4567",
+    "image": "https://owlbyte.me/logo-premium.png",
+    "description": "Agencia boutique de marketing digital. Estrategias personalizadas con ROI medible.",
+    "url": "https://owlbyte.me",
     "priceRange": "$$",
     "areaServed": ["MX", "US", "ES", "LATAM"],
-    "serviceType": ["Marketing Digital", "SEO", "Publicidad Online", "Content Marketing", "Social Media"],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -57,816 +500,929 @@
     }
   }
   </script>
-  
-  <style>
-    :root {
-      --color-primary: #f59e0b;
-      --color-secondary: #8b5cf6;
-      --color-bg: #09090b;
-      --color-text: #f4f4f5;
-      --transition-fast: 150ms ease;
-      --transition-normal: 300ms ease;
-      --transition-slow: 700ms ease;
-    }
-    
-    body { font-family: 'Alegreya Sans', sans-serif; }
-    .font-display { font-family: 'Fraunces', serif; }
-    .glass { background: rgba(9,9,11,0.6); backdrop-filter: blur(12px); }
-    .glass-solid { background: rgba(9,9,11,0.92); backdrop-filter: blur(16px); }
-
-    /* Reveal animations mejoradas */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
-
-    /* Marquee */
-    .marquee-track { display: flex; width: max-content; animation: marqueeScroll 30s linear infinite; }
-    @keyframes marqueeScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-    /* Service row hover */
-    .svc-row { border-bottom: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
-    .svc-row:hover .svc-title { transform: translateX(8px); color: #f59e0b; }
-    .svc-title { transition: transform 0.3s, color 0.3s; }
-
-    /* Horizontal scroll */
-    .hscroll { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .hscroll::-webkit-scrollbar { display: none; }
-    .hscroll-card { scroll-snap-align: center; flex-shrink: 0; }
-    .hscroll-card img { transition: transform 0.4s; }
-    .hscroll-card:hover img { transform: scale(1.05); }
-    .hscroll-card .card-overlay { transform: translateY(100%); transition: transform 0.4s; }
-    .hscroll-card:hover .card-overlay { transform: translateY(0); }
-
-    /* Glow border */
-    .glow-v { border: 1px solid rgba(139,92,246,0.2); transition: all 0.3s; }
-    .glow-v:hover { border-color: rgba(139,92,246,0.5); box-shadow: 0 0 24px rgba(139,92,246,0.12); }
-
-    /* CTA pulse */
-    @keyframes pulse-glow { 0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,0.4)} 50%{box-shadow:0 0 20px 6px rgba(245,158,11,0.15)} }
-    .pulse-btn { animation: pulse-glow 2.5s ease infinite; }
-
-    /* Owl eye */
-    #owl-eye { filter: drop-shadow(0 0 40px rgba(245,158,11,0.25)); }
-    
-    /* NUEVO: Badge de transparencia */
-    .trust-badge {
-      background: linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(139,92,246,0.1) 100%);
-      border: 1px solid rgba(245,158,11,0.3);
-    }
-    
-    /* NUEVO: Métricas destacadas */
-    .metric-card {
-      background: rgba(255,255,255,0.03);
-      border-left: 3px solid var(--color-primary);
-      transition: all 0.3s;
-    }
-    .metric-card:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateX(4px);
-    }
-    
-    /* NUEVO: Proceso transparente */
-    .process-step {
-      counter-increment: process;
-    }
-    .process-step::before {
-      content: counter(process);
-      background: var(--color-primary);
-      color: #000;
-      font-weight: 900;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-    
-    /* Accesibilidad: Focus visible */
-    *:focus-visible {
-      outline: 3px solid var(--color-primary);
-      outline-offset: 2px;
-    }
-    
-    /* Skip to content para accesibilidad */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--color-primary);
-      color: #000;
-      padding: 8px;
-      text-decoration: none;
-      z-index: 100;
-    }
-    .skip-link:focus {
-      top: 0;
-    }
-  </style>
  </head>
- <body class="w-full min-h-screen text-gray-100">
+ <body class="antialiased">
   
-  <!-- Skip to content (Accesibilidad) -->
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Saltar al contenido</a>
   
-  <!-- Nav -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300" role="navigation" aria-label="Navegación principal">
-   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <span data-template-id="nav-logo" class="canva-text font-display text-xl tracking-wide cursor-pointer" role="img" aria-label="Owlbyte Logo">🦉 Owlbyte</span>
-    <div class="hidden md:flex items-center gap-8">
-     <a href="#resultados" class="text-sm text-gray-400 hover:text-white transition">Resultados</a>
-     <a href="#servicios" class="text-sm text-gray-400 hover:text-white transition">Servicios</a>
-     <a href="#proceso" class="text-sm text-gray-400 hover:text-white transition">Proceso</a>
-     <a href="#testimonios" class="text-sm text-gray-400 hover:text-white transition">Testimonios</a>
-     <button data-template-id="nav-cta" class="canva-button px-5 py-2 rounded-full text-sm font-medium transition hover:scale-105 bg-amber-500 text-black">
-      Auditoría Gratis
-     </button>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+  
+  <!-- Ambient Glows -->
+  <div class="glow-ambient" style="top: 20%; right: 10%;"></div>
+  <div class="glow-ambient purple" style="bottom: 10%; left: 15%;"></div>
+  
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-owl"></div>
+  </div>
+  
+  <!-- Navigation Premium -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" role="navigation" aria-label="Navegación principal">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+      <div class="glass-premium px-6 py-4 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3 group" aria-label="Owlbyte Home">
+          <div class="relative w-10 h-10">
+            <svg viewBox="0 0 40 40" class="w-full h-full">
+              <circle cx="20" cy="20" r="18" fill="none" stroke="rgba(245,166,35,0.5)" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="8" fill="none" stroke="#f5a623" stroke-width="2"/>
+              <circle cx="16" cy="18" r="2.5" fill="#f5a623"/>
+              <circle cx="24" cy="18" r="2.5" fill="#f5a623"/>
+            </svg>
+          </div>
+          <span class="font-display text-2xl tracking-tight group-hover:text-amber-400 transition-colors">Owlbyte</span>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#resultados" class="nav-link px-5 py-2.5 rounded-full text-sm hover:text-amber-400 transition-all relative group">
+            <span class="relative z-10">Resultados</span>
+            <span class="absolute inset-0 rounded-full bg-amber-500/10 scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="#servicios" class="nav-link px-5 py-2.5 rounded-full text-sm hover:text-amber-400 transition-all relative group">
+            <span class="relative z-10">Servicios</span>
+            <span class="absolute inset-0 rounded-full bg-amber-500/10 scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="#proceso" class="nav-link px-5 py-2.5 rounded-full text-sm hover:text-amber-400 transition-all relative group">
+            <span class="relative z-10">Proceso</span>
+            <span class="absolute inset-0 rounded-full bg-amber-500/10 scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+          <a href="#casos" class="nav-link px-5 py-2.5 rounded-full text-sm hover:text-amber-400 transition-all relative group">
+            <span class="relative z-10">Casos</span>
+            <span class="absolute inset-0 rounded-full bg-amber-500/10 scale-0 group-hover:scale-100 transition-transform"></span>
+          </a>
+        </div>
+        
+        <button class="btn-magnetic hidden md:flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium text-sm hover:shadow-lg hover:shadow-amber-500/25 transition-all">
+          <span>Consulta Gratuita</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2 rounded-lg hover:bg-white/5 transition" aria-label="Menú" aria-expanded="false" id="mobile-menu-btn">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
-    <!-- Mobile menu button -->
-    <button class="md:hidden" aria-label="Menú" aria-expanded="false">
-     <i data-lucide="menu" class="w-6 h-6"></i>
-    </button>
-   </div>
   </nav>
 
-  <!-- Hero MEJORADO - Enfocado en ROI y Transparencia -->
-  <section id="hero" data-template-id="hero-section" class="canva-section relative w-full overflow-hidden flex items-center" style="min-height:calc(100 * min(var(--vh,1vh),1vh))">
-   <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-5 gap-8 items-center py-32">
-    <div class="md:col-span-3 relative z-10">
-     <!-- Badge de confianza -->
-     <div class="trust-badge inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 reveal">
-      <i data-lucide="check-circle" class="w-4 h-4 text-amber-500"></i>
-      <span class="text-sm">+150 proyectos con ROI medible</span>
-     </div>
-     
-     <p data-template-id="hero-label" class="canva-text uppercase tracking-[0.3em] text-sm mb-6 reveal text-amber-500">
-      ESTRATEGIA • DATA • RESULTADOS
-     </p>
-     <h1 data-template-id="hero-heading-1" class="canva-text font-display leading-[0.95] mb-2 reveal stagger-1 text-4xl md:text-6xl">
-      Marketing Digital<br>
-      <span class="text-amber-500">con Resultados Reales</span>
-     </h1>
-     <h1 data-template-id="hero-heading-2" class="canva-text font-display leading-[0.95] mb-8 reveal stagger-2 text-xl md:text-2xl text-gray-400">
-      Sin promesas vacías. Sin tecnicismos.<br>Solo estrategias que funcionan.
-     </h1>
-     <p data-template-id="hero-desc" class="canva-text text-lg mb-10 max-w-lg reveal stagger-3 text-gray-300">
-      Te ayudamos a crecer con transparencia total. Reportes claros, métricas que importan y un equipo especializado dedicado a tu éxito.
-     </p>
-     
-     <div class="flex flex-col sm:flex-row gap-4 reveal stagger-4">
-      <button data-template-id="hero-cta" class="canva-button px-8 py-4 rounded-full font-medium transition hover:scale-105 bg-amber-500 text-black pulse-btn">
-       Consulta Estratégica Gratis
-      </button>
-      <a href="#resultados" class="px-8 py-4 rounded-full font-medium border border-white/20 hover:border-amber-500 transition flex items-center justify-center gap-2">
-       <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
-       Ver Casos de Éxito
-      </a>
-     </div>
-     
-     <!-- Garantías -->
-     <div class="mt-12 grid grid-cols-3 gap-6 reveal stagger-4">
-      <div class="flex items-center gap-2 text-sm text-gray-400">
-       <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
-       <span>Transparencia 100%</span>
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-owl-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden">
+    <div class="p-6 flex flex-col h-full">
+      <div class="flex justify-end mb-8">
+        <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-white/5 transition" aria-label="Cerrar menú">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
       </div>
-      <div class="flex items-center gap-2 text-sm text-gray-400">
-       <i data-lucide="trending-up" class="w-5 h-5 text-amber-500"></i>
-       <span>ROI Medible</span>
+      <nav class="flex flex-col gap-4 mt-8">
+        <a href="#resultados" class="mobile-nav-link text-2xl font-display py-3 border-b border-white/10">Resultados</a>
+        <a href="#servicios" class="mobile-nav-link text-2xl font-display py-3 border-b border-white/10">Servicios</a>
+        <a href="#proceso" class="mobile-nav-link text-2xl font-display py-3 border-b border-white/10">Proceso</a>
+        <a href="#casos" class="mobile-nav-link text-2xl font-display py-3 border-b border-white/10">Casos</a>
+        <button class="btn-magnetic mt-6 w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium">
+          Consulta Gratuita
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section Premium -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="owl-decoration orb" style="top: 30%; left: 10%;"></div>
+    <div class="owl-decoration orb" style="bottom: 20%; right: 15%; animation-delay: -6s;"></div>
+    <div class="owl-decoration line" style="top: 10%; right: 25%;"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 w-full pt-24 pb-16">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        
+        <!-- Hero Content -->
+        <div class="relative z-10">
+          <!-- Trust Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-premium mb-8 animate-float">
+            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-sm text-owl-text-muted">Disponible para nuevos proyectos</span>
+          </div>
+          
+          <!-- Headline with Reveal -->
+          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-8">
+            <div class="reveal-text">
+              <span>Marketing</span>
+            </div>
+            <div class="reveal-text">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">con Alma</span>
+            </div>
+            <div class="reveal-text">
+              <span>&amp; Datos</span>
+            </div>
+          </h1>
+          
+          <!-- Subheadline -->
+          <p class="text-lg md:text-xl text-owl-text-muted max-w-xl mb-10 leading-relaxed">
+            Estrategias que conectan emocionalmente y convierten racionalmente. 
+            <span class="text-owl-text">Sin humo. Sin promesas vacías.</span> Solo resultados que perduran.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <button class="btn-magnetic relative px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium text-lg hover:shadow-xl hover:shadow-amber-500/30 transition-all group">
+              <span class="relative z-10 flex items-center gap-2">
+                Comenzar Ahora
+                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+              </span>
+            </button>
+            <button class="btn-magnetic px-8 py-4 rounded-full border border-owl-border hover:border-amber-500/50 text-owl-text font-medium text-lg transition-all flex items-center justify-center gap-2 group">
+              <i data-lucide="play-circle" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+              Ver Showreel
+            </button>
+          </div>
+          
+          <!-- Trust Indicators -->
+          <div class="flex flex-wrap items-center gap-6 text-sm text-owl-text-muted">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
+              <span>Transparencia 100%</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="trending-up" class="w-5 h-5 text-amber-500"></i>
+              <span>ROI Medible</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-5 h-5 text-amber-500"></i>
+              <span>Respuesta &lt;24h</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Visual - Premium Owl -->
+        <div class="relative flex items-center justify-center">
+          <div class="relative w-72 h-72 md:w-96 md:h-96">
+            <!-- Animated Owl SVG -->
+            <svg viewBox="0 0 400 400" class="w-full h-full animate-float" id="hero-owl">
+              <defs>
+                <radialGradient id="owlGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#f5a623" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="owlBlur">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+                </filter>
+              </defs>
+              
+              <!-- Glow Effect -->
+              <circle cx="200" cy="200" r="180" fill="url(#owlGlow)" class="animate-pulse-slow"/>
+              
+              <!-- Outer Ring -->
+              <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(245,166,35,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              
+              <!-- Face -->
+              <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+              
+              <!-- Eyes Container -->
+              <g id="owl-eyes">
+                <!-- Left Eye -->
+                <circle cx="160" cy="180" r="35" fill="none" stroke="#f5a623" stroke-width="2.5"/>
+                <circle id="pupil-left" cx="160" cy="180" r="18" fill="#f5a623"/>
+                <circle cx="155" cy="175" r="5" fill="white" opacity="0.6"/>
+                
+                <!-- Right Eye -->
+                <circle cx="240" cy="180" r="35" fill="none" stroke="#f5a623" stroke-width="2.5"/>
+                <circle id="pupil-right" cx="240" cy="180" r="18" fill="#f5a623"/>
+                <circle cx="235" cy="175" r="5" fill="white" opacity="0.6"/>
+              </g>
+              
+              <!-- Beak -->
+              <path d="M200 210 L185 235 L215 235 Z" fill="#f5a623" opacity="0.9"/>
+              
+              <!-- Feathers Detail -->
+              <path d="M200 80 Q150 120, 200 160 Q250 120, 200 80" fill="none" stroke="rgba(245,166,35,0.3)" stroke-width="1"/>
+            </svg>
+            
+            <!-- Floating Elements -->
+            <div class="absolute -top-4 -right-4 w-16 h-16 glass-premium rounded-2xl flex items-center justify-center animate-float-delayed">
+              <i data-lucide="zap" class="w-8 h-8 text-amber-500"></i>
+            </div>
+            <div class="absolute -bottom-4 -left-4 w-14 h-14 glass-premium rounded-xl flex items-center justify-center animate-float" style="animation-delay: -2s;">
+              <i data-lucide="target" class="w-7 h-7 text-amber-500"></i>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex items-center gap-2 text-sm text-gray-400">
-       <i data-lucide="users" class="w-5 h-5 text-amber-500"></i>
-       <span>Equipo Especializado</span>
-      </div>
-     </div>
     </div>
     
-    <div class="md:col-span-2 flex items-center justify-center reveal stagger-2">
-     <svg id="owl-eye" viewbox="0 0 300 300" width="280" height="280" class="w-48 h-48 md:w-72 md:h-72" aria-hidden="true" focusable="false">
-      <defs>
-       <radialgradient id="eyeGrad" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#f59e0b" />
-        <stop offset="100%" stop-color="#8b5cf6" />
-       </radialgradient>
-      </defs>
-      <circle cx="150" cy="150" r="140" fill="none" stroke="url(#eyeGrad)" stroke-width="4" opacity="0.3" />
-      <circle cx="150" cy="150" r="100" fill="none" stroke="url(#eyeGrad)" stroke-width="2.5" opacity="0.5" />
-      <circle cx="150" cy="150" r="60" fill="url(#eyeGrad)" opacity="0.15" />
-      <circle id="pupil" cx="150" cy="150" r="28" fill="url(#eyeGrad)" />
-      <circle cx="140" cy="140" r="8" fill="rgba(255,255,255,0.6)" />
-     </svg>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator hidden md:flex">
+      <span class="text-xs text-owl-text-muted tracking-widest uppercase">Scroll</span>
+      <div class="line"></div>
+      <i data-lucide="chevron-down" class="w-4 h-4 text-amber-500"></i>
     </div>
-   </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: Resultados y Métricas (LO QUE MÁS BUSCAN) -->
-  <section id="resultados" class="w-full py-24 bg-gradient-to-b from-transparent to-purple-900/10">
-   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">RESULTADOS COMPROBABLES</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Números que Hablan</h2>
-     <p class="text-gray-400 max-w-2xl mx-auto">
-      No creemos en métricas de vanidad. Nos enfocamos en lo que realmente importa para tu negocio.
-     </p>
+  <!-- Results Section Premium -->
+  <section id="resultados" class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-amber-500/10 text-amber-400 mb-6">
+          Resultados Comprobables
+        </span>
+        <h2 class="font-display text-4xl md:text-6xl mb-6">
+          Números que <span class="text-amber-400">importan</span>
+        </h2>
+        <p class="text-owl-text-muted text-lg">
+          No creemos en métricas de vanidad. Solo medimos lo que impacta tu negocio.
+        </p>
+      </div>
+      
+      <!-- Metrics Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div class="metric-card glass-premium p-8 text-center group">
+          <div class="text-5xl md:text-6xl font-display text-amber-400 mb-2 counter" data-target="340">0</div>
+          <div class="text-owl-text font-medium mb-1">Proyectos</div>
+          <div class="text-sm text-owl-text-dim">Completados con éxito</div>
+        </div>
+        <div class="metric-card glass-premium p-8 text-center group">
+          <div class="text-5xl md:text-6xl font-display text-amber-400 mb-2 counter" data-target="98">0</div>
+          <div class="text-owl-text font-medium mb-1">Satisfacción</div>
+          <div class="text-sm text-owl-text-dim">Clientes que regresan</div>
+        </div>
+        <div class="metric-card glass-premium p-8 text-center group">
+          <div class="text-5xl md:text-6xl font-display text-amber-400 mb-2 counter" data-target="450">0</div>
+          <div class="text-owl-text font-medium mb-1">ROI Promedio</div>
+          <div class="text-sm text-owl-text-dim">Retorno de inversión</div>
+        </div>
+        <div class="metric-card glass-premium p-8 text-center group">
+          <div class="text-5xl md:text-6xl font-display text-amber-400 mb-2 counter" data-target="4.9">0</div>
+          <div class="text-owl-text font-medium mb-1">Rating</div>
+          <div class="text-sm text-owl-text-dim">En Google & Clutch</div>
+        </div>
+      </div>
+      
+      <!-- Case Highlights -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Case 1 -->
+        <div class="glass-premium p-8 group hover:border-amber-500/40 transition-all">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-purple-500/20 flex items-center justify-center">
+              <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <span class="text-sm text-owl-text-muted">E-commerce Fashion</span>
+          </div>
+          <h3 class="font-display text-2xl mb-4 group-hover:text-amber-400 transition-colors">+240% en Ventas</h3>
+          <p class="text-owl-text-muted text-sm mb-6">Estrategia integral SEO + Meta Ads para marca de moda sostenible</p>
+          <div class="flex items-center justify-between pt-4 border-t border-owl-border">
+            <span class="text-green-400 font-medium flex items-center gap-1">
+              <i data-lucide="trending-up" class="w-4 h-4"></i>
+              ROI: 450%
+            </span>
+            <span class="text-xs text-owl-text-dim">6 meses</span>
+          </div>
+        </div>
+        
+        <!-- Case 2 -->
+        <div class="glass-premium p-8 group hover:border-amber-500/40 transition-all">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-purple-500/20 flex items-center justify-center">
+              <i data-lucide="building-2" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <span class="text-sm text-owl-text-muted">B2B SaaS</span>
+          </div>
+          <h3 class="font-display text-2xl mb-4 group-hover:text-amber-400 transition-colors">+180% Leads</h3>
+          <p class="text-owl-text-muted text-sm mb-6">Content marketing + LinkedIn Ads para plataforma enterprise</p>
+          <div class="flex items-center justify-between pt-4 border-t border-owl-border">
+            <span class="text-green-400 font-medium flex items-center gap-1">
+              <i data-lucide="trending-up" class="w-4 h-4"></i>
+              ROI: 320%
+            </span>
+            <span class="text-xs text-owl-text-dim">4 meses</span>
+          </div>
+        </div>
+        
+        <!-- Case 3 -->
+        <div class="glass-premium p-8 group hover:border-amber-500/40 transition-all">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-purple-500/20 flex items-center justify-center">
+              <i data-lucide="map-pin" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <span class="text-sm text-owl-text-muted">Servicios Locales</span>
+          </div>
+          <h3 class="font-display text-2xl mb-4 group-hover:text-amber-400 transition-colors">#1 en Google</h3>
+          <p class="text-owl-text-muted text-sm mb-6">SEO local + Google Business para cadena de clínicas</p>
+          <div class="flex items-center justify-between pt-4 border-t border-owl-border">
+            <span class="text-green-400 font-medium flex items-center gap-1">
+              <i data-lucide="trending-up" class="w-4 h-4"></i>
+              +890% Tráfico
+            </span>
+            <span class="text-xs text-owl-text-dim">5 meses</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Services Section Premium -->
+  <section id="servicios" class="relative py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        
+        <!-- Left: Header -->
+        <div class="sticky top-32">
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-amber-500/10 text-amber-400 mb-6">
+            Servicios Especializados
+          </span>
+          <h2 class="font-display text-4xl md:text-6xl mb-8">
+            Soluciones que <span class="text-amber-400">escalan</span>
+          </h2>
+          <p class="text-owl-text-muted text-lg mb-8">
+            Cada servicio diseñado por especialistas, con métricas claras y alineado a tus objetivos de negocio.
+          </p>
+          <button class="btn-magnetic px-6 py-3 rounded-full border border-owl-border hover:border-amber-500/50 text-owl-text font-medium transition-all flex items-center gap-2 group">
+            Ver todos los servicios
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </div>
+        
+        <!-- Right: Services List -->
+        <div class="space-y-0">
+          <div class="service-row group">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <span class="font-display text-3xl text-amber-400/60 w-16">01</span>
+              <h3 class="service-title font-display text-2xl flex-1">SEO & Posicionamiento</h3>
+              <p class="text-owl-text-muted text-sm md:text-right md:max-w-xs">Aparece primero. Tráfico cualificado que convierte sin pagar por clic.</p>
+            </div>
+          </div>
+          
+          <div class="service-row group">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <span class="font-display text-3xl text-amber-400/60 w-16">02</span>
+              <h3 class="service-title font-display text-2xl flex-1">Publicidad Performance</h3>
+              <p class="text-owl-text-muted text-sm md:text-right md:max-w-xs">Google & Meta Ads optimizados para maximizar tu ROI, no tu gasto.</p>
+            </div>
+          </div>
+          
+          <div class="service-row group">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <span class="font-display text-3xl text-amber-400/60 w-16">03</span>
+              <h3 class="service-title font-display text-2xl flex-1">Content Strategy</h3>
+              <p class="text-owl-text-muted text-sm md:text-right md:max-w-xs">Contenido que educa, conecta y convierte. Con propósito, no por llenar.</p>
+            </div>
+          </div>
+          
+          <div class="service-row group">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <span class="font-display text-3xl text-amber-400/60 w-16">04</span>
+              <h3 class="service-title font-display text-2xl flex-1">Social & Community</h3>
+              <p class="text-owl-text-muted text-sm md:text-right md:max-w-xs">Gestión estratégica de redes. Construir comunidad, no solo seguidores.</p>
+            </div>
+          </div>
+          
+          <div class="service-row group">
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <span class="font-display text-3xl text-amber-400/60 w-16">05</span>
+              <h3 class="service-title font-display text-2xl flex-1">Analytics & CRO</h3>
+              <p class="text-owl-text-muted text-sm md:text-right md:max-w-xs">Datos que informan decisiones. Optimización continua basada en evidencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section Premium -->
+  <section id="proceso" class="relative py-32 bg-gradient-to-b from-transparent via-owl-purple/5 to-transparent">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-amber-500/10 text-amber-400 mb-6">
+          Proceso Transparente
+        </span>
+        <h2 class="font-display text-4xl md:text-6xl mb-6">
+          Cómo trabajamos <span class="text-amber-400">contigo</span>
+        </h2>
+        <p class="text-owl-text-muted text-lg">
+          Sin sorpresas. Sin letra pequeña. Cuatro fases claras para llevar tu marca al siguiente nivel.
+        </p>
+      </div>
+      
+      <!-- Process Steps -->
+      <div class="relative">
+        <!-- Connection Line -->
+        <div class="hidden lg:block absolute top-24 left-0 right-0 h-px bg-gradient-to-r from-transparent via-owl-border to-transparent"></div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Step 1 -->
+          <div class="relative group">
+            <div class="glass-premium p-8 h-full hover:border-amber-500/40 transition-all">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-6 text-black font-bold text-xl shadow-lg shadow-amber-500/25">
+                1
+              </div>
+              <h3 class="font-display text-2xl mb-4">Diagnóstico</h3>
+              <p class="text-owl-text-muted text-sm">Analizamos tu situación actual, competencia y oportunidades de crecimiento.</p>
+              <ul class="mt-6 space-y-2 text-sm text-owl-text-dim">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Auditoría completa
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Benchmark competitivo
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="relative group">
+            <div class="glass-premium p-8 h-full hover:border-amber-500/40 transition-all">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-6 text-black font-bold text-xl shadow-lg shadow-amber-500/25">
+                2
+              </div>
+              <h3 class="font-display text-2xl mb-4">Estrategia</h3>
+              <p class="text-owl-text-muted text-sm">Diseñamos un plan personalizado alineado a tus objetivos de negocio.</p>
+              <ul class="mt-6 space-y-2 text-sm text-owl-text-dim">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Roadmap claro
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  KPIs definidos
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="relative group">
+            <div class="glass-premium p-8 h-full hover:border-amber-500/40 transition-all">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-6 text-black font-bold text-xl shadow-lg shadow-amber-500/25">
+                3
+              </div>
+              <h3 class="font-display text-2xl mb-4">Ejecución</h3>
+              <p class="text-owl-text-muted text-sm">Implementamos con especialistas dedicados en cada área de tu proyecto.</p>
+              <ul class="mt-6 space-y-2 text-sm text-owl-text-dim">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Equipo especializado
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Comunicación semanal
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="relative group">
+            <div class="glass-premium p-8 h-full hover:border-amber-500/40 transition-all">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center mb-6 text-black font-bold text-xl shadow-lg shadow-amber-500/25">
+                4
+              </div>
+              <h3 class="font-display text-2xl mb-4">Optimización</h3>
+              <p class="text-owl-text-muted text-sm">Medimos, analizamos y mejoramos constantemente para escalar resultados.</p>
+              <ul class="mt-6 space-y-2 text-sm text-owl-text-dim">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Reportes transparentes
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Iteración continua
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section Premium -->
+  <section id="casos" class="relative py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+        <div>
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-amber-500/10 text-amber-400 mb-6">
+            Portfolio Seleccionado
+          </span>
+          <h2 class="font-display text-4xl md:text-6xl">
+            Proyectos que <span class="text-amber-400">inspiran</span>
+          </h2>
+        </div>
+        <button class="btn-magnetic px-6 py-3 rounded-full border border-owl-border hover:border-amber-500/50 text-owl-text font-medium transition-all flex items-center gap-2 group self-start md:self-auto">
+          Ver todos los casos
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+      
+      <!-- Projects Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="project-card group">
+          <img src="https://images.unsplash.com/photo-1557821552-3fd95af88d86?w=800&h=1000&fit=crop" 
+               alt="E-commerce Fashion" 
+               class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+               loading="lazy">
+          <div class="project-overlay">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300 mb-3">E-commerce</span>
+            <h3 class="font-display text-2xl mb-2">Luna Moda</h3>
+            <p class="text-owl-text-muted text-sm mb-4">+240% ventas en 6 meses</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-green-400 flex items-center gap-1">
+                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                ROI: 450%
+              </span>
+              <span class="text-owl-text-dim">Ver caso →</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card group">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=1000&fit=crop" 
+               alt="B2B SaaS Dashboard" 
+               class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+               loading="lazy">
+          <div class="project-overlay">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300 mb-3">B2B SaaS</span>
+            <h3 class="font-display text-2xl mb-2">DataFlow Pro</h3>
+            <p class="text-owl-text-muted text-sm mb-4">+180% leads cualificados</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-green-400 flex items-center gap-1">
+                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                ROI: 320%
+              </span>
+              <span class="text-owl-text-dim">Ver caso →</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card group">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=1000&fit=crop" 
+               alt="Healthcare Local SEO" 
+               class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+               loading="lazy">
+          <div class="project-overlay">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300 mb-3">Healthcare</span>
+            <h3 class="font-display text-2xl mb-2">VitaClinic</h3>
+            <p class="text-owl-text-muted text-sm mb-4">#1 en búsquedas locales</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="text-green-400 flex items-center gap-1">
+                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                +890% tráfico
+              </span>
+              <span class="text-owl-text-dim">Ver caso →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Premium -->
+  <section id="testimonios" class="relative py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-amber-500/10 text-amber-400 mb-6">
+          Testimonios
+        </span>
+        <h2 class="font-display text-4xl md:text-6xl mb-6">
+          Lo que dicen <span class="text-amber-400">nuestros socios</span>
+        </h2>
+      </div>
+      
+      <!-- Testimonial Cards -->
+      <div class="space-y-6">
+        <!-- Testimonial 1 -->
+        <div class="glass-premium p-8 md:p-10 relative group hover:border-amber-500/40 transition-all">
+          <div class="absolute -top-4 -left-4 text-7xl font-display text-amber-400/20">"</div>
+          <p class="text-lg md:text-xl text-owl-text mb-8 relative z-10 leading-relaxed">
+            Por fin una agencia que habla claro. Los reportes son comprensibles, responden rápido y lo más importante: 
+            <span class="text-amber-400">vimos resultados desde el tercer mes</span>. Nuestro ROI ha sido del 320%.
+          </p>
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500/30 to-purple-500/30 flex items-center justify-center text-2xl">
+                👤
+              </div>
+              <div>
+                <p class="font-medium text-owl-text">María González</p>
+                <p class="text-sm text-owl-text-dim">CEO, Luna Moda</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-display text-amber-400">+320%</div>
+              <div class="text-xs text-owl-text-dim">ROI generado</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="glass-premium p-8 md:p-10 relative group hover:border-amber-500/40 transition-all md:ml-12">
+          <div class="absolute -top-4 -left-4 text-7xl font-display text-amber-400/20">"</div>
+          <p class="text-lg md:text-xl text-owl-text mb-8 relative z-10 leading-relaxed">
+            Después de probar 3 agencias, encontramos Owlbyte. Su enfoque en datos y su transparencia nos convencieron. 
+            Ahora somos partners desde hace 2 años y seguimos creciendo juntos.
+          </p>
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500/30 to-purple-500/30 flex items-center justify-center text-2xl">
+                👤
+              </div>
+              <div>
+                <p class="font-medium text-owl-text">Carlos Mendoza</p>
+                <p class="text-sm text-owl-text-dim">CMO, DataFlow Pro</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-display text-amber-400">2 años</div>
+              <div class="text-xs text-owl-text-dim">Trabajando juntos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Premium -->
+  <section id="contacto" class="relative py-32 overflow-hidden">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-radial from-owl-accent-glow/20 via-transparent to-transparent"></div>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-     <div class="metric-card p-6 rounded-xl reveal">
-      <div class="text-4xl font-display text-amber-500 mb-2" data-target="340">0</div>
-      <div class="text-sm text-gray-400">Proyectos Completados</div>
-      <div class="text-xs text-gray-500 mt-2">Desde 2018</div>
-     </div>
-     <div class="metric-card p-6 rounded-xl reveal stagger-1">
-      <div class="text-4xl font-display text-amber-500 mb-2" data-target="98">0</div>
-      <div class="text-sm text-gray-400">% Clientes Satisfechos</div>
-      <div class="text-xs text-gray-500 mt-2">Basado en encuestas</div>
-     </div>
-     <div class="metric-card p-6 rounded-xl reveal stagger-2">
-      <div class="text-4xl font-display text-amber-500 mb-2" data-target="15">0</div>
-      <div class="text-sm text-gray-400">Premios de Industria</div>
-      <div class="text-xs text-gray-500 mt-2">Reconocimientos</div>
-     </div>
-     <div class="metric-card p-6 rounded-xl reveal stagger-3">
-      <div class="text-4xl font-display text-amber-500 mb-2" data-target="4.9">0</div>
-      <div class="text-sm text-gray-400">Rating Promedio</div>
-      <div class="text-xs text-gray-500 mt-2">En Google & Clutch</div>
-     </div>
-    </div>
-    
-    <!-- Casos de éxito destacados -->
-    <div class="grid md:grid-cols-3 gap-8">
-     <div class="glow-v p-6 rounded-2xl reveal">
-      <div class="text-amber-500 text-sm mb-2">E-commerce</div>
-      <h3 class="font-display text-xl mb-4">+240% en Ventas Online</h3>
-      <p class="text-gray-400 text-sm mb-4">Estrategia integral de SEO + Ads para marca de moda</p>
-      <div class="flex items-center gap-2 text-sm">
-       <i data-lucide="arrow-up-right" class="w-4 h-4 text-green-500"></i>
-       <span class="text-green-500">ROI: 450%</span>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-premium mb-8 mx-auto">
+        <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+        <span class="text-sm">Sin compromiso · Sin ventas agresivas</span>
       </div>
-     </div>
-     <div class="glow-v p-6 rounded-2xl reveal stagger-1">
-      <div class="text-amber-500 text-sm mb-2">B2B Tech</div>
-      <h3 class="font-display text-xl mb-4">+180% Leads Calificados</h3>
-      <p class="text-gray-400 text-sm mb-4">Content marketing + LinkedIn Ads</p>
-      <div class="flex items-center gap-2 text-sm">
-       <i data-lucide="arrow-up-right" class="w-4 h-4 text-green-500"></i>
-       <span class="text-green-500">ROI: 320%</span>
-      </div>
-     </div>
-     <div class="glow-v p-6 rounded-2xl reveal stagger-2">
-      <div class="text-amber-500 text-sm mb-2">Servicios</div>
-      <h3 class="font-display text-xl mb-4">#1 en Google</h3>
-      <p class="text-gray-400 text-sm mb-4">SEO local para cadena de clínicas</p>
-      <div class="flex items-center gap-2 text-sm">
-       <i data-lucide="arrow-up-right" class="w-4 h-4 text-green-500"></i>
-       <span class="text-green-500">+890% Tráfico</span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- Marquee -->
-  <section data-template-id="marquee-section" class="canva-section w-full py-4 overflow-hidden bg-purple-900/20">
-   <div class="marquee-track">
-    <span class="font-display text-lg md:text-2xl whitespace-nowrap px-4">
-     ESTRATEGIA PERSONALIZADA &nbsp;•&nbsp; ROI MEDIBLE &nbsp;•&nbsp; TRANSPARENCIA TOTAL &nbsp;•&nbsp; EQUIPO ESPECIALIZADO &nbsp;•&nbsp; 
-    </span>
-    <span class="font-display text-lg md:text-2xl whitespace-nowrap px-4" aria-hidden="true">
-     ESTRATEGIA PERSONALIZADA &nbsp;•&nbsp; ROI MEDIBLE &nbsp;•&nbsp; TRANSPARENCIA TOTAL &nbsp;•&nbsp; EQUIPO ESPECIALIZADO &nbsp;•&nbsp; 
-     ESTRATEGIA PERSONALIZADA &nbsp;•&nbsp; ROI MEDIBLE &nbsp;•&nbsp; TRANSPARENCIA TOTAL &nbsp;•&nbsp; EQUIPO ESPECIALIZADO &nbsp;•&nbsp;
-    </span>
-   </div>
-  </section>
-
-  <!-- NUEVA SECCIÓN: Por Qué Elegirnos (Basado en investigación) -->
-  <section class="w-full py-24">
-   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-     <div class="reveal">
-      <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">DIFERENCIAS CLAVE</p>
-      <h2 class="font-display text-3xl md:text-5xl mb-6">
-       Lo Que Nos Hace Diferentes
+      
+      <h2 class="font-display text-4xl md:text-7xl mb-8">
+        ¿Listo para <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">despegar</span>?
       </h2>
-      <p class="text-gray-400 mb-8">
-       Sabemos lo que buscas porque lo hemos escuchado de cientos de clientes. Esto es lo que ofrecemos:
+      
+      <p class="text-lg md:text-xl text-owl-text-muted mb-12 max-w-2xl mx-auto">
+        Agenda una consulta estratégica gratuita. Hablemos sobre tus objetivos y veamos cómo podemos ayudarte a alcanzarlos.
       </p>
       
-      <div class="space-y-6">
-       <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-         <i data-lucide="target" class="w-6 h-6 text-amber-500"></i>
-        </div>
-        <div>
-         <h3 class="font-display text-lg mb-2">Estrategia 100% Personalizada</h3>
-         <p class="text-gray-400 text-sm">Sin plantillas. Cada negocio es único y merece una estrategia hecha a su medida.</p>
-        </div>
-       </div>
-       
-       <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-         <i data-lucide="eye" class="w-6 h-6 text-amber-500"></i>
-        </div>
-        <div>
-         <h3 class="font-display text-lg mb-2">Transparencia Radical</h3>
-         <p class="text-gray-400 text-sm">Reportes claros, sin tecnicismos. Sabrás exactamente qué hacemos y por qué.</p>
-        </div>
-       </div>
-       
-       <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-         <i data-lucide="brain" class="w-6 h-6 text-amber-500"></i>
-        </div>
-        <div>
-         <h3 class="font-display text-lg mb-2">Equipo Especializado</h3>
-         <p class="text-gray-400 text-sm">Expertos en SEO, Ads, contenido y más. No "todólogos", sino especialistas.</p>
-        </div>
-       </div>
-       
-       <div class="flex gap-4">
-        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
-         <i data-lucide="zap" class="w-6 h-6 text-amber-500"></i>
-        </div>
-        <div>
-         <h3 class="font-display text-lg mb-2">Respuesta Rápida</h3>
-         <p class="text-gray-400 text-sm">Comunicación fluida. Respondemos en menos de 24 horas.</p>
-        </div>
-       </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="btn-magnetic px-10 py-5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-medium text-lg hover:shadow-2xl hover:shadow-amber-500/40 transition-all group">
+          <span class="flex items-center justify-center gap-3">
+            Agendar Consulta Gratis
+            <i data-lucide="calendar" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+          </span>
+        </button>
       </div>
-     </div>
-     
-     <div class="reveal stagger-2">
-      <div class="grid grid-cols-2 gap-4">
-       <div class="space-y-4 mt-8">
-        <div class="bg-white/5 p-6 rounded-2xl">
-         <div class="text-3xl font-display text-amber-500 mb-2">98%</div>
-         <div class="text-sm text-gray-400">Tasa de Retención</div>
-        </div>
-        <div class="bg-white/5 p-6 rounded-2xl">
-         <div class="text-3xl font-display text-amber-500 mb-2">24h</div>
-         <div class="text-sm text-gray-400">Tiempo de Respuesta</div>
-        </div>
-       </div>
-       <div class="space-y-4">
-        <div class="bg-white/5 p-6 rounded-2xl">
-         <div class="text-3xl font-display text-amber-500 mb-2">15+</div>
-         <div class="text-sm text-gray-400">Especialistas</div>
-        </div>
-        <div class="bg-white/5 p-6 rounded-2xl">
-         <div class="text-3xl font-display text-amber-500 mb-2">6</div>
-         <div class="text-sm text-gray-400">Años de Experiencia</div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- Servicios (Mejorado) -->
-  <section id="servicios" data-template-id="services-section" class="canva-section w-full py-24">
-   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">SERVICIOS ESPECIALIZADOS</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Soluciones Integrales</h2>
-     <p class="text-gray-400 max-w-2xl mx-auto">
-      Cada servicio diseñado para generar resultados medibles y alineados con tus objetivos.
-     </p>
-    </div>
-    
-    <div class="space-y-0">
-     <div class="svc-row py-8 flex flex-col md:flex-row md:items-center gap-4 reveal stagger-1">
-      <span class="font-display text-amber-500 w-16 shrink-0 text-2xl">01</span>
-      <h3 class="svc-title font-display flex-1 text-2xl">SEO & Posicionamiento Orgánico</h3>
-      <p class="text-sm md:max-w-xs md:text-right text-gray-400">Aparece primero en Google. Tráfico cualificado que convierte.</p>
-     </div>
-     <div class="svc-row py-8 flex flex-col md:flex-row md:items-center gap-4 reveal stagger-2">
-      <span class="font-display text-amber-500 w-16 shrink-0 text-2xl">02</span>
-      <h3 class="svc-title font-display flex-1 text-2xl">Publicidad Online (Google & Meta Ads)</h3>
-      <p class="text-sm md:max-w-xs md:text-right text-gray-400">Campañas optimizadas para maximizar tu ROI.</p>
-     </div>
-     <div class="svc-row py-8 flex flex-col md:flex-row md:items-center gap-4 reveal stagger-3">
-      <span class="font-display text-amber-500 w-16 shrink-0 text-2xl">03</span>
-      <h3 class="svc-title font-display flex-1 text-2xl">Content Marketing</h3>
-      <p class="text-sm md:max-w-xs md:text-right text-gray-400">Contenido estratégico que educa, atrae y convierte.</p>
-     </div>
-     <div class="svc-row py-8 flex flex-col md:flex-row md:items-center gap-4 reveal stagger-4">
-      <span class="font-display text-amber-500 w-16 shrink-0 text-2xl">04</span>
-      <h3 class="svc-title font-display flex-1 text-2xl">Social Media Management</h3>
-      <p class="text-sm md:max-w-xs md:text-right text-gray-400">Gestión profesional de tus redes sociales.</p>
-     </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- NUEVA SECCIÓN: Proceso Transparente -->
-  <section id="proceso" class="w-full py-24 bg-gradient-to-b from-transparent to-purple-900/10">
-   <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">CÓMO TRABAJAMOS</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Proceso Transparente</h2>
-     <p class="text-gray-400 max-w-2xl mx-auto">
-      Sin sorpresas. Sin letra pequeña. Así es como trabajamos contigo.
-     </p>
-    </div>
-    
-    <div class="grid md:grid-cols-4 gap-8">
-     <div class="process-step reveal">
-      <div class="mb-4"></div>
-      <h3 class="font-display text-xl mb-3">1. Diagnóstico</h3>
-      <p class="text-gray-400 text-sm">Analizamos tu situación actual, competencia y oportunidades.</p>
-     </div>
-     <div class="process-step reveal stagger-1">
-      <div class="mb-4"></div>
-      <h3 class="font-display text-xl mb-3">2. Estrategia</h3>
-      <p class="text-gray-400 text-sm">Diseñamos un plan personalizado alineado a tus objetivos.</p>
-     </div>
-     <div class="process-step reveal stagger-2">
-      <div class="mb-4"></div>
-      <h3 class="font-display text-xl mb-3">3. Ejecución</h3>
-      <p class="text-gray-400 text-sm">Implementamos con especialistas en cada área.</p>
-     </div>
-     <div class="process-step reveal stagger-3">
-      <div class="mb-4"></div>
-      <h3 class="font-display text-xl mb-3">4. Optimización</h3>
-      <p class="text-gray-400 text-sm">Medimos, analizamos y mejoramos constantemente.</p>
-     </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- Work/Portfolio -->
-  <section id="work" data-template-id="work-section" class="canva-section w-full py-24">
-   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-12 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">PORTFOLIO</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Casos de Éxito</h2>
-    </div>
-    <div id="hscroll" class="hscroll flex gap-6 pb-4" role="region" aria-label="Proyectos destacados">
-     <div class="hscroll-card relative rounded-2xl overflow-hidden w-[75vw] md:w-[380px]" style="aspect-ratio:3/4">
-      <img data-template-id="project-1-image" class="canva-image w-full h-full object-cover" loading="lazy" alt="Proyecto E-commerce">
-      <div class="card-overlay absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-       <h3 class="font-display text-2xl mb-1">E-commerce Moda</h3>
-       <span class="inline-block bg-amber-500 text-black text-xs px-3 py-1 rounded-full">+240% Ventas</span>
-      </div>
-     </div>
-     <div class="hscroll-card relative rounded-2xl overflow-hidden w-[75vw] md:w-[380px]" style="aspect-ratio:3/4">
-      <img data-template-id="project-2-image" class="canva-image w-full h-full object-cover" loading="lazy" alt="Proyecto B2B Tech">
-      <div class="card-overlay absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-       <h3 class="font-display text-2xl mb-1">B2B Tech</h3>
-       <span class="inline-block bg-amber-500 text-black text-xs px-3 py-1 rounded-full">+180% Leads</span>
-      </div>
-     </div>
-     <div class="hscroll-card relative rounded-2xl overflow-hidden w-[75vw] md:w-[380px]" style="aspect-ratio:3/4">
-      <img data-template-id="project-3-image" class="canva-image w-full h-full object-cover" loading="lazy" alt="Proyecto SEO Local">
-      <div class="card-overlay absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-       <h3 class="font-display text-2xl mb-1">Clínicas Dentales</h3>
-       <span class="inline-block bg-amber-500 text-black text-xs px-3 py-1 rounded-full">#1 Google</span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" data-template-id="about-section" class="canva-section w-full py-24">
-   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-    <div class="reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-6">SOBRE NOSOTROS</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Más Que una Agencia, Tu Socio Estratégico</h2>
-     <p class="text-gray-300 mb-8 leading-relaxed">
-      En Owlbyte entendemos que no buscas "alguien que maneje tus redes". Buscas resultados reales, transparencia y un equipo que realmente entienda tu negocio.
-     </p>
-     <div class="border-l-4 border-amber-500 pl-4 mb-8">
-      <p class="italic text-gray-400">
-       "Creemos en el marketing basado en datos, la comunicación clara y las relaciones a largo plazo. Sin humo, solo resultados."
+      
+      <p class="text-sm text-owl-text-dim mt-8 flex items-center justify-center gap-2">
+        <i data-lucide="clock" class="w-4 h-4"></i>
+        Respuesta garantizada en menos de 24 horas
       </p>
-     </div>
-     <div class="flex gap-6">
-      <div>
-       <div class="text-2xl font-display text-amber-500">6+</div>
-       <div class="text-sm text-gray-400">Años de experiencia</div>
-      </div>
-      <div>
-       <div class="text-2xl font-display text-amber-500">15</div>
-       <div class="text-sm text-gray-400">Especialistas</div>
-      </div>
-      <div>
-       <div class="text-2xl font-display text-amber-500">3</div>
-       <div class="text-sm text-gray-400">Países</div>
-      </div>
-     </div>
     </div>
-    <div class="reveal stagger-2">
-     <img data-template-id="about-image" class="canva-image w-full h-80 object-cover rounded-2xl" loading="lazy" alt="Equipo Owlbyte trabajando" style="transform:rotate(-2deg)">
-    </div>
-   </div>
   </section>
 
-  <!-- Stats -->
-  <section id="stats" class="w-full py-16">
-   <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    <div class="reveal">
-     <div class="font-display text-4xl text-amber-500 mb-2" data-target="150">0</div>
-     <div class="text-sm text-gray-400">Proyectos Exitosos</div>
-    </div>
-    <div class="reveal stagger-1">
-     <div class="font-display text-4xl text-amber-500 mb-2" data-target="98">0</div>
-     <div class="text-sm text-gray-400">% Satisfacción</div>
-    </div>
-    <div class="reveal stagger-2">
-     <div class="font-display text-4xl text-amber-500 mb-2" data-target="40">0</div>
-     <div class="text-sm text-gray-400">Clientes Activos</div>
-    </div>
-    <div class="reveal stagger-3">
-     <div class="font-display text-4xl text-amber-500 mb-2" data-target="5">0</div>
-     <div class="text-sm text-gray-400">Años Promedio</div>
-    </div>
-   </div>
-  </section>
-
-  <!-- Testimonials MEJORADOS -->
-  <section id="testimonials" class="w-full py-24">
-   <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">TESTIMONIOS</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Lo Que Dicen Nuestros Clientes</h2>
-    </div>
-    
-    <div class="relative space-y-8 md:space-y-0">
-     <div class="glow-v p-8 rounded-2xl reveal stagger-1 md:mr-12" style="background:rgba(139,92,246,0.05);">
-      <div class="text-amber-500 text-5xl font-display leading-none mb-4">"</div>
-      <p class="text-gray-300 mb-6 leading-relaxed">
-       Por fin una agencia que habla claro. Los reportes son comprensibles, responden rápido y lo más importante: vimos resultados desde el tercer mes. Nuestro ROI ha sido del 320%.
-      </p>
-      <div class="flex items-center gap-4">
-       <img data-template-id="review-1-avatar" class="canva-image w-12 h-12 rounded-full object-cover bg-gray-700" loading="lazy" alt="María González">
-       <div>
-        <p class="font-semibold">María González</p>
-        <p class="text-sm text-gray-400">CEO, Fashion Store MX</p>
-       </div>
-       <div class="ml-auto text-right">
-        <div class="text-amber-500 font-display">+320%</div>
-        <div class="text-xs text-gray-500">ROI</div>
-       </div>
+  <!-- Footer Premium -->
+  <footer class="relative py-16 border-t border-owl-border">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="relative w-10 h-10">
+              <svg viewBox="0 0 40 40" class="w-full h-full">
+                <circle cx="20" cy="20" r="18" fill="none" stroke="rgba(245,166,35,0.5)" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="8" fill="none" stroke="#f5a623" stroke-width="2"/>
+                <circle cx="16" cy="18" r="2.5" fill="#f5a623"/>
+                <circle cx="24" cy="18" r="2.5" fill="#f5a623"/>
+              </svg>
+            </div>
+            <span class="font-display text-2xl">Owlbyte</span>
+          </div>
+          <p class="text-owl-text-muted max-w-sm mb-6">
+            Agencia boutique de marketing digital. Estrategias con alma, resultados con datos.
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-full glass-premium flex items-center justify-center hover:border-amber-500/50 transition-all group" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-5 h-5 group-hover:text-amber-400 transition-colors"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full glass-premium flex items-center justify-center hover:border-amber-500/50 transition-all group" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-5 h-5 group-hover:text-amber-400 transition-colors"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full glass-premium flex items-center justify-center hover:border-amber-500/50 transition-all group" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5 group-hover:text-amber-400 transition-colors"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Links -->
+        <div>
+          <h4 class="font-medium text-owl-text mb-4">Servicios</h4>
+          <ul class="space-y-3 text-sm text-owl-text-muted">
+            <li><a href="#" class="hover:text-amber-400 transition-colors">SEO & Posicionamiento</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Publicidad Performance</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Content Strategy</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Analytics & CRO</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-medium text-owl-text mb-4">Empresa</h4>
+          <ul class="space-y-3 text-sm text-owl-text-muted">
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Sobre Nosotros</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Casos de Éxito</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-amber-400 transition-colors">Contacto</a></li>
+          </ul>
+        </div>
       </div>
-     </div>
-     
-     <div class="glow-v p-8 rounded-2xl reveal stagger-2 md:ml-12" style="background:rgba(139,92,246,0.05);">
-      <div class="text-amber-500 text-5xl font-display leading-none mb-4">"</div>
-      <p class="text-gray-300 mb-6 leading-relaxed">
-       Después de probar 3 agencias, encontramos Owlbyte. Su enfoque en datos y su transparencia nos convencieron. Ahora somos partners desde hace 2 años.
-      </p>
-      <div class="flex items-center gap-4">
-       <img data-template-id="review-2-avatar" class="canva-image w-12 h-12 rounded-full object-cover bg-gray-700" loading="lazy" alt="Carlos Mendoza">
-       <div>
-        <p class="font-semibold">Carlos Mendoza</p>
-        <p class="text-sm text-gray-400">Marketing Director, TechB2B</p>
-       </div>
-       <div class="ml-auto text-right">
-        <div class="text-amber-500 font-display">2 años</div>
-        <div class="text-xs text-gray-500">Trabajando juntos</div>
-       </div>
+      
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-owl-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-owl-text-dim">
+        <p>© 2024 Owlbyte. Todos los derechos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-owl-text transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-owl-text transition-colors">Términos</a>
+          <a href="#" class="hover:text-owl-text transition-colors">Cookies</a>
+        </div>
       </div>
-     </div>
     </div>
-   </div>
-  </section>
-
-  <!-- NUEVA SECCIÓN: FAQ (Transparencia) -->
-  <section class="w-full py-24 bg-gradient-to-b from-transparent to-purple-900/10">
-   <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-     <p class="uppercase tracking-[0.25em] text-sm text-amber-500 mb-4">FAQ</p>
-     <h2 class="font-display text-3xl md:text-5xl mb-6">Preguntas Frecuentes</h2>
-    </div>
-    
-    <div class="space-y-4">
-     <details class="group bg-white/5 rounded-xl open:bg-white/10 transition reveal">
-      <summary class="flex items-center justify-between p-6 cursor-pointer">
-       <span class="font-display text-lg">¿Cuánto tiempo toma ver resultados?</span>
-       <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
-      </summary>
-      <div class="px-6 pb-6 text-gray-400">
-       Depende del servicio. En SEO, usualmente 3-6 meses. En publicidad pagada, puedes ver resultados desde el primer mes. Siempre te damos timelines realistas desde el inicio.
-      </div>
-     </details>
-     
-     <details class="group bg-white/5 rounded-xl open:bg-white/10 transition reveal stagger-1">
-      <summary class="flex items-center justify-between p-6 cursor-pointer">
-       <span class="font-display text-lg">¿Cómo miden el ROI?</span>
-       <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
-      </summary>
-      <div class="px-6 pb-6 text-gray-400">
-       Usamos herramientas como Google Analytics, Google Ads, Meta Ads Manager y dashboards personalizados. Te mostramos exactamente cuánto invertiste y cuánto retornaste.
-      </div>
-     </details>
-     
-     <details class="group bg-white/5 rounded-xl open:bg-white/10 transition reveal stagger-2">
-      <summary class="flex items-center justify-between p-6 cursor-pointer">
-       <span class="font-display text-lg">¿Tienen contratos de permanencia?</span>
-       <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
-      </summary>
-      <div class="px-6 pb-6 text-gray-400">
-       Recomendamos mínimo 6 meses para ver resultados sólidos, pero no tenemos cláusulas de permanencia forzosa. Confiamos en que nuestros resultados hablen por sí solos.
-      </div>
-     </details>
-     
-     <details class="group bg-white/5 rounded-xl open:bg-white/10 transition reveal stagger-3">
-      <summary class="flex items-center justify-between p-6 cursor-pointer">
-       <span class="font-display text-lg">¿Trabajan con mi industria específica?</span>
-       <i data-lucide="chevron-down" class="w-5 h-5 transition group-open:rotate-180"></i>
-      </summary>
-      <div class="px-6 pb-6 text-gray-400">
-       Hemos trabajado con e-commerce, B2B, servicios profesionales, salud, educación y más. Agenda una llamada y vemos si podemos ayudarte.
-      </div>
-     </details>
-    </div>
-   </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact" class="w-full py-24">
-   <div class="max-w-3xl mx-auto px-6 text-center reveal">
-    <h2 class="font-display text-3xl md:text-5xl mb-6">¿Listo para Crecer?</h2>
-    <p class="text-lg text-gray-400 mb-10">
-     Agenda una consulta estratégica gratuita. Sin compromiso. Sin ventas agresivas. Solo una conversación honesta sobre tu negocio.
-    </p>
-    <button class="px-10 py-4 rounded-full font-medium text-lg transition hover:scale-105 pulse-btn bg-amber-500 text-black">
-     Agendar Consulta Gratis
-    </button>
-    <p class="text-sm text-gray-500 mt-4">
-     <i data-lucide="check" class="w-4 h-4 inline"></i> Respuesta en menos de 24h
-    </p>
-   </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="w-full py-10 border-t border-white/10">
-   <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div>
-     <p class="font-display text-xl">🦉 Owlbyte</p>
-     <p class="text-sm text-gray-400">Marketing digital con resultados reales</p>
-    </div>
-    <div class="flex items-center gap-6">
-     <a href="#" class="text-gray-500 hover:text-white transition" aria-label="Twitter">
-      <i data-lucide="twitter" class="w-5 h-5"></i>
-     </a>
-     <a href="#" class="text-gray-500 hover:text-white transition" aria-label="Instagram">
-      <i data-lucide="instagram" class="w-5 h-5"></i>
-     </a>
-     <a href="#" class="text-gray-500 hover:text-white transition" aria-label="LinkedIn">
-      <i data-lucide="linkedin" class="w-5 h-5"></i>
-     </a>
-    </div>
-    <p class="text-xs text-gray-500">© 2024 Owlbyte. Todos los derechos reservados.</p>
-   </div>
   </footer>
 
+  <!-- Scripts Premium -->
   <script>
-    // Inicializar iconos
+    // Initialize Lucide Icons
     lucide.createIcons();
-
-    // Smooth scroll mejorado
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                history.pushState(null, '', a.getAttribute('href'));
-            }
-        });
+    
+    // ===== LOADER =====
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 800);
     });
-
-    // Nav scroll
-    window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 80) {
-            navbar.classList.add('glass-solid');
-        } else {
-            navbar.classList.remove('glass-solid');
-        }
-    }, { passive: true });
-
-    // Reveal observer mejorado
-    const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
     
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // Owl eye tracking optimizado
-    const hero = document.getElementById('hero');
-    const pupil = document.getElementById('pupil');
-    let rafId = null;
+    // ===== CUSTOM CURSOR =====
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursor-dot');
+    const hoverElements = document.querySelectorAll('a, button, .nav-link, .project-card, .service-row, .metric-card, [class*="hover"]');
     
-    if (hero && pupil && window.matchMedia('(pointer:fine)').matches) {
-        hero.addEventListener('mousemove', e => {
-            if (rafId) return;
-            rafId = requestAnimationFrame(() => {
-                const svg = document.getElementById('owl-eye');
-                const rect = svg.getBoundingClientRect();
-                const cx = rect.left + rect.width / 2;
-                const cy = rect.top + rect.height / 2;
-                const dx = e.clientX - cx;
-                const dy = e.clientY - cy;
-                const dist = Math.sqrt(dx*dx + dy*dy) || 1;
-                const max = 15;
-                const scale = Math.min(max / dist, 1);
-                pupil.setAttribute('cx', 150 + dx * scale);
-                pupil.setAttribute('cy', 150 + dy * scale);
-                rafId = null;
-            });
-        });
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+      });
+      
+      hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        el.addEventListener('mousedown', () => cursor.classList.add('active'));
+        el.addEventListener('mouseup', () => cursor.classList.remove('active'));
+      });
     }
-
-    // Stats counter mejorado con easing
-    const statsObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(entry.target);
-            }
-        });
+    
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-2');
+        navbar.classList.remove('py-5');
+      } else {
+        navbar.classList.remove('py-2');
+        navbar.classList.add('py-5');
+      }
+    }, { passive: true });
+    
+    // ===== MOBILE MENU =====
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    mobileMenuClose?.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking a link
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // ===== REVEAL ON SCROLL =====
+    const revealElements = document.querySelectorAll('.reveal-text span');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
+    
+    // ===== COUNTER ANIMATION =====
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
     }, { threshold: 0.5 });
     
-    const statsSection = document.getElementById('stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
+    counters.forEach(counter => counterObserver.observe(counter));
+    
+    function animateCounter(element) {
+      const target = parseInt(element.dataset.target);
+      const suffix = element.dataset.suffix || '';
+      const duration = 2000;
+      const start = 0;
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * eased);
+        element.textContent = current + (target === 4.9 ? '.9' : suffix);
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = target + (target === 4.9 ? '.9' : suffix);
+        }
+      }
+      requestAnimationFrame(update);
     }
-
-    function animateCounters() {
-        const counters = [
-            { el: '[data-target="150"]', end: 150, suffix: '+' },
-            { el: '[data-target="98"]', end: 98, suffix: '%' },
-            { el: '[data-target="40"]', end: 40, suffix: '' },
-            { el: '[data-target="5"]', end: 5, suffix: '' }
-        ];
-
-        counters.forEach(({ el, end, suffix }) => {
-            const element = document.querySelector(el);
-            if (!element) return;
-            
-            const duration = 2000;
-            const start = 0;
-            const startTime = performance.now();
-            
-            const animate = (currentTime) => {
-                const progress = Math.min((currentTime - startTime) / duration, 1);
-                const eased = 1 - (1 - progress) * (1 - progress);
-                const current = Math.floor(start + (end - start) * eased);
-                element.textContent = current + suffix;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    element.textContent = end + suffix;
-                }
-            };
-            requestAnimationFrame(animate);
+    
+    // ===== OWL EYE TRACKING =====
+    const hero = document.getElementById('hero');
+    const pupilLeft = document.getElementById('pupil-left');
+    const pupilRight = document.getElementById('pupil-right');
+    let rafId = null;
+    
+    if (hero && pupilLeft && pupilRight && window.matchMedia('(pointer: fine)').matches) {
+      hero.addEventListener('mousemove', (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const svg = document.getElementById('hero-owl');
+          const rect = svg.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+          const max = 12;
+          const scale = Math.min(max / dist, 1);
+          
+          pupilLeft.setAttribute('cx', 160 + dx * scale * 0.3);
+          pupilLeft.setAttribute('cy', 180 + dy * scale * 0.3);
+          pupilRight.setAttribute('cx', 240 + dx * scale * 0.3);
+          pupilRight.setAttribute('cy', 180 + dy * scale * 0.3);
+          
+          rafId = null;
         });
+      });
     }
-
-    // Horizontal scroll con drag
-    const hscroll = document.getElementById('hscroll');
-    if (hscroll) {
-        let isDown = false;
-        let startX, scrollLeft;
-
-        hscroll.addEventListener('mousedown', e => {
-            isDown = true;
-            hscroll.classList.add('cursor-grabbing');
-            startX = e.pageX - hscroll.offsetLeft;
-            scrollLeft = hscroll.scrollLeft;
-        });
-
-        hscroll.addEventListener('mouseleave', () => {
-            isDown = false;
-            hscroll.classList.remove('cursor-grabbing');
-        });
-
-        hscroll.addEventListener('mouseup', () => {
-            isDown = false;
-            hscroll.classList.remove('cursor-grabbing');
-        });
-
-        hscroll.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - hscroll.offsetLeft;
-            const walk = (x - startX) * 2;
-            hscroll.scrollLeft = scrollLeft - walk;
-        });
-    }
+    
+    // ===== MAGNETIC BUTTONS =====
+    const magneticBtns = document.querySelectorAll('.btn-magnetic');
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0) scale(1)';
+      });
+    });
+    
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', this.getAttribute('href'));
+        }
+      });
+    });
   </script>
  </body>
 </html>
